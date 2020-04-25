@@ -30,6 +30,7 @@ class TripListView: View {
   // MARK: View Functions
   override func setupView() {
     addSubview(tableView)
+    tableView.register(TripViewCell.self)
   }
   
   override func setupConstraints() {
