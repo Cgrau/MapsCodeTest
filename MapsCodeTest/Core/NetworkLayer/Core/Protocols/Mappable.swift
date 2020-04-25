@@ -1,5 +1,3 @@
-import Foundation
-
 public protocol Mappable {
   associatedtype From
   associatedtype To

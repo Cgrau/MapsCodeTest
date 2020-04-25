@@ -1,6 +1,6 @@
 import UIKit
 
-protocol TripListInteractor: class{
+protocol TripListInteractor: class, AutoMockable {
   var delegate: TripListInteractorDelegate? { get set }
   
   func getTrips()

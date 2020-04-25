@@ -63,6 +63,8 @@
 		2C2A3AC32454931000D76132 /* TripViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3AC22454931000D76132 /* TripViewCell.swift */; };
 		2C2A3AC52454934D00D76132 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3AC42454934D00D76132 /* TableViewCell.swift */; };
 		2C2A3AC7245493CE00D76132 /* TableViewCell+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3AC6245493CE00D76132 /* TableViewCell+ReuseIdentifier.swift */; };
+		2C2A3ACE2454A14E00D76132 /* TripListViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3ACD2454A14E00D76132 /* TripListViewSpec.swift */; };
+		2C2A3AD02454A21900D76132 /* XCTestCase+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3ACF2454A21900D76132 /* XCTestCase+UIViewController.swift */; };
 		631B63B5D09F273C8C6AC1DF /* Pods_MapsCodeTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33977991E22538C6028CBFCD /* Pods_MapsCodeTestTests.framework */; };
 		B2202508F3AE43381E0DBBAD /* Pods_MapsCodeTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EC09DBA751C20C9BB63CDBD /* Pods_MapsCodeTest.framework */; };
 /* End PBXBuildFile section */
@@ -148,6 +150,8 @@
 		2C2A3AC22454931000D76132 /* TripViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewCell.swift; sourceTree = "<group>"; };
 		2C2A3AC42454934D00D76132 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		2C2A3AC6245493CE00D76132 /* TableViewCell+ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewCell+ReuseIdentifier.swift"; sourceTree = "<group>"; };
+		2C2A3ACD2454A14E00D76132 /* TripListViewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListViewSpec.swift; sourceTree = "<group>"; };
+		2C2A3ACF2454A21900D76132 /* XCTestCase+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+UIViewController.swift"; sourceTree = "<group>"; };
 		33977991E22538C6028CBFCD /* Pods_MapsCodeTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapsCodeTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E03198628B2289CB63B8E0C /* Pods-MapsCodeTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsCodeTestTests.release.xcconfig"; path = "Target Support Files/Pods-MapsCodeTestTests/Pods-MapsCodeTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		9EC09DBA751C20C9BB63CDBD /* Pods_MapsCodeTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapsCodeTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -225,6 +229,7 @@
 			children = (
 				2C2A3A3224542D5F00D76132 /* AutoMockable */,
 				2C2A3ABB24544E3700D76132 /* Utils */,
+				2C2A3AC82454A10600D76132 /* Features */,
 				2C2A3AB424544D2500D76132 /* IntegrationTests */,
 				2C2A3A17245429BE00D76132 /* MapsCodeTestTests.swift */,
 				2C2A3A19245429BE00D76132 /* Info.plist */,
@@ -285,12 +290,12 @@
 		2C2A3A3C24542E7900D76132 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				2C2A3A3D24542E8600D76132 /* MapViewController */,
+				2C2A3A3D24542E8600D76132 /* TripList */,
 			);
 			path = Features;
 			sourceTree = "<group>";
 		};
-		2C2A3A3D24542E8600D76132 /* MapViewController */ = {
+		2C2A3A3D24542E8600D76132 /* TripList */ = {
 			isa = PBXGroup;
 			children = (
 				2C2A3A4224542ED000D76132 /* View */,
@@ -299,7 +304,7 @@
 				2C2A3A3F24542EBA00D76132 /* Navigator */,
 				2C2A3A3E24542EB100D76132 /* Infraestructure */,
 			);
-			path = MapViewController;
+			path = TripList;
 			sourceTree = "<group>";
 		};
 		2C2A3A3E24542EB100D76132 /* Infraestructure */ = {
@@ -634,6 +639,7 @@
 			isa = PBXGroup;
 			children = (
 				2C2A3ABC24544E4100D76132 /* Fixture.swift */,
+				2C2A3ACF2454A21900D76132 /* XCTestCase+UIViewController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -652,6 +658,46 @@
 				2C2A3AC22454931000D76132 /* TripViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		2C2A3AC82454A10600D76132 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3AC92454A10D00D76132 /* TripList */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		2C2A3AC92454A10D00D76132 /* TripList */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3ACA2454A11900D76132 /* View */,
+				2C2A3ACB2454A11E00D76132 /* Presenter */,
+				2C2A3ACC2454A12400D76132 /* Interactor */,
+			);
+			path = TripList;
+			sourceTree = "<group>";
+		};
+		2C2A3ACA2454A11900D76132 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3ACD2454A14E00D76132 /* TripListViewSpec.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2C2A3ACB2454A11E00D76132 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2C2A3ACC2454A12400D76132 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		6670D015015664BF9DEB03B0 /* Pods */ = {
@@ -1010,6 +1056,8 @@
 			files = (
 				2C2A3A18245429BE00D76132 /* MapsCodeTestTests.swift in Sources */,
 				2C2A3ABD24544E4100D76132 /* Fixture.swift in Sources */,
+				2C2A3ACE2454A14E00D76132 /* TripListViewSpec.swift in Sources */,
+				2C2A3AD02454A21900D76132 /* XCTestCase+UIViewController.swift in Sources */,
 				2C2A3A3424542D5F00D76132 /* AutoMockable.generated.swift in Sources */,
 				2C2A3AB724544D4600D76132 /* MapsSpec.swift in Sources */,
 			);

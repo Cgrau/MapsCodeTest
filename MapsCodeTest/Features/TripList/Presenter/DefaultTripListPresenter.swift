@@ -18,8 +18,11 @@ class DefaultTripListPresenter: TripListPresenter {
 }
 
 extension DefaultTripListPresenter: TripListInteractorDelegate {
+  func didLoad(trips: [Trip]) {
+    ui?.show(trips: trips)
+  }
   
-  func tripsFetched() {
-    ui?.showTrips()
+  func didFailLoaingTrips(error: Error) {
+    
   }
 }

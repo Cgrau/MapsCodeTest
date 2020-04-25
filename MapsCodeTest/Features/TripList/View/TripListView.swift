@@ -1,4 +1,3 @@
-import UIKit
 import SnapKit
 
 protocol TripListViewDelegate: class {
@@ -18,6 +17,12 @@ class TripListView: View {
   
   weak var delegate: TripListViewDelegate?
   
+  var trips: [Trip] = [] {
+    didSet {
+      tableView.reloadData()
+    }
+  }
+  
   private var mapView: UIView? {
     return mapProvider?.mapView
   }
@@ -31,6 +36,7 @@ class TripListView: View {
   override func setupView() {
     addSubview(tableView)
     tableView.register(TripViewCell.self)
+    tableView.dataSource = self
   }
   
   override func setupConstraints() {
@@ -64,5 +70,32 @@ class TripListView: View {
       make.trailing.equalToSuperview()
       make.bottom.equalTo(tableView.snp.top)
     }
+    mapView.backgroundColor = .blue
+  }
+}
+
+// MARK: - UITableViewDataSource
+extension TripListView: UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return trips.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let trip = trips[indexPath.row]
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: TripViewCell.cellIdentifier) as? TripViewCell else {
+      return UITableViewCell()
+    }
+    
+    cell.configure(with: trip.driverName,
+                   descriptionText: trip.description,
+                   startTime: trip.startTime,
+                   endTime: trip.endTime,
+                   status: trip.status)
+    
+    return cell
+  }
+  
+  func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    return UITableView.automaticDimension
   }
 }

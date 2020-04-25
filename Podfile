@@ -5,6 +5,7 @@ def testing_pods
  use_frameworks!
  pod 'RxBlocking', '5.0'
  pod 'OHHTTPStubs/Swift'
+ pod 'SnapshotTesting', '~> 1.7.2'
 end
 
 def app_pods

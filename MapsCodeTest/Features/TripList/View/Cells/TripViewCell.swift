@@ -8,7 +8,7 @@ private enum Constants {
 final class TripViewCell: TableViewCell {
   private var driverNameLabel: UILabel = {
     let label = UILabel()
-    label.font = label.font.withSize(Constants.headerFontSize)
+    label.font = UIFont.boldSystemFont(ofSize: Constants.headerFontSize)
     return label
   }()
   
@@ -88,17 +88,17 @@ final class TripViewCell: TableViewCell {
       make.top.equalTo(endTimeLabel.snp.bottom).offset(4)
       make.leading.equalTo(descriptionLabel)
       make.trailing.equalTo(descriptionLabel)
-      make.bottom.equalToSuperview().offset(8)
+      make.bottom.equalToSuperview().offset(-8)
     }
   }
 }
 
 extension TripViewCell {
-  func configure(with driverName: String,
-                 descriptionText: String,
-                 startTime: String,
-                 endTime: String,
-                 status: TripStatus) {
+  func configure(with driverName: String?,
+                 descriptionText: String?,
+                 startTime: String?,
+                 endTime: String?,
+                 status: TripStatus?) {
     accessoryType = .none
     driverNameLabel.text = driverName
     descriptionLabel.text = descriptionText

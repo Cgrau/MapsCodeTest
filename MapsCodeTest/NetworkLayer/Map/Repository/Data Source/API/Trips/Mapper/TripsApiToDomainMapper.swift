@@ -22,8 +22,8 @@ struct TripsApiToDomainMapper: Mappable {
                   origin: map(destination: response.origin),
                   stops: map(stops: response.stops),
                   destination: map(destination: response.destination),
-                  endTime: response.endTime?.mapToDateString(),
-                  startTime: response.startTime?.mapToDateString())
+                  startTime: response.startTime?.mapToDateString(),
+                  endTime: response.endTime?.mapToDateString())
     }
   }
   

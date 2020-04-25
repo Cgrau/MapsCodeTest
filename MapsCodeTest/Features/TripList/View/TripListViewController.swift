@@ -1,6 +1,6 @@
 import UIKit
 
-class TripListViewController: UIViewController, TripListUI {
+class TripListViewController: UIViewController {
   
   var mainView: TripListView?
   
@@ -11,8 +11,18 @@ class TripListViewController: UIViewController, TripListUI {
     view = mainView
   }
   
-  func showTrips() {
-    
+  override func viewDidLoad() {
+    presenter?.didLoad()
+  }
+}
+
+extension TripListViewController: TripListUI {
+  func show(trips: [Trip]) {
+    mainView?.trips = trips
+  }
+  
+  func show(errorMessage: String) {
+    //show alert with error
   }
 }
 

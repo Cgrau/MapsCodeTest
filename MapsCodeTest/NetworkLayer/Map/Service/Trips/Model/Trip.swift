@@ -7,7 +7,7 @@ public struct Trip: Codable {
   let origin: TripDestination?
   let stops: [TripStop]?
   let destination: TripDestination?
-  let endTime, startTime: String?
+  let startTime, endTime: String?
 }
 
 // MARK: - Status
