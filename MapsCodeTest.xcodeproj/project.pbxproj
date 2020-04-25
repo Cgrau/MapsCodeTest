@@ -35,6 +35,17 @@
 		2C2A3A712454375C00D76132 /* TripListUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A672454375C00D76132 /* TripListUI.swift */; };
 		2C2A3A722454375C00D76132 /* DefaultTripListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A682454375C00D76132 /* DefaultTripListPresenter.swift */; };
 		2C2A3A732454375C00D76132 /* TripListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A692454375C00D76132 /* TripListProvider.swift */; };
+		2C2A3A7624543E7300D76132 /* String+MapToDateString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A7524543E7300D76132 /* String+MapToDateString.swift */; };
+		2C2A3A7D24543EE500D76132 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A7C24543EE500D76132 /* Service.swift */; };
+		2C2A3A7F24543F0A00D76132 /* NetworkAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A7E24543F0A00D76132 /* NetworkAssembly.swift */; };
+		2C2A3A8124543F3900D76132 /* Assembly+Moya.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A8024543F3900D76132 /* Assembly+Moya.swift */; };
+		2C2A3A842454407200D76132 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A832454407200D76132 /* Endpoint.swift */; };
+		2C2A3A862454408100D76132 /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A852454408100D76132 /* Mappable.swift */; };
+		2C2A3A88245440C000D76132 /* ErrorAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A87245440C000D76132 /* ErrorAdapter.swift */; };
+		2C2A3A8A245440DE00D76132 /* DefaultErrorAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A89245440DE00D76132 /* DefaultErrorAdapter.swift */; };
+		2C2A3A8C245441D500D76132 /* PrimitiveSequence+CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A8B245441D500D76132 /* PrimitiveSequence+CustomError.swift */; };
+		2C2A3A8E245441EA00D76132 /* TargetType+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A8D245441EA00D76132 /* TargetType+Default.swift */; };
+		2C2A3A912454499300D76132 /* NetworkAssembly+ErrorAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A902454499300D76132 /* NetworkAssembly+ErrorAdapter.swift */; };
 		631B63B5D09F273C8C6AC1DF /* Pods_MapsCodeTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33977991E22538C6028CBFCD /* Pods_MapsCodeTestTests.framework */; };
 		B2202508F3AE43381E0DBBAD /* Pods_MapsCodeTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EC09DBA751C20C9BB63CDBD /* Pods_MapsCodeTest.framework */; };
 /* End PBXBuildFile section */
@@ -92,6 +103,17 @@
 		2C2A3A672454375C00D76132 /* TripListUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListUI.swift; sourceTree = "<group>"; };
 		2C2A3A682454375C00D76132 /* DefaultTripListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTripListPresenter.swift; sourceTree = "<group>"; };
 		2C2A3A692454375C00D76132 /* TripListProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListProvider.swift; sourceTree = "<group>"; };
+		2C2A3A7524543E7300D76132 /* String+MapToDateString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MapToDateString.swift"; sourceTree = "<group>"; };
+		2C2A3A7C24543EE500D76132 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		2C2A3A7E24543F0A00D76132 /* NetworkAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAssembly.swift; sourceTree = "<group>"; };
+		2C2A3A8024543F3900D76132 /* Assembly+Moya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assembly+Moya.swift"; sourceTree = "<group>"; };
+		2C2A3A832454407200D76132 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		2C2A3A852454408100D76132 /* Mappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mappable.swift; sourceTree = "<group>"; };
+		2C2A3A87245440C000D76132 /* ErrorAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAdapter.swift; sourceTree = "<group>"; };
+		2C2A3A89245440DE00D76132 /* DefaultErrorAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultErrorAdapter.swift; sourceTree = "<group>"; };
+		2C2A3A8B245441D500D76132 /* PrimitiveSequence+CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrimitiveSequence+CustomError.swift"; sourceTree = "<group>"; };
+		2C2A3A8D245441EA00D76132 /* TargetType+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TargetType+Default.swift"; sourceTree = "<group>"; };
+		2C2A3A902454499300D76132 /* NetworkAssembly+ErrorAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkAssembly+ErrorAdapter.swift"; sourceTree = "<group>"; };
 		33977991E22538C6028CBFCD /* Pods_MapsCodeTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapsCodeTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E03198628B2289CB63B8E0C /* Pods-MapsCodeTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsCodeTestTests.release.xcconfig"; path = "Target Support Files/Pods-MapsCodeTestTests/Pods-MapsCodeTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		9EC09DBA751C20C9BB63CDBD /* Pods_MapsCodeTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapsCodeTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -343,6 +365,7 @@
 		2C2A3A592454345E00D76132 /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
+				2C2A3A8F2454461700D76132 /* Core */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -358,8 +381,66 @@
 		2C2A3A5D2454350F00D76132 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2C2A3A7524543E7300D76132 /* String+MapToDateString.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2C2A3A7424543E1200D76132 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3A8B245441D500D76132 /* PrimitiveSequence+CustomError.swift */,
+				2C2A3A8D245441EA00D76132 /* TargetType+Default.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2C2A3A7924543EC000D76132 /* NetworkAssembly */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3A7E24543F0A00D76132 /* NetworkAssembly.swift */,
+				2C2A3A8024543F3900D76132 /* Assembly+Moya.swift */,
+				2C2A3A902454499300D76132 /* NetworkAssembly+ErrorAdapter.swift */,
+			);
+			path = NetworkAssembly;
+			sourceTree = "<group>";
+		};
+		2C2A3A7A24543ED300D76132 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3A832454407200D76132 /* Endpoint.swift */,
+				2C2A3A852454408100D76132 /* Mappable.swift */,
+				2C2A3A822454405B00D76132 /* Error */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		2C2A3A7B24543ED800D76132 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3A7C24543EE500D76132 /* Service.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		2C2A3A822454405B00D76132 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3A87245440C000D76132 /* ErrorAdapter.swift */,
+				2C2A3A89245440DE00D76132 /* DefaultErrorAdapter.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		2C2A3A8F2454461700D76132 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3A7B24543ED800D76132 /* Service */,
+				2C2A3A7A24543ED300D76132 /* Protocols */,
+				2C2A3A7924543EC000D76132 /* NetworkAssembly */,
+				2C2A3A7424543E1200D76132 /* Extensions */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		6670D015015664BF9DEB03B0 /* Pods */ = {
@@ -661,25 +742,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C2A3A8C245441D500D76132 /* PrimitiveSequence+CustomError.swift in Sources */,
 				2C2A3A3824542D8B00D76132 /* AutoMockable.swift in Sources */,
 				2C2A3A722454375C00D76132 /* DefaultTripListPresenter.swift in Sources */,
+				2C2A3A7D24543EE500D76132 /* Service.swift in Sources */,
 				2C2A3A6C2454375C00D76132 /* TripListViewController.swift in Sources */,
 				2C2A3A5C245434C300D76132 /* Assembly.swift in Sources */,
+				2C2A3A862454408100D76132 /* Mappable.swift in Sources */,
 				2C2A3A542454309F00D76132 /* Polyline.swift in Sources */,
 				2C2A3A6B2454375C00D76132 /* TripListPresenter.swift in Sources */,
 				2C2A3A3B24542E1400D76132 /* View.swift in Sources */,
 				2C2A3A712454375C00D76132 /* TripListUI.swift in Sources */,
 				2C2A3A6A2454375C00D76132 /* TripListNavigator.swift in Sources */,
+				2C2A3A8124543F3900D76132 /* Assembly+Moya.swift in Sources */,
 				2C2A3A56245430B300D76132 /* MKMultiPoint+Extensions.swift in Sources */,
 				2C2A3A522454306E00D76132 /* MapKitRouteDrawable.swift in Sources */,
 				2C2A3A6E2454375C00D76132 /* TripListInteractor.swift in Sources */,
+				2C2A3A842454407200D76132 /* Endpoint.swift in Sources */,
+				2C2A3A8E245441EA00D76132 /* TargetType+Default.swift in Sources */,
 				2C2A3A4624542F9900D76132 /* MapView.swift in Sources */,
+				2C2A3A912454499300D76132 /* NetworkAssembly+ErrorAdapter.swift in Sources */,
 				2C2A3A4A24542FE700D76132 /* MapProvider.swift in Sources */,
 				2C2A3A6D2454375C00D76132 /* DefaultTripListInteractor.swift in Sources */,
+				2C2A3A8A245440DE00D76132 /* DefaultErrorAdapter.swift in Sources */,
 				2C2A3A732454375C00D76132 /* TripListProvider.swift in Sources */,
+				2C2A3A7F24543F0A00D76132 /* NetworkAssembly.swift in Sources */,
 				2C2A3A01245429BB00D76132 /* AppDelegate.swift in Sources */,
+				2C2A3A7624543E7300D76132 /* String+MapToDateString.swift in Sources */,
 				2C2A3A702454375C00D76132 /* TripListView.swift in Sources */,
 				2C2A3A4824542FCE00D76132 /* MapKitProvider.swift in Sources */,
+				2C2A3A88245440C000D76132 /* ErrorAdapter.swift in Sources */,
 				2C2A3A03245429BB00D76132 /* SceneDelegate.swift in Sources */,
 				2C2A3A6F2454375C00D76132 /* DefaultTripListNavigator.swift in Sources */,
 				2C2A3A502454305700D76132 /* RouteDrawable.swift in Sources */,

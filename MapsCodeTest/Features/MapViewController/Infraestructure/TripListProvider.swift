@@ -40,13 +40,13 @@ extension Assembly: TripListProvider {
   
   private func tripListContainerView() -> TripListView {
     let containerView = TripListView()
-    let provider = mapKitProvider
+    let provider = mapProvider
     containerView.setupProviders(mapProvider: provider,
                                  routeDrawable: routeDrawableProvider(with: provider))
     return containerView
   }
   
-  private var mapKitProvider: MapProvider {
+  private var mapProvider: MapProvider {
     return MapKitProvider()
   }
   
