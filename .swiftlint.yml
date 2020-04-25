@@ -1,0 +1,34 @@
+disabled_rules: # rule identifiers to exclude from running
+  - identifier_name
+  - trailing_whitespace
+  - empty_count
+  - line_length
+  - opening_brace
+  - no_fallthrough_only
+opt_in_rules: # some rules are only opt-in
+  - empty_count
+  - toggle_bool
+included:
+  - MapsCodeTest
+force_cast: warning # implicitly
+force_try:
+  severity: warning # explicitly
+type_body_length:
+  - 300 # warning
+  - 400 # error
+file_length:
+  warning: 400
+  error: 800
+type_name:
+  min_length: 2 # only warning
+  max_length: # warning and error
+    warning: 50
+    error: 60
+identifier_name:
+  min_length: # only min_length
+    error: 3 # only error
+  excluded: # excluded via string array
+    - id
+    - URL
+    - GlobalAPIKey
+reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji)
