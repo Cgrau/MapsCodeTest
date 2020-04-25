@@ -38,7 +38,7 @@
 		2C2A3A7624543E7300D76132 /* String+MapToDateString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A7524543E7300D76132 /* String+MapToDateString.swift */; };
 		2C2A3A7D24543EE500D76132 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A7C24543EE500D76132 /* Service.swift */; };
 		2C2A3A7F24543F0A00D76132 /* NetworkAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A7E24543F0A00D76132 /* NetworkAssembly.swift */; };
-		2C2A3A8124543F3900D76132 /* Assembly+Moya.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A8024543F3900D76132 /* Assembly+Moya.swift */; };
+		2C2A3A8124543F3900D76132 /* NetworkAssembly+Moya.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A8024543F3900D76132 /* NetworkAssembly+Moya.swift */; };
 		2C2A3A842454407200D76132 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A832454407200D76132 /* Endpoint.swift */; };
 		2C2A3A862454408100D76132 /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A852454408100D76132 /* Mappable.swift */; };
 		2C2A3A88245440C000D76132 /* ErrorAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A87245440C000D76132 /* ErrorAdapter.swift */; };
@@ -46,6 +46,20 @@
 		2C2A3A8C245441D500D76132 /* PrimitiveSequence+CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A8B245441D500D76132 /* PrimitiveSequence+CustomError.swift */; };
 		2C2A3A8E245441EA00D76132 /* TargetType+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A8D245441EA00D76132 /* TargetType+Default.swift */; };
 		2C2A3A912454499300D76132 /* NetworkAssembly+ErrorAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A902454499300D76132 /* NetworkAssembly+ErrorAdapter.swift */; };
+		2C2A3A9824544ACA00D76132 /* MapRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A9724544ACA00D76132 /* MapRepository.swift */; };
+		2C2A3A9A24544AF700D76132 /* MapDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A9924544AF700D76132 /* MapDataSource.swift */; };
+		2C2A3A9D24544B1300D76132 /* MapApiDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A9C24544B1300D76132 /* MapApiDataSource.swift */; };
+		2C2A3AA324544B6900D76132 /* TripsApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3AA224544B6900D76132 /* TripsApiResponse.swift */; };
+		2C2A3AA524544B7D00D76132 /* TripsApiToDomainMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3AA424544B7D00D76132 /* TripsApiToDomainMapper.swift */; };
+		2C2A3AA724544B9A00D76132 /* GetTripsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3AA624544B9A00D76132 /* GetTripsUseCase.swift */; };
+		2C2A3AA924544BA800D76132 /* GetTrips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3AA824544BA800D76132 /* GetTrips.swift */; };
+		2C2A3AAB24544BD600D76132 /* MapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3AAA24544BD600D76132 /* MapService.swift */; };
+		2C2A3AB024544C1100D76132 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3AAF24544C1100D76132 /* Trip.swift */; };
+		2C2A3AB224544C2400D76132 /* TripsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3AB124544C2400D76132 /* TripsEndpoint.swift */; };
+		2C2A3AB724544D4600D76132 /* MapsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3AB624544D4600D76132 /* MapsSpec.swift */; };
+		2C2A3ABA24544D9200D76132 /* NetworkAssembly+MapServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3AB924544D9200D76132 /* NetworkAssembly+MapServices.swift */; };
+		2C2A3ABD24544E4100D76132 /* Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3ABC24544E4100D76132 /* Fixture.swift */; };
+		2C2A3AC024544E9600D76132 /* Trips.ok.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C2A3ABF24544E9600D76132 /* Trips.ok.json */; };
 		631B63B5D09F273C8C6AC1DF /* Pods_MapsCodeTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33977991E22538C6028CBFCD /* Pods_MapsCodeTestTests.framework */; };
 		B2202508F3AE43381E0DBBAD /* Pods_MapsCodeTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EC09DBA751C20C9BB63CDBD /* Pods_MapsCodeTest.framework */; };
 /* End PBXBuildFile section */
@@ -106,7 +120,7 @@
 		2C2A3A7524543E7300D76132 /* String+MapToDateString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MapToDateString.swift"; sourceTree = "<group>"; };
 		2C2A3A7C24543EE500D76132 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		2C2A3A7E24543F0A00D76132 /* NetworkAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAssembly.swift; sourceTree = "<group>"; };
-		2C2A3A8024543F3900D76132 /* Assembly+Moya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assembly+Moya.swift"; sourceTree = "<group>"; };
+		2C2A3A8024543F3900D76132 /* NetworkAssembly+Moya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkAssembly+Moya.swift"; sourceTree = "<group>"; };
 		2C2A3A832454407200D76132 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		2C2A3A852454408100D76132 /* Mappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mappable.swift; sourceTree = "<group>"; };
 		2C2A3A87245440C000D76132 /* ErrorAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAdapter.swift; sourceTree = "<group>"; };
@@ -114,6 +128,20 @@
 		2C2A3A8B245441D500D76132 /* PrimitiveSequence+CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrimitiveSequence+CustomError.swift"; sourceTree = "<group>"; };
 		2C2A3A8D245441EA00D76132 /* TargetType+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TargetType+Default.swift"; sourceTree = "<group>"; };
 		2C2A3A902454499300D76132 /* NetworkAssembly+ErrorAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkAssembly+ErrorAdapter.swift"; sourceTree = "<group>"; };
+		2C2A3A9724544ACA00D76132 /* MapRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRepository.swift; sourceTree = "<group>"; };
+		2C2A3A9924544AF700D76132 /* MapDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDataSource.swift; sourceTree = "<group>"; };
+		2C2A3A9C24544B1300D76132 /* MapApiDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapApiDataSource.swift; sourceTree = "<group>"; };
+		2C2A3AA224544B6900D76132 /* TripsApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsApiResponse.swift; sourceTree = "<group>"; };
+		2C2A3AA424544B7D00D76132 /* TripsApiToDomainMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsApiToDomainMapper.swift; sourceTree = "<group>"; };
+		2C2A3AA624544B9A00D76132 /* GetTripsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTripsUseCase.swift; sourceTree = "<group>"; };
+		2C2A3AA824544BA800D76132 /* GetTrips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTrips.swift; sourceTree = "<group>"; };
+		2C2A3AAA24544BD600D76132 /* MapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
+		2C2A3AAF24544C1100D76132 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		2C2A3AB124544C2400D76132 /* TripsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsEndpoint.swift; sourceTree = "<group>"; };
+		2C2A3AB624544D4600D76132 /* MapsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsSpec.swift; sourceTree = "<group>"; };
+		2C2A3AB924544D9200D76132 /* NetworkAssembly+MapServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkAssembly+MapServices.swift"; sourceTree = "<group>"; };
+		2C2A3ABC24544E4100D76132 /* Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixture.swift; sourceTree = "<group>"; };
+		2C2A3ABF24544E9600D76132 /* Trips.ok.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Trips.ok.json; sourceTree = "<group>"; };
 		33977991E22538C6028CBFCD /* Pods_MapsCodeTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapsCodeTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E03198628B2289CB63B8E0C /* Pods-MapsCodeTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsCodeTestTests.release.xcconfig"; path = "Target Support Files/Pods-MapsCodeTestTests/Pods-MapsCodeTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		9EC09DBA751C20C9BB63CDBD /* Pods_MapsCodeTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapsCodeTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +206,7 @@
 			children = (
 				2C2A3A3524542D7800D76132 /* Core */,
 				2C2A3A3C24542E7900D76132 /* Features */,
+				2C2A3A9224544A4800D76132 /* NetworkLayer */,
 				2C2A3A09245429BE00D76132 /* Assets.xcassets */,
 				2C2A3A0B245429BE00D76132 /* LaunchScreen.storyboard */,
 				2C2A3A0E245429BE00D76132 /* Info.plist */,
@@ -189,6 +218,8 @@
 			isa = PBXGroup;
 			children = (
 				2C2A3A3224542D5F00D76132 /* AutoMockable */,
+				2C2A3ABB24544E3700D76132 /* Utils */,
+				2C2A3AB424544D2500D76132 /* IntegrationTests */,
 				2C2A3A17245429BE00D76132 /* MapsCodeTestTests.swift */,
 				2C2A3A19245429BE00D76132 /* Info.plist */,
 			);
@@ -399,7 +430,7 @@
 			isa = PBXGroup;
 			children = (
 				2C2A3A7E24543F0A00D76132 /* NetworkAssembly.swift */,
-				2C2A3A8024543F3900D76132 /* Assembly+Moya.swift */,
+				2C2A3A8024543F3900D76132 /* NetworkAssembly+Moya.swift */,
 				2C2A3A902454499300D76132 /* NetworkAssembly+ErrorAdapter.swift */,
 			);
 			path = NetworkAssembly;
@@ -441,6 +472,169 @@
 				2C2A3A7424543E1200D76132 /* Extensions */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		2C2A3A9224544A4800D76132 /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3AB824544D7C00D76132 /* Assembly */,
+				2C2A3A9324544A6E00D76132 /* Map */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		2C2A3A9324544A6E00D76132 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3AA124544B5500D76132 /* UseCases */,
+				2C2A3A9424544AA100D76132 /* Repository */,
+				2C2A3A9524544AAA00D76132 /* Service */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		2C2A3A9424544AA100D76132 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3A9724544ACA00D76132 /* MapRepository.swift */,
+				2C2A3A9624544AB600D76132 /* Data Source */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		2C2A3A9524544AAA00D76132 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3AAA24544BD600D76132 /* MapService.swift */,
+				2C2A3AAC24544BE900D76132 /* Trips */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		2C2A3A9624544AB600D76132 /* Data Source */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3A9924544AF700D76132 /* MapDataSource.swift */,
+				2C2A3A9B24544B0200D76132 /* API */,
+			);
+			path = "Data Source";
+			sourceTree = "<group>";
+		};
+		2C2A3A9B24544B0200D76132 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3A9C24544B1300D76132 /* MapApiDataSource.swift */,
+				2C2A3A9E24544B4000D76132 /* Trips */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		2C2A3A9E24544B4000D76132 /* Trips */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3AA024544B4E00D76132 /* Mapper */,
+				2C2A3A9F24544B4900D76132 /* Model */,
+			);
+			path = Trips;
+			sourceTree = "<group>";
+		};
+		2C2A3A9F24544B4900D76132 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3AA224544B6900D76132 /* TripsApiResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2C2A3AA024544B4E00D76132 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3AA424544B7D00D76132 /* TripsApiToDomainMapper.swift */,
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
+		2C2A3AA124544B5500D76132 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3AB324544CD800D76132 /* Trips */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		2C2A3AAC24544BE900D76132 /* Trips */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3AAE24544BFF00D76132 /* Model */,
+				2C2A3AAD24544BF900D76132 /* Endpoint */,
+			);
+			path = Trips;
+			sourceTree = "<group>";
+		};
+		2C2A3AAD24544BF900D76132 /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3AB124544C2400D76132 /* TripsEndpoint.swift */,
+			);
+			path = Endpoint;
+			sourceTree = "<group>";
+		};
+		2C2A3AAE24544BFF00D76132 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3AAF24544C1100D76132 /* Trip.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2C2A3AB324544CD800D76132 /* Trips */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3AA624544B9A00D76132 /* GetTripsUseCase.swift */,
+				2C2A3AA824544BA800D76132 /* GetTrips.swift */,
+			);
+			path = Trips;
+			sourceTree = "<group>";
+		};
+		2C2A3AB424544D2500D76132 /* IntegrationTests */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3AB524544D3300D76132 /* Map */,
+			);
+			path = IntegrationTests;
+			sourceTree = "<group>";
+		};
+		2C2A3AB524544D3300D76132 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3ABE24544E8500D76132 /* Fixture */,
+				2C2A3AB624544D4600D76132 /* MapsSpec.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		2C2A3AB824544D7C00D76132 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3AB924544D9200D76132 /* NetworkAssembly+MapServices.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		2C2A3ABB24544E3700D76132 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3ABC24544E4100D76132 /* Fixture.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		2C2A3ABE24544E8500D76132 /* Fixture */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3ABF24544E9600D76132 /* Trips.ok.json */,
+			);
+			path = Fixture;
 			sourceTree = "<group>";
 		};
 		6670D015015664BF9DEB03B0 /* Pods */ = {
@@ -586,6 +780,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C2A3AC024544E9600D76132 /* Trips.ok.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -749,21 +944,31 @@
 				2C2A3A6C2454375C00D76132 /* TripListViewController.swift in Sources */,
 				2C2A3A5C245434C300D76132 /* Assembly.swift in Sources */,
 				2C2A3A862454408100D76132 /* Mappable.swift in Sources */,
+				2C2A3ABA24544D9200D76132 /* NetworkAssembly+MapServices.swift in Sources */,
 				2C2A3A542454309F00D76132 /* Polyline.swift in Sources */,
 				2C2A3A6B2454375C00D76132 /* TripListPresenter.swift in Sources */,
 				2C2A3A3B24542E1400D76132 /* View.swift in Sources */,
 				2C2A3A712454375C00D76132 /* TripListUI.swift in Sources */,
 				2C2A3A6A2454375C00D76132 /* TripListNavigator.swift in Sources */,
-				2C2A3A8124543F3900D76132 /* Assembly+Moya.swift in Sources */,
+				2C2A3AB224544C2400D76132 /* TripsEndpoint.swift in Sources */,
+				2C2A3AB024544C1100D76132 /* Trip.swift in Sources */,
+				2C2A3A8124543F3900D76132 /* NetworkAssembly+Moya.swift in Sources */,
 				2C2A3A56245430B300D76132 /* MKMultiPoint+Extensions.swift in Sources */,
+				2C2A3A9824544ACA00D76132 /* MapRepository.swift in Sources */,
+				2C2A3AAB24544BD600D76132 /* MapService.swift in Sources */,
 				2C2A3A522454306E00D76132 /* MapKitRouteDrawable.swift in Sources */,
 				2C2A3A6E2454375C00D76132 /* TripListInteractor.swift in Sources */,
 				2C2A3A842454407200D76132 /* Endpoint.swift in Sources */,
+				2C2A3A9A24544AF700D76132 /* MapDataSource.swift in Sources */,
+				2C2A3AA924544BA800D76132 /* GetTrips.swift in Sources */,
+				2C2A3AA524544B7D00D76132 /* TripsApiToDomainMapper.swift in Sources */,
 				2C2A3A8E245441EA00D76132 /* TargetType+Default.swift in Sources */,
+				2C2A3AA724544B9A00D76132 /* GetTripsUseCase.swift in Sources */,
 				2C2A3A4624542F9900D76132 /* MapView.swift in Sources */,
 				2C2A3A912454499300D76132 /* NetworkAssembly+ErrorAdapter.swift in Sources */,
 				2C2A3A4A24542FE700D76132 /* MapProvider.swift in Sources */,
 				2C2A3A6D2454375C00D76132 /* DefaultTripListInteractor.swift in Sources */,
+				2C2A3A9D24544B1300D76132 /* MapApiDataSource.swift in Sources */,
 				2C2A3A8A245440DE00D76132 /* DefaultErrorAdapter.swift in Sources */,
 				2C2A3A732454375C00D76132 /* TripListProvider.swift in Sources */,
 				2C2A3A7F24543F0A00D76132 /* NetworkAssembly.swift in Sources */,
@@ -775,6 +980,7 @@
 				2C2A3A03245429BB00D76132 /* SceneDelegate.swift in Sources */,
 				2C2A3A6F2454375C00D76132 /* DefaultTripListNavigator.swift in Sources */,
 				2C2A3A502454305700D76132 /* RouteDrawable.swift in Sources */,
+				2C2A3AA324544B6900D76132 /* TripsApiResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -783,7 +989,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C2A3A18245429BE00D76132 /* MapsCodeTestTests.swift in Sources */,
+				2C2A3ABD24544E4100D76132 /* Fixture.swift in Sources */,
 				2C2A3A3424542D5F00D76132 /* AutoMockable.generated.swift in Sources */,
+				2C2A3AB724544D4600D76132 /* MapsSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
