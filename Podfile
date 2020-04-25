@@ -3,7 +3,6 @@
 
 def testing_pods
  use_frameworks!
- pod 'SnapKit', '~> 5.0.0'
  pod 'RxBlocking', '5.0'
  pod 'OHHTTPStubs/Swift'
 end
@@ -11,6 +10,7 @@ end
 def app_pods
   use_frameworks!
   pod 'Sourcery'
+  pod 'SnapKit', '~> 5.0.0'
   pod 'RxSwift',    '5.0'
   pod 'RxCocoa',    '5.0'
   pod 'Moya', '14.0.0'
