@@ -15,6 +15,8 @@
 		2C2A3A0D245429BE00D76132 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C2A3A0B245429BE00D76132 /* LaunchScreen.storyboard */; };
 		2C2A3A18245429BE00D76132 /* MapsCodeTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A17245429BE00D76132 /* MapsCodeTestTests.swift */; };
 		2C2A3A23245429BE00D76132 /* MapsCodeTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A22245429BE00D76132 /* MapsCodeTestUITests.swift */; };
+		2C2A3A3424542D5F00D76132 /* AutoMockable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A3324542D5F00D76132 /* AutoMockable.generated.swift */; };
+		2C2A3A3824542D8B00D76132 /* AutoMockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3A3724542D8B00D76132 /* AutoMockable.swift */; };
 		631B63B5D09F273C8C6AC1DF /* Pods_MapsCodeTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33977991E22538C6028CBFCD /* Pods_MapsCodeTestTests.framework */; };
 		B2202508F3AE43381E0DBBAD /* Pods_MapsCodeTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EC09DBA751C20C9BB63CDBD /* Pods_MapsCodeTest.framework */; };
 /* End PBXBuildFile section */
@@ -52,6 +54,8 @@
 		2C2A3A1E245429BE00D76132 /* MapsCodeTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapsCodeTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C2A3A22245429BE00D76132 /* MapsCodeTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsCodeTestUITests.swift; sourceTree = "<group>"; };
 		2C2A3A24245429BE00D76132 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C2A3A3324542D5F00D76132 /* AutoMockable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMockable.generated.swift; sourceTree = "<group>"; };
+		2C2A3A3724542D8B00D76132 /* AutoMockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMockable.swift; sourceTree = "<group>"; };
 		33977991E22538C6028CBFCD /* Pods_MapsCodeTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapsCodeTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E03198628B2289CB63B8E0C /* Pods-MapsCodeTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsCodeTestTests.release.xcconfig"; path = "Target Support Files/Pods-MapsCodeTestTests/Pods-MapsCodeTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		9EC09DBA751C20C9BB63CDBD /* Pods_MapsCodeTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapsCodeTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +118,7 @@
 		2C2A39FF245429BB00D76132 /* MapsCodeTest */ = {
 			isa = PBXGroup;
 			children = (
+				2C2A3A3524542D7800D76132 /* Core */,
 				2C2A3A00245429BB00D76132 /* AppDelegate.swift */,
 				2C2A3A02245429BB00D76132 /* SceneDelegate.swift */,
 				2C2A3A04245429BB00D76132 /* ViewController.swift */,
@@ -127,6 +132,7 @@
 		2C2A3A16245429BE00D76132 /* MapsCodeTestTests */ = {
 			isa = PBXGroup;
 			children = (
+				2C2A3A3224542D5F00D76132 /* AutoMockable */,
 				2C2A3A17245429BE00D76132 /* MapsCodeTestTests.swift */,
 				2C2A3A19245429BE00D76132 /* Info.plist */,
 			);
@@ -140,6 +146,30 @@
 				2C2A3A24245429BE00D76132 /* Info.plist */,
 			);
 			path = MapsCodeTestUITests;
+			sourceTree = "<group>";
+		};
+		2C2A3A3224542D5F00D76132 /* AutoMockable */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3A3324542D5F00D76132 /* AutoMockable.generated.swift */,
+			);
+			path = AutoMockable;
+			sourceTree = "<group>";
+		};
+		2C2A3A3524542D7800D76132 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3A3624542D7E00D76132 /* AutoMockable */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		2C2A3A3624542D7E00D76132 /* AutoMockable */ = {
+			isa = PBXGroup;
+			children = (
+				2C2A3A3724542D8B00D76132 /* AutoMockable.swift */,
+			);
+			path = AutoMockable;
 			sourceTree = "<group>";
 		};
 		6670D015015664BF9DEB03B0 /* Pods */ = {
@@ -173,6 +203,7 @@
 			buildConfigurationList = 2C2A3A27245429BE00D76132 /* Build configuration list for PBXNativeTarget "MapsCodeTest" */;
 			buildPhases = (
 				755F1465D9A15041306888A1 /* [CP] Check Pods Manifest.lock */,
+				2C2A3A3124542C8E00D76132 /* Sourcery */,
 				2C2A39F9245429BB00D76132 /* Sources */,
 				2C2A39FA245429BB00D76132 /* Frameworks */,
 				2C2A39FB245429BB00D76132 /* Resources */,
@@ -376,6 +407,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
+		2C2A3A3124542C8E00D76132 /* Sourcery */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Sourcery;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$PODS_ROOT/Sourcery/bin/sourcery --sources ./ --templates ./Templates/Sourcery --output ./MapsCodeTestTests/AutoMockable\n";
+		};
 		755F1465D9A15041306888A1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -422,6 +471,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C2A3A3824542D8B00D76132 /* AutoMockable.swift in Sources */,
 				2C2A3A05245429BB00D76132 /* ViewController.swift in Sources */,
 				2C2A3A01245429BB00D76132 /* AppDelegate.swift in Sources */,
 				2C2A3A03245429BB00D76132 /* SceneDelegate.swift in Sources */,
@@ -433,6 +483,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C2A3A18245429BE00D76132 /* MapsCodeTestTests.swift in Sources */,
+				2C2A3A3424542D5F00D76132 /* AutoMockable.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
