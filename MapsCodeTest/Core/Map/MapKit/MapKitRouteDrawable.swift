@@ -18,8 +18,9 @@ final class MapKitRouteDrawable: RouteDrawable {
     self.mapProvider = mapProvider
   }
   
-  func draw(route polyLineString: String)  {
+  func draw(route polyLineString: String?)  {
     removeRoute()
+    guard let polyLineString = polyLineString else { return }
     let polyline = Polyline(encodedPolyline: polyLineString)
     guard let route = polyline.mkPolyline else { return }
     let mkPolyline = MKPolyline(coordinates: route.coordinates, count: route.pointCount)

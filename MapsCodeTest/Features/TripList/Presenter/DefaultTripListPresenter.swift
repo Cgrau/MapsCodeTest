@@ -1,5 +1,9 @@
 import UIKit
 
+private enum Constants {
+  static let incompleteTrip = "Incomplete Info on the selected trip"
+}
+
 class DefaultTripListPresenter: TripListPresenter {
   
   weak var ui: TripListUI?
@@ -15,6 +19,16 @@ class DefaultTripListPresenter: TripListPresenter {
   func didLoad() {
     ui?.showLoading()
     interactor.getTrips()
+  }
+  
+  func select(trip: Trip) {
+    guard let route = trip.route, let driverName = trip.driverName, let description = trip.description else {
+      ui?.show(error: Constants.incompleteTrip)
+      return
+    }
+    ui?.show(route: route,
+             driverName: driverName,
+             description: description)
   }
 }
 

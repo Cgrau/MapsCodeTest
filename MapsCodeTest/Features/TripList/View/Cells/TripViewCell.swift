@@ -1,32 +1,27 @@
 import UIKit
 
-private enum Constants {
-  static let headerFontSize: CGFloat = 20
-  static let regularFontSize: CGFloat = 14
-}
-
 final class TripViewCell: TableViewCell {
   private var driverNameLabel: UILabel = {
     let label = UILabel()
-    label.font = UIFont.boldSystemFont(ofSize: Constants.headerFontSize)
+    label.font = UIFont.boldSystemFont(ofSize: FontSize.header)
     return label
   }()
   
   private var descriptionLabel: UILabel = {
     let label = UILabel()
-    label.font = label.font.withSize(Constants.regularFontSize)
+    label.font = label.font.withSize(FontSize.regular)
     return label
   }()
   
   private var startTimeLabel: UILabel = {
     let label = UILabel()
-    label.font = label.font.withSize(Constants.regularFontSize)
+    label.font = label.font.withSize(FontSize.regular)
     return label
   }()
   
   private var endTimeLabel: UILabel = {
     let label = UILabel()
-    label.font = label.font.withSize(Constants.regularFontSize)
+    label.font = label.font.withSize(FontSize.regular)
     return label
   }()
   
@@ -51,7 +46,7 @@ final class TripViewCell: TableViewCell {
   
   private var statusLabel: UILabel = {
     let label = UILabel()
-    label.font = label.font.withSize(Constants.regularFontSize)
+    label.font = label.font.withSize(FontSize.regular)
     return label
   }()
   

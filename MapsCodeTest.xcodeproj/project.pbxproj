@@ -70,6 +70,8 @@
 		2C2A3AD624557D5F00D76132 /* UIViewController+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3AD524557D5F00D76132 /* UIViewController+Loading.swift */; };
 		2C2A3AD8245580E600D76132 /* UIViewController+ShowErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3AD7245580E600D76132 /* UIViewController+ShowErrorMessage.swift */; };
 		2C2A3ADA2455828D00D76132 /* TripListInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3AD92455828D00D76132 /* TripListInteractorSpec.swift */; };
+		2C95D24524558AC40043EEDB /* MapKitProvider+Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C95D24424558AC40043EEDB /* MapKitProvider+Overlay.swift */; };
+		2C95D248245591540043EEDB /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C95D247245591540043EEDB /* FontSize.swift */; };
 		631B63B5D09F273C8C6AC1DF /* Pods_MapsCodeTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33977991E22538C6028CBFCD /* Pods_MapsCodeTestTests.framework */; };
 		B2202508F3AE43381E0DBBAD /* Pods_MapsCodeTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EC09DBA751C20C9BB63CDBD /* Pods_MapsCodeTest.framework */; };
 /* End PBXBuildFile section */
@@ -162,6 +164,8 @@
 		2C2A3AD524557D5F00D76132 /* UIViewController+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Loading.swift"; sourceTree = "<group>"; };
 		2C2A3AD7245580E600D76132 /* UIViewController+ShowErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ShowErrorMessage.swift"; sourceTree = "<group>"; };
 		2C2A3AD92455828D00D76132 /* TripListInteractorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListInteractorSpec.swift; sourceTree = "<group>"; };
+		2C95D24424558AC40043EEDB /* MapKitProvider+Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapKitProvider+Overlay.swift"; sourceTree = "<group>"; };
+		2C95D247245591540043EEDB /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
 		33977991E22538C6028CBFCD /* Pods_MapsCodeTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapsCodeTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E03198628B2289CB63B8E0C /* Pods-MapsCodeTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsCodeTestTests.release.xcconfig"; path = "Target Support Files/Pods-MapsCodeTestTests/Pods-MapsCodeTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		9EC09DBA751C20C9BB63CDBD /* Pods_MapsCodeTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapsCodeTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -293,6 +297,7 @@
 				2C2A3A3A24542E1400D76132 /* View.swift */,
 				2C2A3AC42454934D00D76132 /* TableViewCell.swift */,
 				2C2A3AC6245493CE00D76132 /* TableViewCell+ReuseIdentifier.swift */,
+				2C95D247245591540043EEDB /* FontSize.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -413,6 +418,7 @@
 			children = (
 				2C2A3A512454306E00D76132 /* MapKitRouteDrawable.swift */,
 				2C2A3A4724542FCE00D76132 /* MapKitProvider.swift */,
+				2C95D24424558AC40043EEDB /* MapKitProvider+Overlay.swift */,
 			);
 			path = MapKit;
 			sourceTree = "<group>";
@@ -1018,6 +1024,7 @@
 				2C2A3A8C245441D500D76132 /* PrimitiveSequence+CustomError.swift in Sources */,
 				2C2A3A3824542D8B00D76132 /* AutoMockable.swift in Sources */,
 				2C2A3A722454375C00D76132 /* DefaultTripListPresenter.swift in Sources */,
+				2C95D24524558AC40043EEDB /* MapKitProvider+Overlay.swift in Sources */,
 				2C2A3A7D24543EE500D76132 /* Service.swift in Sources */,
 				2C2A3A6C2454375C00D76132 /* TripListViewController.swift in Sources */,
 				2C2A3AD8245580E600D76132 /* UIViewController+ShowErrorMessage.swift in Sources */,
@@ -1025,6 +1032,7 @@
 				2C2A3A862454408100D76132 /* Mappable.swift in Sources */,
 				2C2A3ABA24544D9200D76132 /* NetworkAssembly+MapServices.swift in Sources */,
 				2C2A3A542454309F00D76132 /* Polyline.swift in Sources */,
+				2C95D248245591540043EEDB /* FontSize.swift in Sources */,
 				2C2A3A6B2454375C00D76132 /* TripListPresenter.swift in Sources */,
 				2C2A3A3B24542E1400D76132 /* View.swift in Sources */,
 				2C2A3A712454375C00D76132 /* TripListUI.swift in Sources */,

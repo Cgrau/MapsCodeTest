@@ -23,6 +23,18 @@ final class TripListPresenterSpec: XCTestCase {
     XCTAssertTrue(interactor.getTripsCalled)
   }
   
+  func test_select_trip_OK() {
+    sut.select(trip: Trip.mock)
+    XCTAssertTrue(ui.showRouteDriverNameDescriptionCalled)
+    XCTAssertFalse(ui.showErrorCalled)
+  }
+  
+  func test_select_trip_KO() {
+    sut.select(trip: Trip.incompleteTrip)
+    XCTAssertFalse(ui.showRouteDriverNameDescriptionCalled)
+    XCTAssertTrue(ui.showErrorCalled)
+  }
+  
   func test_did_load_trips() {
     sut.didLoad(trips: [Trip.mock])
     XCTAssertTrue(ui.hideLoadingCalled)

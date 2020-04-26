@@ -55,4 +55,16 @@ extension Trip {
                 startTime: "12:00",
                 endTime: "13:00")
   }
+  
+  static var incompleteTrip: Trip {
+    return Trip(description: nil,
+                driverName: nil,
+                route: nil,
+                status: nil,
+                origin: nil,
+                stops: nil,
+                destination: nil,
+                startTime: nil,
+                endTime: nil)
+  }
 }

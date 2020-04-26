@@ -32,10 +32,18 @@ extension TripListViewController: TripListUI {
   func hideLoading() {
     hideLoadingView()
   }
+  
+  func show(route: String,
+            driverName: String,
+            description: String) {
+    mainView?.draw(selectedRoute: route)
+    mainView?.display(driverName: driverName,
+                      description: description)
+  }
 }
 
 extension TripListViewController: TripListViewDelegate {
-  func didSelect(trip: Trip) {
-    //
+  func didTapOn(trip: Trip) {
+    presenter?.select(trip: trip)
   }
 }

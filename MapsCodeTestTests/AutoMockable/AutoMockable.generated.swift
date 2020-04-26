@@ -111,10 +111,10 @@ class RouteDrawableMock: NSObject, RouteDrawable {
         return drawRouteCallsCount > 0
     }
     private(set) var drawRouteReceivedPolyLineString: String?
-    private(set) var drawRouteReceivedInvocations: [String] = []
-    var drawRouteClosure: ((String) -> Void)?
+    private(set) var drawRouteReceivedInvocations: [String?] = []
+    var drawRouteClosure: ((String?) -> Void)?
 
-    func draw(route polyLineString: String) {
+    func draw(route polyLineString: String?) {
         drawRouteCallsCount += 1
         drawRouteReceivedPolyLineString = polyLineString
         drawRouteReceivedInvocations.append(polyLineString)
@@ -221,6 +221,23 @@ class TripListPresenterMock: NSObject, TripListPresenter {
         didLoadClosure?()
     }
 
+    //MARK: - select
+
+    private(set) var selectTripCallsCount = 0
+    var selectTripCalled: Bool {
+        return selectTripCallsCount > 0
+    }
+    private(set) var selectTripReceivedTrip: Trip?
+    private(set) var selectTripReceivedInvocations: [Trip] = []
+    var selectTripClosure: ((Trip) -> Void)?
+
+    func select(trip: Trip) {
+        selectTripCallsCount += 1
+        selectTripReceivedTrip = trip
+        selectTripReceivedInvocations.append(trip)
+        selectTripClosure?(trip)
+    }
+
 }
 class TripListUIMock: NSObject, TripListUI {
 
@@ -282,6 +299,23 @@ class TripListUIMock: NSObject, TripListUI {
     func hideLoading() {
         hideLoadingCallsCount += 1
         hideLoadingClosure?()
+    }
+
+    //MARK: - show
+
+    private(set) var showRouteDriverNameDescriptionCallsCount = 0
+    var showRouteDriverNameDescriptionCalled: Bool {
+        return showRouteDriverNameDescriptionCallsCount > 0
+    }
+    private(set) var showRouteDriverNameDescriptionReceivedArguments: (route: String, driverName: String, description: String)?
+    private(set) var showRouteDriverNameDescriptionReceivedInvocations: [(route: String, driverName: String, description: String)] = []
+    var showRouteDriverNameDescriptionClosure: ((String, String, String) -> Void)?
+
+    func show(route: String,            driverName: String,            description: String) {
+        showRouteDriverNameDescriptionCallsCount += 1
+        showRouteDriverNameDescriptionReceivedArguments = (route: route, driverName: driverName, description: description)
+        showRouteDriverNameDescriptionReceivedInvocations.append((route: route, driverName: driverName, description: description))
+        showRouteDriverNameDescriptionClosure?(route, driverName, description)
     }
 
 }

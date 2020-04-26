@@ -11,6 +11,8 @@ final class MapKitProvider: NSObject, MapProvider, MKMapViewDelegate {
   
   override init() {
     super.init()
+    guard let mapView = mapView as? MKMapView else { fatalError() }
+    mapView.delegate = self
     showUserLocation()
   }
 

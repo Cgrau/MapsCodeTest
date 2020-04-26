@@ -1,12 +1,18 @@
 import SnapKit
 
 protocol TripListViewDelegate: class {
-  func didSelect(trip: Trip)
+  func didTapOn(trip: Trip)
 }
 
 private enum Constants {
   static let mapBottomInset = CGFloat(6.0)
-  static let horizontalSpacing: CGFloat = 8
+  enum Spacing {
+    static let vertical: CGFloat = 32
+    static let horizontal: CGFloat = 8
+    static let small: CGFloat = 4
+  }
+  static let cornerRadius: CGFloat = 10
+  static let borderWidth: CGFloat = 1
   static let tableDivider = 3
 }
 
@@ -32,11 +38,35 @@ class TripListView: View {
     return tableView
   }()
   
+  private var infoView: UIView = {
+    let view = UIView()
+    view.layer.cornerRadius = Constants.cornerRadius
+    view.layer.borderColor = UIColor.blue.cgColor
+    view.layer.borderWidth = Constants.borderWidth
+    view.backgroundColor = .white
+    return view
+  }()
+  
+  private var driverNameLabel: UILabel = {
+    let label = UILabel()
+    label.textColor = .blue
+    label.font = UIFont.boldSystemFont(ofSize: FontSize.regular)
+    return label
+  }()
+  
+  private var routeNameLabel: UILabel = {
+    let label = UILabel()
+    label.textColor = .blue
+    label.font = UIFont.systemFont(ofSize: FontSize.small)
+    return label
+  }()
+  
   // MARK: View Functions
   override func setupView() {
     addSubview(tableView)
     tableView.register(TripViewCell.self)
     tableView.dataSource = self
+    tableView.delegate = self
   }
   
   override func setupConstraints() {
@@ -56,14 +86,25 @@ class TripListView: View {
     setupMap()
   }
   
+  func draw(selectedRoute: String) {
+    routeDrawable?.draw(route: selectedRoute)
+  }
+  
+  func display(driverName: String, description: String) {
+    infoView.alpha = 1
+    driverNameLabel.text = driverName
+    routeNameLabel.text = description
+  }
+  
   private func setupMap() {
     guard let mapView = mapView else { return }
     addSubview(mapView)
+    addInfoView(into: mapView)
     sendSubviewToBack(mapView)
     mapView.layoutMargins = UIEdgeInsets(top: .zero,
-                                         left: Constants.horizontalSpacing,
+                                         left: Constants.Spacing.horizontal,
                                          bottom: -Constants.mapBottomInset,
-                                         right: Constants.horizontalSpacing)
+                                         right: Constants.Spacing.horizontal)
     mapView.snp.makeConstraints { make in
       make.top.equalToSuperview()
       make.leading.equalToSuperview()
@@ -71,6 +112,28 @@ class TripListView: View {
       make.bottom.equalTo(tableView.snp.top)
     }
     mapView.backgroundColor = .blue
+  }
+  
+  private func addInfoView(into view: UIView) {
+    infoView.addSubview(driverNameLabel)
+    infoView.addSubview(routeNameLabel)
+    view.addSubview(infoView)
+    infoView.alpha = .zero
+    driverNameLabel.snp.makeConstraints { make in
+      make.top.equalToSuperview().offset(Constants.Spacing.small)
+      make.leading.equalTo(infoView).offset(Constants.Spacing.small)
+      make.trailing.equalTo(infoView).offset(-Constants.Spacing.small)
+    }
+    routeNameLabel.snp.makeConstraints { make in
+      make.top.equalTo(driverNameLabel.snp.bottom)
+      make.leading.equalTo(driverNameLabel)
+      make.trailing.equalTo(driverNameLabel)
+      make.bottom.equalToSuperview().offset(-Constants.Spacing.small)
+    }
+    infoView.snp.makeConstraints { make in
+      make.top.equalTo(view).offset(Constants.Spacing.vertical)
+      make.leading.equalTo(view).offset(Constants.Spacing.horizontal)
+    }
   }
 }
 
@@ -103,6 +166,6 @@ extension TripListView: UITableViewDataSource {
 extension TripListView: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let selectedTrip = trips[indexPath.row]
-    delegate?.didSelect(trip: selectedTrip)
+    delegate?.didTapOn(trip: selectedTrip)
   }
 }
