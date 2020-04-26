@@ -9,6 +9,7 @@ import Foundation
 import CoreLocation
 #if os(iOS) || os(tvOS) || os(watchOS)
 import UIKit
+import RxSwift
 #elseif os(OSX)
 import AppKit
 #endif
@@ -26,6 +27,23 @@ import AppKit
 
 
 
+class GetTripsUseCaseMock: NSObject, GetTripsUseCase {
+
+    //MARK: - execute
+
+    private(set) var executeCallsCount = 0
+    var executeCalled: Bool {
+        return executeCallsCount > 0
+    }
+    var executeReturnValue: Single<[Trip]>!
+    var executeClosure: (() -> Single<[Trip]>)?
+
+    func execute() -> Single<[Trip]> {
+        executeCallsCount += 1
+        return executeClosure.map({ $0() }) ?? executeReturnValue
+    }
+
+}
 class MapProviderMock: NSObject, MapProvider {
     var mapView: UIView {
         get { return underlyingMapView }
@@ -153,21 +171,21 @@ class TripListInteractorDelegateMock: NSObject, TripListInteractorDelegate {
         didLoadTripsClosure?(trips)
     }
 
-    //MARK: - didFailLoaingTrips
+    //MARK: - didFailLoadingTrips
 
-    private(set) var didFailLoaingTripsErrorCallsCount = 0
-    var didFailLoaingTripsErrorCalled: Bool {
-        return didFailLoaingTripsErrorCallsCount > 0
+    private(set) var didFailLoadingTripsErrorCallsCount = 0
+    var didFailLoadingTripsErrorCalled: Bool {
+        return didFailLoadingTripsErrorCallsCount > 0
     }
-    private(set) var didFailLoaingTripsErrorReceivedError: Error?
-    private(set) var didFailLoaingTripsErrorReceivedInvocations: [Error] = []
-    var didFailLoaingTripsErrorClosure: ((Error) -> Void)?
+    private(set) var didFailLoadingTripsErrorReceivedError: Error?
+    private(set) var didFailLoadingTripsErrorReceivedInvocations: [Error] = []
+    var didFailLoadingTripsErrorClosure: ((Error) -> Void)?
 
-    func didFailLoaingTrips(error: Error) {
-        didFailLoaingTripsErrorCallsCount += 1
-        didFailLoaingTripsErrorReceivedError = error
-        didFailLoaingTripsErrorReceivedInvocations.append(error)
-        didFailLoaingTripsErrorClosure?(error)
+    func didFailLoadingTrips(error: Error) {
+        didFailLoadingTripsErrorCallsCount += 1
+        didFailLoadingTripsErrorReceivedError = error
+        didFailLoadingTripsErrorReceivedInvocations.append(error)
+        didFailLoadingTripsErrorClosure?(error)
     }
 
 }
@@ -225,19 +243,45 @@ class TripListUIMock: NSObject, TripListUI {
 
     //MARK: - show
 
-    private(set) var showErrorMessageCallsCount = 0
-    var showErrorMessageCalled: Bool {
-        return showErrorMessageCallsCount > 0
+    private(set) var showErrorCallsCount = 0
+    var showErrorCalled: Bool {
+        return showErrorCallsCount > 0
     }
-    private(set) var showErrorMessageReceivedErrorMessage: String?
-    private(set) var showErrorMessageReceivedInvocations: [String] = []
-    var showErrorMessageClosure: ((String) -> Void)?
+    private(set) var showErrorReceivedError: String?
+    private(set) var showErrorReceivedInvocations: [String] = []
+    var showErrorClosure: ((String) -> Void)?
 
-    func show(errorMessage: String) {
-        showErrorMessageCallsCount += 1
-        showErrorMessageReceivedErrorMessage = errorMessage
-        showErrorMessageReceivedInvocations.append(errorMessage)
-        showErrorMessageClosure?(errorMessage)
+    func show(error: String) {
+        showErrorCallsCount += 1
+        showErrorReceivedError = error
+        showErrorReceivedInvocations.append(error)
+        showErrorClosure?(error)
+    }
+
+    //MARK: - showLoading
+
+    private(set) var showLoadingCallsCount = 0
+    var showLoadingCalled: Bool {
+        return showLoadingCallsCount > 0
+    }
+    var showLoadingClosure: (() -> Void)?
+
+    func showLoading() {
+        showLoadingCallsCount += 1
+        showLoadingClosure?()
+    }
+
+    //MARK: - hideLoading
+
+    private(set) var hideLoadingCallsCount = 0
+    var hideLoadingCalled: Bool {
+        return hideLoadingCallsCount > 0
+    }
+    var hideLoadingClosure: (() -> Void)?
+
+    func hideLoading() {
+        hideLoadingCallsCount += 1
+        hideLoadingClosure?()
     }
 
 }

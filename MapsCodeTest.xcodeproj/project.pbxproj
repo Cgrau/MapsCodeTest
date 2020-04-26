@@ -65,6 +65,11 @@
 		2C2A3AC7245493CE00D76132 /* TableViewCell+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3AC6245493CE00D76132 /* TableViewCell+ReuseIdentifier.swift */; };
 		2C2A3ACE2454A14E00D76132 /* TripListViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3ACD2454A14E00D76132 /* TripListViewSpec.swift */; };
 		2C2A3AD02454A21900D76132 /* XCTestCase+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3ACF2454A21900D76132 /* XCTestCase+UIViewController.swift */; };
+		2C2A3AD224557BB400D76132 /* TripListPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3AD124557BB400D76132 /* TripListPresenterSpec.swift */; };
+		2C2A3AD424557D0C00D76132 /* Error+Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3AD324557D0C00D76132 /* Error+Message.swift */; };
+		2C2A3AD624557D5F00D76132 /* UIViewController+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3AD524557D5F00D76132 /* UIViewController+Loading.swift */; };
+		2C2A3AD8245580E600D76132 /* UIViewController+ShowErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3AD7245580E600D76132 /* UIViewController+ShowErrorMessage.swift */; };
+		2C2A3ADA2455828D00D76132 /* TripListInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3AD92455828D00D76132 /* TripListInteractorSpec.swift */; };
 		631B63B5D09F273C8C6AC1DF /* Pods_MapsCodeTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33977991E22538C6028CBFCD /* Pods_MapsCodeTestTests.framework */; };
 		B2202508F3AE43381E0DBBAD /* Pods_MapsCodeTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EC09DBA751C20C9BB63CDBD /* Pods_MapsCodeTest.framework */; };
 /* End PBXBuildFile section */
@@ -152,6 +157,11 @@
 		2C2A3AC6245493CE00D76132 /* TableViewCell+ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewCell+ReuseIdentifier.swift"; sourceTree = "<group>"; };
 		2C2A3ACD2454A14E00D76132 /* TripListViewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListViewSpec.swift; sourceTree = "<group>"; };
 		2C2A3ACF2454A21900D76132 /* XCTestCase+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+UIViewController.swift"; sourceTree = "<group>"; };
+		2C2A3AD124557BB400D76132 /* TripListPresenterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListPresenterSpec.swift; sourceTree = "<group>"; };
+		2C2A3AD324557D0C00D76132 /* Error+Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Message.swift"; sourceTree = "<group>"; };
+		2C2A3AD524557D5F00D76132 /* UIViewController+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Loading.swift"; sourceTree = "<group>"; };
+		2C2A3AD7245580E600D76132 /* UIViewController+ShowErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ShowErrorMessage.swift"; sourceTree = "<group>"; };
+		2C2A3AD92455828D00D76132 /* TripListInteractorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListInteractorSpec.swift; sourceTree = "<group>"; };
 		33977991E22538C6028CBFCD /* Pods_MapsCodeTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapsCodeTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E03198628B2289CB63B8E0C /* Pods-MapsCodeTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapsCodeTestTests.release.xcconfig"; path = "Target Support Files/Pods-MapsCodeTestTests/Pods-MapsCodeTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		9EC09DBA751C20C9BB63CDBD /* Pods_MapsCodeTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapsCodeTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -427,6 +437,8 @@
 			isa = PBXGroup;
 			children = (
 				2C2A3A7524543E7300D76132 /* String+MapToDateString.swift */,
+				2C2A3AD524557D5F00D76132 /* UIViewController+Loading.swift */,
+				2C2A3AD7245580E600D76132 /* UIViewController+ShowErrorMessage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -473,6 +485,7 @@
 			children = (
 				2C2A3A87245440C000D76132 /* ErrorAdapter.swift */,
 				2C2A3A89245440DE00D76132 /* DefaultErrorAdapter.swift */,
+				2C2A3AD324557D0C00D76132 /* Error+Message.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -689,6 +702,7 @@
 		2C2A3ACB2454A11E00D76132 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				2C2A3AD124557BB400D76132 /* TripListPresenterSpec.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -696,6 +710,7 @@
 		2C2A3ACC2454A12400D76132 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				2C2A3AD92455828D00D76132 /* TripListInteractorSpec.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -1005,6 +1020,7 @@
 				2C2A3A722454375C00D76132 /* DefaultTripListPresenter.swift in Sources */,
 				2C2A3A7D24543EE500D76132 /* Service.swift in Sources */,
 				2C2A3A6C2454375C00D76132 /* TripListViewController.swift in Sources */,
+				2C2A3AD8245580E600D76132 /* UIViewController+ShowErrorMessage.swift in Sources */,
 				2C2A3A5C245434C300D76132 /* Assembly.swift in Sources */,
 				2C2A3A862454408100D76132 /* Mappable.swift in Sources */,
 				2C2A3ABA24544D9200D76132 /* NetworkAssembly+MapServices.swift in Sources */,
@@ -1024,6 +1040,7 @@
 				2C2A3A842454407200D76132 /* Endpoint.swift in Sources */,
 				2C2A3A9A24544AF700D76132 /* MapDataSource.swift in Sources */,
 				2C2A3AA924544BA800D76132 /* GetTrips.swift in Sources */,
+				2C2A3AD424557D0C00D76132 /* Error+Message.swift in Sources */,
 				2C2A3AA524544B7D00D76132 /* TripsApiToDomainMapper.swift in Sources */,
 				2C2A3A8E245441EA00D76132 /* TargetType+Default.swift in Sources */,
 				2C2A3AA724544B9A00D76132 /* GetTripsUseCase.swift in Sources */,
@@ -1032,6 +1049,7 @@
 				2C2A3A912454499300D76132 /* NetworkAssembly+ErrorAdapter.swift in Sources */,
 				2C2A3A4A24542FE700D76132 /* MapProvider.swift in Sources */,
 				2C2A3A6D2454375C00D76132 /* DefaultTripListInteractor.swift in Sources */,
+				2C2A3AD624557D5F00D76132 /* UIViewController+Loading.swift in Sources */,
 				2C2A3A9D24544B1300D76132 /* MapApiDataSource.swift in Sources */,
 				2C2A3A8A245440DE00D76132 /* DefaultErrorAdapter.swift in Sources */,
 				2C2A3A732454375C00D76132 /* TripListProvider.swift in Sources */,
@@ -1054,9 +1072,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C2A3ADA2455828D00D76132 /* TripListInteractorSpec.swift in Sources */,
 				2C2A3A18245429BE00D76132 /* MapsCodeTestTests.swift in Sources */,
 				2C2A3ABD24544E4100D76132 /* Fixture.swift in Sources */,
 				2C2A3ACE2454A14E00D76132 /* TripListViewSpec.swift in Sources */,
+				2C2A3AD224557BB400D76132 /* TripListPresenterSpec.swift in Sources */,
 				2C2A3AD02454A21900D76132 /* XCTestCase+UIViewController.swift in Sources */,
 				2C2A3A3424542D5F00D76132 /* AutoMockable.generated.swift in Sources */,
 				2C2A3AB724544D4600D76132 /* MapsSpec.swift in Sources */,

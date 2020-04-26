@@ -1,7 +1,7 @@
 import SnapKit
 
 protocol TripListViewDelegate: class {
-  func didTapButton()
+  func didSelect(trip: Trip)
 }
 
 private enum Constants {
@@ -97,5 +97,12 @@ extension TripListView: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
     return UITableView.automaticDimension
+  }
+}
+
+extension TripListView: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let selectedTrip = trips[indexPath.row]
+    delegate?.didSelect(trip: selectedTrip)
   }
 }

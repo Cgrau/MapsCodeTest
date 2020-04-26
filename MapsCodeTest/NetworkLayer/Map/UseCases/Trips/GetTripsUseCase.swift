@@ -1,5 +1,5 @@
 import RxSwift
 
-public protocol GetTripsUseCase {
+public protocol GetTripsUseCase: AutoMockable {
   func execute() -> Single<[Trip]>
 }

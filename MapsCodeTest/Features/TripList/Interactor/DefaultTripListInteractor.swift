@@ -2,7 +2,7 @@ import RxSwift
 
 protocol TripListInteractorDelegate: class, AutoMockable {
   func didLoad(trips: [Trip])
-  func didFailLoaingTrips(error: Error)
+  func didFailLoadingTrips(error: Error)
 }
 
 class DefaultTripListInteractor: TripListInteractor{
@@ -20,7 +20,7 @@ class DefaultTripListInteractor: TripListInteractor{
     getTripsUseCase.execute().subscribe(onSuccess: { [weak self] trips in
       self?.delegate?.didLoad(trips: trips)
     }) { [weak self] error in
-      self?.delegate?.didFailLoaingTrips(error: error)
+      self?.delegate?.didFailLoadingTrips(error: error)
     }.disposed(by: bag)
   }
 }

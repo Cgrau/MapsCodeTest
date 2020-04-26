@@ -21,14 +21,21 @@ extension TripListViewController: TripListUI {
     mainView?.trips = trips
   }
   
-  func show(errorMessage: String) {
-    //show alert with error
+  func show(error: String) {
+    show(errorMessage: error)
+  }
+  
+  func showLoading() {
+    showLoadingView()
+  }
+  
+  func hideLoading() {
+    hideLoadingView()
   }
 }
 
 extension TripListViewController: TripListViewDelegate {
-  
-  func didTapButton() {
-    //call presenter
+  func didSelect(trip: Trip) {
+    //
   }
 }
