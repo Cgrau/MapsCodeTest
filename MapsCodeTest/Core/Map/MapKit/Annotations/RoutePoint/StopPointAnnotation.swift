@@ -7,9 +7,11 @@ final class StopPointAnnotation: NSObject, MapKitAnnotation {
   weak var delegate: AnnotationDelegate?
   
   init(id: Int,
-       coordinate: CLLocationCoordinate2D) {
+       latitude: Double,
+       longitude: Double) {
     self.id = id
-    self.coordinate = coordinate
+    self.coordinate = CLLocationCoordinate2D(latitude: latitude,
+                                             longitude: longitude)
     super.init()
   }
   

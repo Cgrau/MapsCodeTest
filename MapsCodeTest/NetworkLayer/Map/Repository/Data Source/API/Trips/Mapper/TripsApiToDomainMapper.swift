@@ -31,22 +31,19 @@ struct TripsApiToDomainMapper: Mappable {
   private func map(stops: [TripStopApiResponse]?) -> [TripStop]? {
     guard let stops = stops else { return nil }
     return stops.map({ TripStop(id: $0.id,
-                                point: TripPoint(coordinates: map(point: $0.point))) })
+                                point: TripPoint(longitude: $0.point?.longitude,
+                                                 latitude: $0.point?.latitude)) })
   }
   
   private func map(destination: DestinationApiResponse?) -> TripDestination? {
     guard let destination = destination else { return nil }
     return TripDestination(address: destination.address,
-                           point: TripPoint(coordinates: map(point: destination.point)))
+                           point: TripPoint(longitude: destination.point?.longitude,
+                                            latitude: destination.point?.latitude))
   }
   
   private func decode(jsonDecoder: JSONDecoder, data: Data) throws -> [Trip] {
     let response = try jsonDecoder.decode(TripsApiResponse.self, from: data)
     return try map(response)
-  }
-  
-  private func map(point: PointApiResponse?) -> CLLocationCoordinate2D? {
-    guard let latitude = point?.latitude, let longitude = point?.longitude else { return nil }
-    return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
   }
 }

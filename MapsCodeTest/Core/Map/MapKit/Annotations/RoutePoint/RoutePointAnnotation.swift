@@ -5,8 +5,9 @@ final class RoutePointAnnotation: NSObject, MapKitAnnotation {
   var coordinate: CLLocationCoordinate2D
   weak var delegate: AnnotationDelegate?
   
-  init(coordinate: CLLocationCoordinate2D) {
-    self.coordinate = coordinate
+  init(latitude: Double, longitude: Double) {
+    self.coordinate = CLLocationCoordinate2D(latitude: latitude,
+                                             longitude: longitude)
     super.init()
   }
 }

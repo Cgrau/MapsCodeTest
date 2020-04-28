@@ -73,6 +73,13 @@
 		2C5A1CF72458336B00F597E9 /* TripModelMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5A1CF62458336B00F597E9 /* TripModelMocks.swift */; };
 		2C7414622458391500FB071C /* StopPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7414612458391500FB071C /* StopPointAnnotation.swift */; };
 		2C74146424583F7100FB071C /* MapKitProvider+Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74146324583F7100FB071C /* MapKitProvider+Annotation.swift */; };
+		2C7414722458626C00FB071C /* StopRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7414712458626C00FB071C /* StopRequest.swift */; };
+		2C7414742458627A00FB071C /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7414732458627A00FB071C /* Stop.swift */; };
+		2C741476245895A500FB071C /* StopEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C741475245895A500FB071C /* StopEndpoint.swift */; };
+		2C7414782458961C00FB071C /* StopApiToDomainMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7414772458961C00FB071C /* StopApiToDomainMapper.swift */; };
+		2C74147A2458962B00FB071C /* StopApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7414792458962B00FB071C /* StopApiResponse.swift */; };
+		2C74147C2458966A00FB071C /* GetStopUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74147B2458966A00FB071C /* GetStopUseCase.swift */; };
+		2C74147E2458967C00FB071C /* GetStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74147D2458967C00FB071C /* GetStop.swift */; };
 		2C95D24524558AC40043EEDB /* MapKitProvider+Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C95D24424558AC40043EEDB /* MapKitProvider+Overlay.swift */; };
 		2C95D248245591540043EEDB /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C95D247245591540043EEDB /* FontSize.swift */; };
 		2C95D24B2456D97C0043EEDB /* AnnotationDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C95D24A2456D97C0043EEDB /* AnnotationDrawable.swift */; };
@@ -175,6 +182,13 @@
 		2C5A1CF62458336B00F597E9 /* TripModelMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModelMocks.swift; sourceTree = "<group>"; };
 		2C7414612458391500FB071C /* StopPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopPointAnnotation.swift; sourceTree = "<group>"; };
 		2C74146324583F7100FB071C /* MapKitProvider+Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapKitProvider+Annotation.swift"; sourceTree = "<group>"; };
+		2C7414712458626C00FB071C /* StopRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopRequest.swift; sourceTree = "<group>"; };
+		2C7414732458627A00FB071C /* Stop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
+		2C741475245895A500FB071C /* StopEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopEndpoint.swift; sourceTree = "<group>"; };
+		2C7414772458961C00FB071C /* StopApiToDomainMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopApiToDomainMapper.swift; sourceTree = "<group>"; };
+		2C7414792458962B00FB071C /* StopApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopApiResponse.swift; sourceTree = "<group>"; };
+		2C74147B2458966A00FB071C /* GetStopUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStopUseCase.swift; sourceTree = "<group>"; };
+		2C74147D2458967C00FB071C /* GetStop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStop.swift; sourceTree = "<group>"; };
 		2C95D24424558AC40043EEDB /* MapKitProvider+Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapKitProvider+Overlay.swift"; sourceTree = "<group>"; };
 		2C95D247245591540043EEDB /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
 		2C95D24A2456D97C0043EEDB /* AnnotationDrawable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationDrawable.swift; sourceTree = "<group>"; };
@@ -560,6 +574,7 @@
 			children = (
 				2C2A3AAA24544BD600D76132 /* MapService.swift */,
 				2C2A3AAC24544BE900D76132 /* Trips */,
+				2C7414692458621C00FB071C /* Stop */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -578,6 +593,7 @@
 			children = (
 				2C2A3A9C24544B1300D76132 /* MapApiDataSource.swift */,
 				2C2A3A9E24544B4000D76132 /* Trips */,
+				2C74146D2458624200FB071C /* Stop */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -611,6 +627,7 @@
 			isa = PBXGroup;
 			children = (
 				2C2A3AB324544CD800D76132 /* Trips */,
+				2C7414682458620100FB071C /* Stop */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -748,6 +765,74 @@
 				2C5A1CF62458336B00F597E9 /* TripModelMocks.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		2C7414682458620100FB071C /* Stop */ = {
+			isa = PBXGroup;
+			children = (
+				2C74147B2458966A00FB071C /* GetStopUseCase.swift */,
+				2C74147D2458967C00FB071C /* GetStop.swift */,
+			);
+			path = Stop;
+			sourceTree = "<group>";
+		};
+		2C7414692458621C00FB071C /* Stop */ = {
+			isa = PBXGroup;
+			children = (
+				2C7414702458626300FB071C /* Request */,
+				2C74146A2458622B00FB071C /* Model */,
+				2C74146C2458623500FB071C /* Endpoint */,
+			);
+			path = Stop;
+			sourceTree = "<group>";
+		};
+		2C74146A2458622B00FB071C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2C7414732458627A00FB071C /* Stop.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2C74146C2458623500FB071C /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				2C741475245895A500FB071C /* StopEndpoint.swift */,
+			);
+			path = Endpoint;
+			sourceTree = "<group>";
+		};
+		2C74146D2458624200FB071C /* Stop */ = {
+			isa = PBXGroup;
+			children = (
+				2C74146E2458624B00FB071C /* Mapper */,
+				2C74146F2458624F00FB071C /* Model */,
+			);
+			path = Stop;
+			sourceTree = "<group>";
+		};
+		2C74146E2458624B00FB071C /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				2C7414772458961C00FB071C /* StopApiToDomainMapper.swift */,
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
+		2C74146F2458624F00FB071C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2C7414792458962B00FB071C /* StopApiResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2C7414702458626300FB071C /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				2C7414712458626C00FB071C /* StopRequest.swift */,
+			);
+			path = Request;
 			sourceTree = "<group>";
 		};
 		2C95D2492456D96A0043EEDB /* Annotations */ = {
@@ -1112,7 +1197,9 @@
 				2C2A3A542454309F00D76132 /* Polyline.swift in Sources */,
 				2C95D248245591540043EEDB /* FontSize.swift in Sources */,
 				2C2A3A6B2454375C00D76132 /* TripListPresenter.swift in Sources */,
+				2C74147C2458966A00FB071C /* GetStopUseCase.swift in Sources */,
 				2C2A3A3B24542E1400D76132 /* View.swift in Sources */,
+				2C7414742458627A00FB071C /* Stop.swift in Sources */,
 				2C2A3A712454375C00D76132 /* TripListUI.swift in Sources */,
 				2C2A3A6A2454375C00D76132 /* TripListNavigator.swift in Sources */,
 				2C2A3AB224544C2400D76132 /* TripsEndpoint.swift in Sources */,
@@ -1142,19 +1229,24 @@
 				2C2A3A9D24544B1300D76132 /* MapApiDataSource.swift in Sources */,
 				2C2A3A8A245440DE00D76132 /* DefaultErrorAdapter.swift in Sources */,
 				2C2A3A732454375C00D76132 /* TripListProvider.swift in Sources */,
+				2C7414782458961C00FB071C /* StopApiToDomainMapper.swift in Sources */,
 				2C2A3AC32454931000D76132 /* TripViewCell.swift in Sources */,
 				2C2A3A7F24543F0A00D76132 /* NetworkAssembly.swift in Sources */,
 				2C2A3A01245429BB00D76132 /* AppDelegate.swift in Sources */,
+				2C74147E2458967C00FB071C /* GetStop.swift in Sources */,
 				2C2A3A7624543E7300D76132 /* String+MapToDateString.swift in Sources */,
 				2C2A3A702454375C00D76132 /* TripListView.swift in Sources */,
 				2C2A3A4824542FCE00D76132 /* MapKitProvider.swift in Sources */,
 				2C2A3A88245440C000D76132 /* ErrorAdapter.swift in Sources */,
 				2C2A3A03245429BB00D76132 /* SceneDelegate.swift in Sources */,
 				2C2A3A6F2454375C00D76132 /* DefaultTripListNavigator.swift in Sources */,
+				2C741476245895A500FB071C /* StopEndpoint.swift in Sources */,
 				2C2A3A502454305700D76132 /* RouteDrawable.swift in Sources */,
 				2C2A3AA324544B6900D76132 /* TripsApiResponse.swift in Sources */,
 				2C95D2532456DE5B0043EEDB /* Annotation.swift in Sources */,
 				2C2A3AC52454934D00D76132 /* TableViewCell.swift in Sources */,
+				2C7414722458626C00FB071C /* StopRequest.swift in Sources */,
+				2C74147A2458962B00FB071C /* StopApiResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

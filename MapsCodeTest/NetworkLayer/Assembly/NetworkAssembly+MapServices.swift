@@ -3,6 +3,10 @@ extension NetworkAssembly {
     return GetTrips(repository: mapsRepository)
   }
   
+  public var getStop: GetStopUseCase {
+    return GetStop(repository: mapsRepository)
+  }
+  
   var mapsRepository: MapRepository {
     return MapRepository(apiDataSource: mapsDataSource)
   }
@@ -10,6 +14,7 @@ extension NetworkAssembly {
   private var mapsDataSource: MapDataSource {
     return MapsApiDataSource(provider: moya(),
                              errorAdapter: errorAdapter,
-                             tripsApiToDomainMapper: TripsApiToDomainMapper())
+                             tripsApiToDomainMapper: TripsApiToDomainMapper(),
+                             stopApiToDomainMapper: StopApiToDomainMapper())
   }
 }

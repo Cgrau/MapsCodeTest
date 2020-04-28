@@ -37,9 +37,11 @@ class DefaultTripListInteractor: TripListInteractor {
                    annotationDelegate: AnnotationDelegate) -> [Annotation] {
     return tripPoints.compactMap({
       guard let id = $0.id,
-        let coordinate = $0.point?.coordinates else { return nil }
+        let latitude = $0.point?.latitude,
+        let longitude = $0.point?.longitude else { return nil }
       let stopAnnotation = StopPointAnnotation(id: id,
-                                               coordinate: coordinate)
+                                               latitude: latitude,
+                                               longitude: longitude)
       stopAnnotation.delegate = annotationDelegate
       return stopAnnotation
     })
@@ -54,7 +56,9 @@ class DefaultTripListInteractor: TripListInteractor {
   }
   
   private func routePoint(from point: TripPoint) -> RoutePointAnnotation? {
-    guard let coordinate = point.coordinates else { return nil }
-    return RoutePointAnnotation(coordinate: coordinate)
+    guard let longitude = point.longitude,
+      let latitude = point.latitude else { return nil }
+    return RoutePointAnnotation(latitude: latitude,
+                                longitude: longitude)
   }
 }

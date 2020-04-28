@@ -29,20 +29,21 @@ extension Trip {
 
 extension TripPoint {
   static var mock: TripPoint {
-    let coords = CLLocationCoordinate2D(latitude: 50.2,
-                                        longitude: -3.2)
-    return TripPoint(coordinates: coords)
+    return TripPoint(longitude: 50.2,
+                     latitude: -3.2)
   }
 }
 
 extension TripStop {
   static var mock: TripStop {
-    return TripStop(id: 1, point: TripPoint.mock)
+    return TripStop(id: 1,
+                    point: TripPoint.mock)
   }
 }
 
 extension RoutePointAnnotation {
   static var mock: RoutePointAnnotation {
-    return RoutePointAnnotation(coordinate: CLLocationCoordinate2D(latitude: 50.0, longitude: 2.0))
+    return RoutePointAnnotation(longitude: 50.2,
+                                latitude: -3.2)
   }
 }

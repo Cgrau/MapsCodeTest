@@ -2,6 +2,7 @@ import Moya
 
 enum MapService: TargetType {
   case trips
+  case stop(StopRequest)
 }
 
 extension MapService {
@@ -26,5 +27,7 @@ private func endpoint(for service: MapService) -> Endpoint {
   switch service {
   case .trips:
     return TripsEndpoint()
+  case .stop(let request):
+    return StopEndpoint(request: request)
   }
 }
