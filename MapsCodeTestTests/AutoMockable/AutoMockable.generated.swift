@@ -27,6 +27,48 @@ import AppKit
 
 
 
+class AnnotationMock: NSObject, Annotation {
+    var id: String?
+    var coordinate: CLLocationCoordinate2D {
+        get { return underlyingCoordinate }
+        set(value) { underlyingCoordinate = value }
+    }
+    var underlyingCoordinate: CLLocationCoordinate2D!
+
+}
+class AnnotationDrawableMock: NSObject, AnnotationDrawable {
+
+    //MARK: - add
+
+    private(set) var addAnnotationsCallsCount = 0
+    var addAnnotationsCalled: Bool {
+        return addAnnotationsCallsCount > 0
+    }
+    private(set) var addAnnotationsReceivedAnnotations: [Annotation]?
+    private(set) var addAnnotationsReceivedInvocations: [[Annotation]] = []
+    var addAnnotationsClosure: (([Annotation]) -> Void)?
+
+    func add(annotations: [Annotation]) {
+        addAnnotationsCallsCount += 1
+        addAnnotationsReceivedAnnotations = annotations
+        addAnnotationsReceivedInvocations.append(annotations)
+        addAnnotationsClosure?(annotations)
+    }
+
+    //MARK: - removeAnnotations
+
+    private(set) var removeAnnotationsCallsCount = 0
+    var removeAnnotationsCalled: Bool {
+        return removeAnnotationsCallsCount > 0
+    }
+    var removeAnnotationsClosure: (() -> Void)?
+
+    func removeAnnotations() {
+        removeAnnotationsCallsCount += 1
+        removeAnnotationsClosure?()
+    }
+
+}
 class GetTripsUseCaseMock: NSObject, GetTripsUseCase {
 
     //MARK: - execute
@@ -42,6 +84,15 @@ class GetTripsUseCaseMock: NSObject, GetTripsUseCase {
         executeCallsCount += 1
         return executeClosure.map({ $0() }) ?? executeReturnValue
     }
+
+}
+class MapKitAnnotationMock: NSObject, MapKitAnnotation {
+    var id: String?
+    var coordinate: CLLocationCoordinate2D {
+        get { return underlyingCoordinate }
+        set(value) { underlyingCoordinate = value }
+    }
+    var underlyingCoordinate: CLLocationCoordinate2D!
 
 }
 class MapProviderMock: NSObject, MapProvider {
@@ -151,6 +202,23 @@ class TripListInteractorMock: NSObject, TripListInteractor {
         getTripsClosure?()
     }
 
+    //MARK: - map
+
+    private(set) var mapTripPointsOriginDestinationCallsCount = 0
+    var mapTripPointsOriginDestinationCalled: Bool {
+        return mapTripPointsOriginDestinationCallsCount > 0
+    }
+    private(set) var mapTripPointsOriginDestinationReceivedArguments: (tripPoints: [TripStop], origin: TripPoint, destination: TripPoint)?
+    private(set) var mapTripPointsOriginDestinationReceivedInvocations: [(tripPoints: [TripStop], origin: TripPoint, destination: TripPoint)] = []
+    var mapTripPointsOriginDestinationClosure: (([TripStop], TripPoint, TripPoint) -> Void)?
+
+    func map(tripPoints: [TripStop], origin: TripPoint, destination: TripPoint) {
+        mapTripPointsOriginDestinationCallsCount += 1
+        mapTripPointsOriginDestinationReceivedArguments = (tripPoints: tripPoints, origin: origin, destination: destination)
+        mapTripPointsOriginDestinationReceivedInvocations.append((tripPoints: tripPoints, origin: origin, destination: destination))
+        mapTripPointsOriginDestinationClosure?(tripPoints, origin, destination)
+    }
+
 }
 class TripListInteractorDelegateMock: NSObject, TripListInteractorDelegate {
 
@@ -186,6 +254,23 @@ class TripListInteractorDelegateMock: NSObject, TripListInteractorDelegate {
         didFailLoadingTripsErrorReceivedError = error
         didFailLoadingTripsErrorReceivedInvocations.append(error)
         didFailLoadingTripsErrorClosure?(error)
+    }
+
+    //MARK: - trip
+
+    private(set) var tripAnnotationsCallsCount = 0
+    var tripAnnotationsCalled: Bool {
+        return tripAnnotationsCallsCount > 0
+    }
+    private(set) var tripAnnotationsReceivedAnnotations: [Annotation]?
+    private(set) var tripAnnotationsReceivedInvocations: [[Annotation]] = []
+    var tripAnnotationsClosure: (([Annotation]) -> Void)?
+
+    func trip(annotations: [Annotation]) {
+        tripAnnotationsCallsCount += 1
+        tripAnnotationsReceivedAnnotations = annotations
+        tripAnnotationsReceivedInvocations.append(annotations)
+        tripAnnotationsClosure?(annotations)
     }
 
 }
@@ -316,6 +401,23 @@ class TripListUIMock: NSObject, TripListUI {
         showRouteDriverNameDescriptionReceivedArguments = (route: route, driverName: driverName, description: description)
         showRouteDriverNameDescriptionReceivedInvocations.append((route: route, driverName: driverName, description: description))
         showRouteDriverNameDescriptionClosure?(route, driverName, description)
+    }
+
+    //MARK: - add
+
+    private(set) var addPointsCallsCount = 0
+    var addPointsCalled: Bool {
+        return addPointsCallsCount > 0
+    }
+    private(set) var addPointsReceivedPoints: [Annotation]?
+    private(set) var addPointsReceivedInvocations: [[Annotation]] = []
+    var addPointsClosure: (([Annotation]) -> Void)?
+
+    func add(points: [Annotation]) {
+        addPointsCallsCount += 1
+        addPointsReceivedPoints = points
+        addPointsReceivedInvocations.append(points)
+        addPointsClosure?(points)
     }
 
 }

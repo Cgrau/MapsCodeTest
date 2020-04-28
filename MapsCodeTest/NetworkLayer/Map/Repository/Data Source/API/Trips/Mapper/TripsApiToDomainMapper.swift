@@ -1,4 +1,5 @@
 import Foundation
+import CoreLocation
 
 struct TripsApiToDomainMapper: Mappable {
   func map(data: Data?) -> [Trip]? {
@@ -30,19 +31,22 @@ struct TripsApiToDomainMapper: Mappable {
   private func map(stops: [TripStopApiResponse]?) -> [TripStop]? {
     guard let stops = stops else { return nil }
     return stops.map({ TripStop(id: $0.id,
-                                point: TripPoint(latitude: $0.point?.latitude,
-                                                 longitude: $0.point?.longitude)) })
+                                point: TripPoint(coordinates: map(point: $0.point))) })
   }
   
   private func map(destination: DestinationApiResponse?) -> TripDestination? {
     guard let destination = destination else { return nil }
     return TripDestination(address: destination.address,
-                           point: TripPoint(latitude: destination.point?.latitude,
-                                            longitude: destination.point?.longitude))
+                           point: TripPoint(coordinates: map(point: destination.point)))
   }
   
   private func decode(jsonDecoder: JSONDecoder, data: Data) throws -> [Trip] {
     let response = try jsonDecoder.decode(TripsApiResponse.self, from: data)
     return try map(response)
+  }
+  
+  private func map(point: PointApiResponse?) -> CLLocationCoordinate2D? {
+    guard let latitude = point?.latitude, let longitude = point?.longitude else { return nil }
+    return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
   }
 }

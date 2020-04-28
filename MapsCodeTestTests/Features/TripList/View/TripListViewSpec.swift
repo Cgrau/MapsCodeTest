@@ -1,4 +1,5 @@
 import SnapshotTesting
+import CoreLocation
 import XCTest
 @testable import MapsCodeTest
 
@@ -7,11 +8,13 @@ class TripListViewSpec: XCTestCase {
   private var sut: TripListView!
   private var mapProvider: MapProviderMock!
   private var routeDrawable: RouteDrawableMock!
+  private var annotationDrawable: AnnotationDrawableMock!
   
   override func setUp() {
     sut = tripListView()
     mapProvider = MapProviderMock()
     routeDrawable = RouteDrawableMock()
+    annotationDrawable = AnnotationDrawableMock()
   }
   
   func test_list_view_init_state() {
@@ -24,12 +27,14 @@ class TripListViewSpec: XCTestCase {
     sut = nil
     mapProvider = nil
     routeDrawable = nil
+    annotationDrawable = nil
   }
   
   func givenMapSetup() {
     mapProvider.underlyingMapView = UIView()
     sut.setupProviders(mapProvider: mapProvider,
-                       routeDrawable: routeDrawable)
+                       routeDrawable: routeDrawable,
+                       annotationDrawable: annotationDrawable)
   }
   
   func givenTrips() {
@@ -40,31 +45,5 @@ class TripListViewSpec: XCTestCase {
 extension TripListViewSpec {
   private func tripListView() -> TripListView {
     return TripListView(frame: viewControllerFrame)
-  }
-}
-
-extension Trip {
-  static var mock: Trip {
-    return Trip(description: "Description",
-                driverName: "John Doe",
-                route: "Route",
-                status: .ongoing,
-                origin: nil,
-                stops: nil,
-                destination: nil,
-                startTime: "12:00",
-                endTime: "13:00")
-  }
-  
-  static var incompleteTrip: Trip {
-    return Trip(description: nil,
-                driverName: nil,
-                route: nil,
-                status: nil,
-                origin: nil,
-                stops: nil,
-                destination: nil,
-                startTime: nil,
-                endTime: nil)
   }
 }

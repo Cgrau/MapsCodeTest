@@ -42,7 +42,8 @@ extension Assembly: TripListProvider {
     let containerView = TripListView()
     let provider = mapProvider
     containerView.setupProviders(mapProvider: provider,
-                                 routeDrawable: routeDrawableProvider(with: provider))
+                                 routeDrawable: routeDrawableProvider(with: provider),
+                                 annotationDrawable: annotationDrawableProvider(with: provider))
     return containerView
   }
   
@@ -52,5 +53,9 @@ extension Assembly: TripListProvider {
   
   private func routeDrawableProvider(with mapProvider: MapProvider) -> RouteDrawable {
     return MapKitRouteDrawable(mapProvider: mapProvider)
+  }
+  
+  private func annotationDrawableProvider(with mapProvider: MapProvider) -> AnnotationDrawable {
+    return MapKitAnnotationDrawable(mapProvider: mapProvider)
   }
 }

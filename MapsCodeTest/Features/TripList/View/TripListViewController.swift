@@ -40,6 +40,10 @@ extension TripListViewController: TripListUI {
     mainView?.display(driverName: driverName,
                       description: description)
   }
+  
+  func add(points: [Annotation]) {
+    mainView?.add(annotations: points)
+  }
 }
 
 extension TripListViewController: TripListViewDelegate {

@@ -20,6 +20,7 @@ class TripListView: View {
   
   private var mapProvider: MapProvider?
   private var routeDrawable: RouteDrawable?
+  private var annotationDrawable: AnnotationDrawable?
   
   weak var delegate: TripListViewDelegate?
   
@@ -80,14 +81,20 @@ class TripListView: View {
   
   // MARK: MapSetup
   func setupProviders(mapProvider: MapProvider,
-                      routeDrawable: RouteDrawable) {
+                      routeDrawable: RouteDrawable,
+                      annotationDrawable: AnnotationDrawable) {
     self.mapProvider = mapProvider
     self.routeDrawable = routeDrawable
+    self.annotationDrawable = annotationDrawable
     setupMap()
   }
   
   func draw(selectedRoute: String) {
     routeDrawable?.draw(route: selectedRoute)
+  }
+  
+  func add(annotations: [Annotation]) {
+    annotationDrawable?.add(annotations: annotations)
   }
   
   func display(driverName: String, description: String) {

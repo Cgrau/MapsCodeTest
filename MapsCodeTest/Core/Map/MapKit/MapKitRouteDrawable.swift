@@ -2,7 +2,7 @@ import MapKit
 
 private enum Constants {
   static let paddingMultiplier = 0.25
-  static let paddingDivider = 2.0
+  static let paddingDivider = 1.5
 }
 
 final class MapKitRouteDrawable: RouteDrawable {

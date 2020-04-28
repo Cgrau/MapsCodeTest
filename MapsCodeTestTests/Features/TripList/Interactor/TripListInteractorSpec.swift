@@ -28,6 +28,11 @@ final class TripListInteractorSpec: XCTestCase {
     XCTAssertFalse(delegate.didLoadTripsCalled)
     XCTAssertTrue(delegate.didFailLoadingTripsErrorCalled)
   }
+  
+  func test_map_points() {
+    sut.map(tripPoints: [TripStop.mock], origin: TripPoint.mock, destination: TripPoint.mock)
+    XCTAssertTrue(delegate.tripAnnotationsCalled)
+  }
 }
 
 extension TripListInteractorSpec {

@@ -8,4 +8,5 @@ protocol TripListUI: class, AutoMockable {
   func show(route: String,
             driverName: String,
             description: String)
+  func add(points: [Annotation])
 }
