@@ -26,14 +26,14 @@ final class TripListPresenterSpec: XCTestCase {
   func test_select_trip_OK() {
     sut.select(trip: Trip.mock)
     XCTAssertTrue(ui.showRouteDriverNameDescriptionCalled)
-    XCTAssertTrue(interactor.mapTripPointsOriginDestinationCalled)
+    XCTAssertTrue(interactor.mapTripPointsOriginDestinationAnnotationDelegateCalled)
     XCTAssertFalse(ui.showErrorCalled)
   }
   
   func test_select_trip_KO() {
     sut.select(trip: Trip.incompleteTrip)
     XCTAssertFalse(ui.showRouteDriverNameDescriptionCalled)
-    XCTAssertFalse(interactor.mapTripPointsOriginDestinationCalled)
+    XCTAssertFalse(interactor.mapTripPointsOriginDestinationAnnotationDelegateCalled)
     XCTAssertTrue(ui.showErrorCalled)
   }
   
@@ -52,5 +52,13 @@ final class TripListPresenterSpec: XCTestCase {
   func test_trip_annotations() {
     sut.trip(annotations: [RoutePointAnnotation](repeating: RoutePointAnnotation.mock, count: 4))
     XCTAssertTrue(ui.addPointsCalled)
+  }
+  
+  func test_annotation_didSelect_id_coordinate() {
+    //TODO
+  }
+  
+  func test_annotation_didDeselect() {
+    //TODO
   }
 }

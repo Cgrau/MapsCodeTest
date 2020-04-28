@@ -3,7 +3,7 @@ import MapKit
 final class RoutePointAnnotation: NSObject, MapKitAnnotation {
   
   var coordinate: CLLocationCoordinate2D
-  var id: String?
+  weak var delegate: AnnotationDelegate?
   
   init(coordinate: CLLocationCoordinate2D) {
     self.coordinate = coordinate

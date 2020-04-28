@@ -28,12 +28,71 @@ import AppKit
 
 
 class AnnotationMock: NSObject, Annotation {
-    var id: String?
     var coordinate: CLLocationCoordinate2D {
         get { return underlyingCoordinate }
         set(value) { underlyingCoordinate = value }
     }
     var underlyingCoordinate: CLLocationCoordinate2D!
+    var delegate: AnnotationDelegate?
+
+    //MARK: - didSelect
+
+    private(set) var didSelectCallsCount = 0
+    var didSelectCalled: Bool {
+        return didSelectCallsCount > 0
+    }
+    var didSelectClosure: (() -> Void)?
+
+    func didSelect() {
+        didSelectCallsCount += 1
+        didSelectClosure?()
+    }
+
+    //MARK: - didDeselect
+
+    private(set) var didDeselectCallsCount = 0
+    var didDeselectCalled: Bool {
+        return didDeselectCallsCount > 0
+    }
+    var didDeselectClosure: (() -> Void)?
+
+    func didDeselect() {
+        didDeselectCallsCount += 1
+        didDeselectClosure?()
+    }
+
+}
+class AnnotationDelegateMock: NSObject, AnnotationDelegate {
+
+    //MARK: - annotationDidSelect
+
+    private(set) var annotationDidSelectIdCoordinateCallsCount = 0
+    var annotationDidSelectIdCoordinateCalled: Bool {
+        return annotationDidSelectIdCoordinateCallsCount > 0
+    }
+    private(set) var annotationDidSelectIdCoordinateReceivedArguments: (id: Int, coordinate: CLLocationCoordinate2D)?
+    private(set) var annotationDidSelectIdCoordinateReceivedInvocations: [(id: Int, coordinate: CLLocationCoordinate2D)] = []
+    var annotationDidSelectIdCoordinateClosure: ((Int, CLLocationCoordinate2D) -> Void)?
+
+    func annotationDidSelect(id: Int, coordinate: CLLocationCoordinate2D) {
+        annotationDidSelectIdCoordinateCallsCount += 1
+        annotationDidSelectIdCoordinateReceivedArguments = (id: id, coordinate: coordinate)
+        annotationDidSelectIdCoordinateReceivedInvocations.append((id: id, coordinate: coordinate))
+        annotationDidSelectIdCoordinateClosure?(id, coordinate)
+    }
+
+    //MARK: - annotationDidDeselect
+
+    private(set) var annotationDidDeselectCallsCount = 0
+    var annotationDidDeselectCalled: Bool {
+        return annotationDidDeselectCallsCount > 0
+    }
+    var annotationDidDeselectClosure: (() -> Void)?
+
+    func annotationDidDeselect() {
+        annotationDidDeselectCallsCount += 1
+        annotationDidDeselectClosure?()
+    }
 
 }
 class AnnotationDrawableMock: NSObject, AnnotationDrawable {
@@ -87,12 +146,38 @@ class GetTripsUseCaseMock: NSObject, GetTripsUseCase {
 
 }
 class MapKitAnnotationMock: NSObject, MapKitAnnotation {
-    var id: String?
     var coordinate: CLLocationCoordinate2D {
         get { return underlyingCoordinate }
         set(value) { underlyingCoordinate = value }
     }
     var underlyingCoordinate: CLLocationCoordinate2D!
+    var delegate: AnnotationDelegate?
+
+    //MARK: - didSelect
+
+    private(set) var didSelectCallsCount = 0
+    var didSelectCalled: Bool {
+        return didSelectCallsCount > 0
+    }
+    var didSelectClosure: (() -> Void)?
+
+    func didSelect() {
+        didSelectCallsCount += 1
+        didSelectClosure?()
+    }
+
+    //MARK: - didDeselect
+
+    private(set) var didDeselectCallsCount = 0
+    var didDeselectCalled: Bool {
+        return didDeselectCallsCount > 0
+    }
+    var didDeselectClosure: (() -> Void)?
+
+    func didDeselect() {
+        didDeselectCallsCount += 1
+        didDeselectClosure?()
+    }
 
 }
 class MapProviderMock: NSObject, MapProvider {
@@ -204,19 +289,19 @@ class TripListInteractorMock: NSObject, TripListInteractor {
 
     //MARK: - map
 
-    private(set) var mapTripPointsOriginDestinationCallsCount = 0
-    var mapTripPointsOriginDestinationCalled: Bool {
-        return mapTripPointsOriginDestinationCallsCount > 0
+    private(set) var mapTripPointsOriginDestinationAnnotationDelegateCallsCount = 0
+    var mapTripPointsOriginDestinationAnnotationDelegateCalled: Bool {
+        return mapTripPointsOriginDestinationAnnotationDelegateCallsCount > 0
     }
-    private(set) var mapTripPointsOriginDestinationReceivedArguments: (tripPoints: [TripStop], origin: TripPoint, destination: TripPoint)?
-    private(set) var mapTripPointsOriginDestinationReceivedInvocations: [(tripPoints: [TripStop], origin: TripPoint, destination: TripPoint)] = []
-    var mapTripPointsOriginDestinationClosure: (([TripStop], TripPoint, TripPoint) -> Void)?
+    private(set) var mapTripPointsOriginDestinationAnnotationDelegateReceivedArguments: (tripPoints: [TripStop], origin: TripPoint, destination: TripPoint, annotationDelegate: AnnotationDelegate)?
+    private(set) var mapTripPointsOriginDestinationAnnotationDelegateReceivedInvocations: [(tripPoints: [TripStop], origin: TripPoint, destination: TripPoint, annotationDelegate: AnnotationDelegate)] = []
+    var mapTripPointsOriginDestinationAnnotationDelegateClosure: (([TripStop], TripPoint, TripPoint, AnnotationDelegate) -> Void)?
 
-    func map(tripPoints: [TripStop], origin: TripPoint, destination: TripPoint) {
-        mapTripPointsOriginDestinationCallsCount += 1
-        mapTripPointsOriginDestinationReceivedArguments = (tripPoints: tripPoints, origin: origin, destination: destination)
-        mapTripPointsOriginDestinationReceivedInvocations.append((tripPoints: tripPoints, origin: origin, destination: destination))
-        mapTripPointsOriginDestinationClosure?(tripPoints, origin, destination)
+    func map(tripPoints: [TripStop],           origin: TripPoint,           destination: TripPoint,           annotationDelegate: AnnotationDelegate) {
+        mapTripPointsOriginDestinationAnnotationDelegateCallsCount += 1
+        mapTripPointsOriginDestinationAnnotationDelegateReceivedArguments = (tripPoints: tripPoints, origin: origin, destination: destination, annotationDelegate: annotationDelegate)
+        mapTripPointsOriginDestinationAnnotationDelegateReceivedInvocations.append((tripPoints: tripPoints, origin: origin, destination: destination, annotationDelegate: annotationDelegate))
+        mapTripPointsOriginDestinationAnnotationDelegateClosure?(tripPoints, origin, destination, annotationDelegate)
     }
 
 }

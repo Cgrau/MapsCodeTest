@@ -7,10 +7,12 @@ final class TripListInteractorSpec: XCTestCase {
   private var sut: DefaultTripListInteractor!
   private var getTripsUseCase: GetTripsUseCaseMock!
   private var delegate: TripListInteractorDelegateMock!
+  private var annotationDelegate: AnnotationDelegateMock!
   
   override func setUp() {
     getTripsUseCase = GetTripsUseCaseMock()
     delegate = TripListInteractorDelegateMock()
+    annotationDelegate = AnnotationDelegateMock()
     sut = DefaultTripListInteractor(getTripsUseCase: getTripsUseCase)
     sut.delegate = delegate
   }
@@ -30,7 +32,10 @@ final class TripListInteractorSpec: XCTestCase {
   }
   
   func test_map_points() {
-    sut.map(tripPoints: [TripStop.mock], origin: TripPoint.mock, destination: TripPoint.mock)
+    sut.map(tripPoints: [TripStop.mock],
+            origin: TripPoint.mock,
+            destination: TripPoint.mock,
+            annotationDelegate: annotationDelegate)
     XCTAssertTrue(delegate.tripAnnotationsCalled)
   }
 }

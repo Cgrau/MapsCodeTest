@@ -6,7 +6,7 @@ protocol TripListInteractorDelegate: class, AutoMockable {
   func trip(annotations: [Annotation])
 }
 
-class DefaultTripListInteractor: TripListInteractor{
+class DefaultTripListInteractor: TripListInteractor {
   
   weak var delegate: TripListInteractorDelegate?
   
@@ -25,23 +25,36 @@ class DefaultTripListInteractor: TripListInteractor{
     }.disposed(by: bag)
   }
   
-  func map(tripPoints: [TripStop], origin: TripPoint, destination: TripPoint) {
-    let pointsToShow = map(tripPoints) + map(origin, destination: destination)
+  func map(tripPoints: [TripStop],
+           origin: TripPoint,
+           destination: TripPoint,
+           annotationDelegate: AnnotationDelegate) {
+    let pointsToShow = map(tripPoints, annotationDelegate: annotationDelegate) + map(origin, destination: destination)
     delegate?.trip(annotations: pointsToShow)
   }
   
-  private func map(_ tripPoints: [TripStop]) -> [Annotation] {
-    let points = tripPoints.compactMap({ $0.point })
-    let coordinates = points.compactMap({ $0.coordinates })
-    return coordinates.map({ RoutePointAnnotation(coordinate: $0) })
+  private func map(_ tripPoints: [TripStop],
+                   annotationDelegate: AnnotationDelegate) -> [Annotation] {
+    return tripPoints.compactMap({
+      guard let id = $0.id,
+        let coordinate = $0.point?.coordinates else { return nil }
+      let stopAnnotation = StopPointAnnotation(id: id,
+                                               coordinate: coordinate)
+      stopAnnotation.delegate = annotationDelegate
+      return stopAnnotation
+    })
   }
   
-  private func map(_ origin: TripPoint, destination: TripPoint) -> [Annotation] {
-    var edges = [RoutePointAnnotation]()
-    guard let originCoordinate = origin.coordinates else { return edges }
-    edges.append(RoutePointAnnotation(coordinate: originCoordinate))
-    guard let destinationCoordinate = destination.coordinates else { return edges }
-    edges.append(RoutePointAnnotation(coordinate: destinationCoordinate))
-    return edges
+  private func map(_ origin: TripPoint,
+                   destination: TripPoint) -> [Annotation] {
+    var edges = [RoutePointAnnotation?]()
+    edges.append(routePoint(from: origin))
+    edges.append(routePoint(from: destination))
+    return edges.compactMap({ $0 })
+  }
+  
+  private func routePoint(from point: TripPoint) -> RoutePointAnnotation? {
+    guard let coordinate = point.coordinates else { return nil }
+    return RoutePointAnnotation(coordinate: coordinate)
   }
 }

@@ -1,4 +1,5 @@
 import UIKit
+import CoreLocation
 
 private enum Constants {
   static let incompleteTrip = "Incomplete Info on the selected trip"
@@ -34,7 +35,10 @@ class DefaultTripListPresenter: TripListPresenter {
     ui?.show(route: route,
              driverName: driverName,
              description: description)
-    interactor.map(tripPoints: tripPoints, origin: originPoint, destination: destinationPoint)
+    interactor.map(tripPoints: tripPoints,
+                   origin: originPoint,
+                   destination: destinationPoint,
+                   annotationDelegate: self)
   }
 }
 
@@ -51,5 +55,15 @@ extension DefaultTripListPresenter: TripListInteractorDelegate {
   
   func trip(annotations: [Annotation]) {
     ui?.add(points: annotations)
+  }
+}
+
+extension DefaultTripListPresenter: AnnotationDelegate {
+  func annotationDidSelect(id: Int, coordinate: CLLocationCoordinate2D) {
+    //Show Stop Info
+  }
+  
+  func annotationDidDeselect() {
+    //Dismiss Stop Info
   }
 }

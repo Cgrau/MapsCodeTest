@@ -2,7 +2,6 @@ import MapKit
 
 final class MapKitAnnotationDrawable: AnnotationDrawable {
   
-  private var currentRoute: MKPolyline?
   private weak var mapProvider: MapProvider?
   
   private var mapView: MKMapView? {
@@ -15,11 +14,8 @@ final class MapKitAnnotationDrawable: AnnotationDrawable {
   
   func add(annotations: [Annotation]) {
     removeAnnotations()
-    annotations.forEach({
-      let annotation = MKPointAnnotation()
-      annotation.coordinate = $0.coordinate
-      self.mapView?.addAnnotation(annotation)
-    })
+    guard let mapKitAnnotations = annotations as? [MapKitAnnotation] else { return }
+    self.mapView?.addAnnotations(mapKitAnnotations)
   }
   
   func removeAnnotations() {
