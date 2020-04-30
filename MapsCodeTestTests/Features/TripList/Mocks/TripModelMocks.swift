@@ -49,3 +49,21 @@ extension RoutePointAnnotation {
                                 longitude: 50.2)
   }
 }
+
+extension Stop {
+  static var mock: Stop {
+    return Stop(point: TripPoint.mock,
+                price: 1,
+                stopTime: "1",
+                paid: true,
+                address: "address",
+                tripID: 1,
+                userName: "John Doe")
+  }
+}
+
+extension CLLocationCoordinate2D {
+  static var mock: CLLocationCoordinate2D {
+    return CLLocationCoordinate2D(latitude: 1, longitude: 1)
+  }
+}

@@ -27,6 +27,43 @@ import AppKit
 
 
 
+class AlertViewDelegateMock: NSObject, AlertViewDelegate {
+
+    //MARK: - willShow
+
+    private(set) var willShowAlertCallsCount = 0
+    var willShowAlertCalled: Bool {
+        return willShowAlertCallsCount > 0
+    }
+    private(set) var willShowAlertReceivedAlert: UIView?
+    private(set) var willShowAlertReceivedInvocations: [UIView] = []
+    var willShowAlertClosure: ((UIView) -> Void)?
+
+    func willShow(alert: UIView) {
+        willShowAlertCallsCount += 1
+        willShowAlertReceivedAlert = alert
+        willShowAlertReceivedInvocations.append(alert)
+        willShowAlertClosure?(alert)
+    }
+
+    //MARK: - willRemove
+
+    private(set) var willRemoveAlertCallsCount = 0
+    var willRemoveAlertCalled: Bool {
+        return willRemoveAlertCallsCount > 0
+    }
+    private(set) var willRemoveAlertReceivedAlert: UIView?
+    private(set) var willRemoveAlertReceivedInvocations: [UIView] = []
+    var willRemoveAlertClosure: ((UIView) -> Void)?
+
+    func willRemove(alert: UIView) {
+        willRemoveAlertCallsCount += 1
+        willRemoveAlertReceivedAlert = alert
+        willRemoveAlertReceivedInvocations.append(alert)
+        willRemoveAlertClosure?(alert)
+    }
+
+}
 class AnnotationMock: NSObject, Annotation {
     var coordinate: CLLocationCoordinate2D {
         get { return underlyingCoordinate }
@@ -289,6 +326,40 @@ class RouteDrawableMock: NSObject, RouteDrawable {
     func removeRoute() {
         removeRouteCallsCount += 1
         removeRouteClosure?()
+    }
+
+}
+class StopInfoAlertProviderMock: NSObject, StopInfoAlertProvider {
+    var viewDelegate: AlertViewDelegate?
+
+    //MARK: - show
+
+    private(set) var showStopInfoCallsCount = 0
+    var showStopInfoCalled: Bool {
+        return showStopInfoCallsCount > 0
+    }
+    private(set) var showStopInfoReceivedStopInfo: Stop?
+    private(set) var showStopInfoReceivedInvocations: [Stop] = []
+    var showStopInfoClosure: ((Stop) -> Void)?
+
+    func show(stopInfo: Stop) {
+        showStopInfoCallsCount += 1
+        showStopInfoReceivedStopInfo = stopInfo
+        showStopInfoReceivedInvocations.append(stopInfo)
+        showStopInfoClosure?(stopInfo)
+    }
+
+    //MARK: - removeStopInfo
+
+    private(set) var removeStopInfoCallsCount = 0
+    var removeStopInfoCalled: Bool {
+        return removeStopInfoCallsCount > 0
+    }
+    var removeStopInfoClosure: (() -> Void)?
+
+    func removeStopInfo() {
+        removeStopInfoCallsCount += 1
+        removeStopInfoClosure?()
     }
 
 }

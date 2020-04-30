@@ -13,7 +13,8 @@ extension Assembly: TripListProvider {
     let interactor = mainInteractor()
     let presenter = mainPresenter(from: viewController,
                                   navigator: navigator,
-                                  interactor: interactor)
+                                  interactor: interactor,
+                                  view: view)
     
     viewController.presenter = presenter
     return viewController
@@ -21,9 +22,11 @@ extension Assembly: TripListProvider {
   
   private func mainPresenter(from: UIViewController,
                              navigator: TripListNavigator,
-                             interactor: TripListInteractor) -> TripListPresenter {
+                             interactor: TripListInteractor,
+                             view: UIView) -> TripListPresenter {
     let presenter = DefaultTripListPresenter(interactor: interactor,
-                                             navigator: navigator)
+                                             navigator: navigator,
+                                             alertProvider: alertProvider(view: view))
     interactor.delegate = presenter
     presenter.ui = from as? TripListViewController
     
@@ -58,5 +61,9 @@ extension Assembly: TripListProvider {
   
   private func annotationDrawableProvider(with mapProvider: MapProvider) -> AnnotationDrawable {
     return MapKitAnnotationDrawable(mapProvider: mapProvider)
+  }
+  
+  private func alertProvider(view: UIView) -> StopInfoAlertProvider {
+    return DefaultStopInfoAlertProvider(view: view)
   }
 }

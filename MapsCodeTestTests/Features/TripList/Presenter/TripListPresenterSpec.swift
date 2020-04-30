@@ -1,4 +1,5 @@
 import XCTest
+import CoreLocation
 @testable import MapsCodeTest
 
 final class TripListPresenterSpec: XCTestCase {
@@ -7,13 +8,16 @@ final class TripListPresenterSpec: XCTestCase {
   private var ui: TripListUIMock!
   private var interactor: TripListInteractorMock!
   private var navigator: TripListNavigatorMock!
+  private var alertProvider: StopInfoAlertProviderMock!
   
   override func setUp() {
     interactor = TripListInteractorMock()
     navigator = TripListNavigatorMock()
+    alertProvider = StopInfoAlertProviderMock()
     ui = TripListUIMock()
     sut = DefaultTripListPresenter(interactor: interactor,
-                                   navigator: navigator)
+                                   navigator: navigator,
+                                   alertProvider: alertProvider)
     sut.ui = ui
   }
   
@@ -54,11 +58,27 @@ final class TripListPresenterSpec: XCTestCase {
     XCTAssertTrue(ui.addPointsCalled)
   }
   
+  func test_did_load_stop() {
+    sut.didLoad(stop: Stop.mock)
+    XCTAssertTrue(ui.hideLoadingCalled)
+    XCTAssertTrue(alertProvider.showStopInfoCalled)
+  }
+  
+  func test_did_fail_loading_stop_error() {
+    sut.didFailLoadingStop(error: PlainError.mock)
+    XCTAssertTrue(ui.hideLoadingCalled)
+    XCTAssertTrue(ui.showErrorCalled)
+  }
+  
   func test_annotation_didSelect_id_coordinate() {
-    //TODO
+    sut.annotationDidSelect(id: 1,
+                            coordinate: CLLocationCoordinate2D.mock)
+    XCTAssertTrue(ui.showLoadingCalled)
+    XCTAssertTrue(interactor.getStopStopIDCalled)
   }
   
   func test_annotation_didDeselect() {
-    //TODO
+    sut.annotationDidDeselect()
+    XCTAssertTrue(alertProvider.removeStopInfoCalled)
   }
 }

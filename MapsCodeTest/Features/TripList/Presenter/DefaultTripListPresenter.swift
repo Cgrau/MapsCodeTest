@@ -8,13 +8,16 @@ private enum Constants {
 class DefaultTripListPresenter: TripListPresenter {
   
   weak var ui: TripListUI?
-  private let  interactor: TripListInteractor
-  private let  navigator: TripListNavigator
+  private let interactor: TripListInteractor
+  private let navigator: TripListNavigator
+  private let alertProvider: StopInfoAlertProvider
   
   init(interactor: TripListInteractor,
-       navigator: TripListNavigator) {
+       navigator: TripListNavigator,
+       alertProvider: StopInfoAlertProvider) {
     self.interactor = interactor
     self.navigator = navigator
+    self.alertProvider = alertProvider
   }
   
   func didLoad() {
@@ -59,7 +62,7 @@ extension DefaultTripListPresenter: TripListInteractorDelegate {
   
   func didLoad(stop: Stop) {
     ui?.hideLoading()
-    // show Stop Info
+    alertProvider.show(stopInfo: stop)
   }
   
   func didFailLoadingStop(error: Error) {
@@ -75,6 +78,6 @@ extension DefaultTripListPresenter: AnnotationDelegate {
   }
   
   func annotationDidDeselect() {
-    //Dismiss Stop Info
+    alertProvider.removeStopInfo()
   }
 }
