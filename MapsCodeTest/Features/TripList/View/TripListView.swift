@@ -21,6 +21,7 @@ class TripListView: View {
   private var mapProvider: MapProvider?
   private var routeDrawable: RouteDrawable?
   private var annotationDrawable: AnnotationDrawable?
+  private var alertProvider: StopInfoAlertProvider?
   
   weak var delegate: TripListViewDelegate?
   
@@ -82,10 +83,12 @@ class TripListView: View {
   // MARK: MapSetup
   func setupProviders(mapProvider: MapProvider,
                       routeDrawable: RouteDrawable,
-                      annotationDrawable: AnnotationDrawable) {
+                      annotationDrawable: AnnotationDrawable,
+                      alertProvider: StopInfoAlertProvider) {
     self.mapProvider = mapProvider
     self.routeDrawable = routeDrawable
     self.annotationDrawable = annotationDrawable
+    self.alertProvider = alertProvider
     setupMap()
   }
   
@@ -101,6 +104,22 @@ class TripListView: View {
     infoView.alpha = 1
     driverNameLabel.text = driverName
     routeNameLabel.text = description
+  }
+  
+  func showAlert(userName: String,
+                 address: String,
+                 price: Double,
+                 stopTime: String,
+                 paid: Bool) {
+    alertProvider?.showAlert(userName: userName,
+                             address: address,
+                             price: price,
+                             stopTime: stopTime,
+                             paid: paid)
+  }
+  
+  func removeAlert() {
+    alertProvider?.removeStopInfo()
   }
   
   private func setupMap() {

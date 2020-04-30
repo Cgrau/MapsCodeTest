@@ -2,7 +2,11 @@ import UIKit
 
 protocol StopInfoAlertProvider: AutoMockable {
   var viewDelegate: AlertViewDelegate? { get set }
-  func show(stopInfo: Stop)
+  func showAlert(userName: String,
+                 address: String,
+                 price: Double,
+                 stopTime: String,
+                 paid: Bool)
   func removeStopInfo()
 }
 

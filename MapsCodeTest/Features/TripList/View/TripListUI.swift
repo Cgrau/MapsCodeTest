@@ -9,4 +9,10 @@ protocol TripListUI: class, AutoMockable {
             driverName: String,
             description: String)
   func add(points: [Annotation])
+  func showStopInfo(userName: String,
+                    address: String,
+                    price: Double,
+                    stopTime: String,
+                    paid: Bool)
+  func removeStopInfo()
 }

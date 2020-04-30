@@ -95,11 +95,15 @@ public final class StopInfoAlertView: View {
     }
   }
   
-  public func setup(with stopInfo: Stop) {
-    userNameLabel.text = stopInfo.userName
-    addressLabel.text = stopInfo.address
-    priceLabel.text = String(stopInfo.price)
-    stopTimeLabel.text = stopInfo.stopTime
-    paidLabel.text = stopInfo.paid == true ? "Paid" : "Unpaid"
+  public func setup(userName: String,
+                    address: String,
+                    price: Double,
+                    stopTime: String,
+                    paid: Bool) {
+    userNameLabel.text = userName
+    addressLabel.text = address
+    priceLabel.text = String(price)
+    stopTimeLabel.text = stopTime
+    paidLabel.text = paid == true ? "Paid" : "Unpaid"
   }
 }

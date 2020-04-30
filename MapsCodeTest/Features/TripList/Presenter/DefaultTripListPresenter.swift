@@ -10,14 +10,11 @@ class DefaultTripListPresenter: TripListPresenter {
   weak var ui: TripListUI?
   private let interactor: TripListInteractor
   private let navigator: TripListNavigator
-  private let alertProvider: StopInfoAlertProvider
   
   init(interactor: TripListInteractor,
-       navigator: TripListNavigator,
-       alertProvider: StopInfoAlertProvider) {
+       navigator: TripListNavigator) {
     self.interactor = interactor
     self.navigator = navigator
-    self.alertProvider = alertProvider
   }
   
   func didLoad() {
@@ -62,7 +59,11 @@ extension DefaultTripListPresenter: TripListInteractorDelegate {
   
   func didLoad(stop: Stop) {
     ui?.hideLoading()
-    alertProvider.show(stopInfo: stop)
+    ui?.showStopInfo(userName: stop.userName,
+                     address: stop.address,
+                     price: stop.price,
+                     stopTime: stop.stopTime,
+                     paid: stop.paid)
   }
   
   func didFailLoadingStop(error: Error) {
@@ -78,6 +79,6 @@ extension DefaultTripListPresenter: AnnotationDelegate {
   }
   
   func annotationDidDeselect() {
-    alertProvider.removeStopInfo()
+    ui?.removeStopInfo()
   }
 }

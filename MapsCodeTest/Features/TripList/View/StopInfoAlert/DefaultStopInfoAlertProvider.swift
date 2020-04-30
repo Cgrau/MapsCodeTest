@@ -14,8 +14,23 @@ class DefaultStopInfoAlertProvider: StopInfoAlertProvider {
     self.view = view
   }
   
-  func show(stopInfo: Stop) {
-    showAlert(with: stopInfo)
+  func showAlert(userName: String,
+                 address: String,
+                 price: Double,
+                 stopTime: String,
+                 paid: Bool) {
+    currentAlert = StopInfoAlertView()
+    guard let alertView = currentAlert else { return }
+    view.addSubview(alertView)
+    alertView.snp.makeConstraints { make in
+      make.top.equalTo(self.view).offset(Constants.verticalSpacing)
+      make.trailing.equalTo(self.view)
+    }
+    alertView.setup(userName: userName,
+                    address: address,
+                    price: price,
+                    stopTime: stopTime,
+                    paid: paid)
   }
   
   func removeStopInfo() {
@@ -25,16 +40,6 @@ class DefaultStopInfoAlertProvider: StopInfoAlertProvider {
 
 // MARK: - Private funcs
 extension DefaultStopInfoAlertProvider {
-  private func showAlert(with stopInfo: Stop) {
-    currentAlert = StopInfoAlertView()
-    guard let alertView = currentAlert else { return }
-    view.addSubview(alertView)
-    alertView.snp.makeConstraints { make in
-      make.top.equalTo(self.view).offset(Constants.verticalSpacing)
-      make.trailing.equalTo(self.view)
-    }
-    alertView.setup(with: stopInfo)
-  }
   
   private func removeCurrentAlert() {
     if let alert = currentAlert {

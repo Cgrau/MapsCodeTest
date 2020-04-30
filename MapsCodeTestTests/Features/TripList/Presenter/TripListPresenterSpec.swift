@@ -8,16 +8,13 @@ final class TripListPresenterSpec: XCTestCase {
   private var ui: TripListUIMock!
   private var interactor: TripListInteractorMock!
   private var navigator: TripListNavigatorMock!
-  private var alertProvider: StopInfoAlertProviderMock!
   
   override func setUp() {
     interactor = TripListInteractorMock()
     navigator = TripListNavigatorMock()
-    alertProvider = StopInfoAlertProviderMock()
     ui = TripListUIMock()
     sut = DefaultTripListPresenter(interactor: interactor,
-                                   navigator: navigator,
-                                   alertProvider: alertProvider)
+                                   navigator: navigator)
     sut.ui = ui
   }
   
@@ -61,7 +58,7 @@ final class TripListPresenterSpec: XCTestCase {
   func test_did_load_stop() {
     sut.didLoad(stop: Stop.mock)
     XCTAssertTrue(ui.hideLoadingCalled)
-    XCTAssertTrue(alertProvider.showStopInfoCalled)
+    XCTAssertTrue(ui.showStopInfoUserNameAddressPriceStopTimePaidCalled)
   }
   
   func test_did_fail_loading_stop_error() {
@@ -79,6 +76,6 @@ final class TripListPresenterSpec: XCTestCase {
   
   func test_annotation_didDeselect() {
     sut.annotationDidDeselect()
-    XCTAssertTrue(alertProvider.removeStopInfoCalled)
+    XCTAssertTrue(ui.removeStopInfoCalled)
   }
 }

@@ -9,23 +9,23 @@ class TripListViewSpec: XCTestCase {
   private var mapProvider: MapProviderMock!
   private var routeDrawable: RouteDrawableMock!
   private var annotationDrawable: AnnotationDrawableMock!
+  private var alertProvider: StopInfoAlertProviderMock!
   
   override func setUp() {
     sut = tripListView()
     mapProvider = MapProviderMock()
     routeDrawable = RouteDrawableMock()
     annotationDrawable = AnnotationDrawableMock()
+    alertProvider = StopInfoAlertProviderMock()
+    givenMapSetup()
+    givenTrips()
   }
   
   func test_list_view_init_state() {
-    givenMapSetup()
-    givenTrips()
     assertSnapshot(matching: sut, as: .image)
   }
   
   func test_list_view_info_view() {
-    givenMapSetup()
-    givenTrips()
     sut.display(driverName: "John Doe", description: ":)")
     assertSnapshot(matching: sut, as: .image)
   }
@@ -35,13 +35,15 @@ class TripListViewSpec: XCTestCase {
     mapProvider = nil
     routeDrawable = nil
     annotationDrawable = nil
+    alertProvider = nil
   }
   
   func givenMapSetup() {
     mapProvider.underlyingMapView = UIView()
     sut.setupProviders(mapProvider: mapProvider,
                        routeDrawable: routeDrawable,
-                       annotationDrawable: annotationDrawable)
+                       annotationDrawable: annotationDrawable,
+                       alertProvider: alertProvider)
   }
   
   func givenTrips() {

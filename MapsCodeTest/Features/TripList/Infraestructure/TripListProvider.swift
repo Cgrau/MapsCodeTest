@@ -25,8 +25,7 @@ extension Assembly: TripListProvider {
                              interactor: TripListInteractor,
                              view: UIView) -> TripListPresenter {
     let presenter = DefaultTripListPresenter(interactor: interactor,
-                                             navigator: navigator,
-                                             alertProvider: alertProvider(view: view))
+                                             navigator: navigator)
     interactor.delegate = presenter
     presenter.ui = from as? TripListViewController
     
@@ -47,7 +46,8 @@ extension Assembly: TripListProvider {
     let provider = mapProvider
     containerView.setupProviders(mapProvider: provider,
                                  routeDrawable: routeDrawableProvider(with: provider),
-                                 annotationDrawable: annotationDrawableProvider(with: provider))
+                                 annotationDrawable: annotationDrawableProvider(with: provider),
+                                 alertProvider: alertProvider(view: containerView))
     return containerView
   }
   

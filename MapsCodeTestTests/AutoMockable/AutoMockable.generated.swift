@@ -332,21 +332,21 @@ class RouteDrawableMock: NSObject, RouteDrawable {
 class StopInfoAlertProviderMock: NSObject, StopInfoAlertProvider {
     var viewDelegate: AlertViewDelegate?
 
-    //MARK: - show
+    //MARK: - showAlert
 
-    private(set) var showStopInfoCallsCount = 0
-    var showStopInfoCalled: Bool {
-        return showStopInfoCallsCount > 0
+    private(set) var showAlertUserNameAddressPriceStopTimePaidCallsCount = 0
+    var showAlertUserNameAddressPriceStopTimePaidCalled: Bool {
+        return showAlertUserNameAddressPriceStopTimePaidCallsCount > 0
     }
-    private(set) var showStopInfoReceivedStopInfo: Stop?
-    private(set) var showStopInfoReceivedInvocations: [Stop] = []
-    var showStopInfoClosure: ((Stop) -> Void)?
+    private(set) var showAlertUserNameAddressPriceStopTimePaidReceivedArguments: (userName: String, address: String, price: Double, stopTime: String, paid: Bool)?
+    private(set) var showAlertUserNameAddressPriceStopTimePaidReceivedInvocations: [(userName: String, address: String, price: Double, stopTime: String, paid: Bool)] = []
+    var showAlertUserNameAddressPriceStopTimePaidClosure: ((String, String, Double, String, Bool) -> Void)?
 
-    func show(stopInfo: Stop) {
-        showStopInfoCallsCount += 1
-        showStopInfoReceivedStopInfo = stopInfo
-        showStopInfoReceivedInvocations.append(stopInfo)
-        showStopInfoClosure?(stopInfo)
+    func showAlert(userName: String,                 address: String,                 price: Double,                 stopTime: String,                 paid: Bool) {
+        showAlertUserNameAddressPriceStopTimePaidCallsCount += 1
+        showAlertUserNameAddressPriceStopTimePaidReceivedArguments = (userName: userName, address: address, price: price, stopTime: stopTime, paid: paid)
+        showAlertUserNameAddressPriceStopTimePaidReceivedInvocations.append((userName: userName, address: address, price: price, stopTime: stopTime, paid: paid))
+        showAlertUserNameAddressPriceStopTimePaidClosure?(userName, address, price, stopTime, paid)
     }
 
     //MARK: - removeStopInfo
@@ -646,6 +646,36 @@ class TripListUIMock: NSObject, TripListUI {
         addPointsReceivedPoints = points
         addPointsReceivedInvocations.append(points)
         addPointsClosure?(points)
+    }
+
+    //MARK: - showStopInfo
+
+    private(set) var showStopInfoUserNameAddressPriceStopTimePaidCallsCount = 0
+    var showStopInfoUserNameAddressPriceStopTimePaidCalled: Bool {
+        return showStopInfoUserNameAddressPriceStopTimePaidCallsCount > 0
+    }
+    private(set) var showStopInfoUserNameAddressPriceStopTimePaidReceivedArguments: (userName: String, address: String, price: Double, stopTime: String, paid: Bool)?
+    private(set) var showStopInfoUserNameAddressPriceStopTimePaidReceivedInvocations: [(userName: String, address: String, price: Double, stopTime: String, paid: Bool)] = []
+    var showStopInfoUserNameAddressPriceStopTimePaidClosure: ((String, String, Double, String, Bool) -> Void)?
+
+    func showStopInfo(userName: String,                    address: String,                    price: Double,                    stopTime: String,                    paid: Bool) {
+        showStopInfoUserNameAddressPriceStopTimePaidCallsCount += 1
+        showStopInfoUserNameAddressPriceStopTimePaidReceivedArguments = (userName: userName, address: address, price: price, stopTime: stopTime, paid: paid)
+        showStopInfoUserNameAddressPriceStopTimePaidReceivedInvocations.append((userName: userName, address: address, price: price, stopTime: stopTime, paid: paid))
+        showStopInfoUserNameAddressPriceStopTimePaidClosure?(userName, address, price, stopTime, paid)
+    }
+
+    //MARK: - removeStopInfo
+
+    private(set) var removeStopInfoCallsCount = 0
+    var removeStopInfoCalled: Bool {
+        return removeStopInfoCallsCount > 0
+    }
+    var removeStopInfoClosure: (() -> Void)?
+
+    func removeStopInfo() {
+        removeStopInfoCallsCount += 1
+        removeStopInfoClosure?()
     }
 
 }

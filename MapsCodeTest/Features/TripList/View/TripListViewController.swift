@@ -44,6 +44,22 @@ extension TripListViewController: TripListUI {
   func add(points: [Annotation]) {
     mainView?.add(annotations: points)
   }
+  
+  func showStopInfo(userName: String,
+                    address: String,
+                    price: Double,
+                    stopTime: String,
+                    paid: Bool) {
+    mainView?.showAlert(userName: userName,
+                        address: address,
+                        price: price,
+                        stopTime: stopTime,
+                        paid: paid)
+  }
+  
+  func removeStopInfo() {
+    mainView?.removeAlert()
+  }
 }
 
 extension TripListViewController: TripListViewDelegate {
