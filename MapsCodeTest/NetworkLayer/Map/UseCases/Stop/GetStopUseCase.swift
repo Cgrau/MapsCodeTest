@@ -1,5 +1,5 @@
 import RxSwift
 
-public protocol GetStopUseCase {
+public protocol GetStopUseCase: AutoMockable {
   func execute(request: StopRequest) -> Single<Stop>
 }

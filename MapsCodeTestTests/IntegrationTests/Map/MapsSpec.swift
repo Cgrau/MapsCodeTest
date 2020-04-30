@@ -22,6 +22,11 @@ class MapsSpec: XCTestCase {
     givenThoseTrips()
     XCTAssertNoThrow(try sut.getTrips().toBlocking().single())
   }
+  
+  func test_get_stop() {
+    givenThisStop()
+    XCTAssertNoThrow(try sut.getStop(request: StopRequest.mock).toBlocking().single())
+  }
 }
 
 extension MapsSpec {
@@ -32,5 +37,20 @@ extension MapsSpec {
                                  headers: nil
       )
     }
+  }
+  
+  private func givenThisStop() {
+    stub(condition: pathMatches("/stops/.*")) { _ in
+      return HTTPStubsResponse(jsonObject: Fixture.load("Stop.ok"),
+                                 statusCode: 200,
+                                 headers: nil
+      )
+    }
+  }
+}
+
+extension StopRequest {
+  static var mock: StopRequest {
+    return StopRequest(id: 1)
   }
 }

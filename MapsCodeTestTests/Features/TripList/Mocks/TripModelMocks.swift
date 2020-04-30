@@ -7,9 +7,11 @@ extension Trip {
                 driverName: "John Doe",
                 route: "Route",
                 status: .ongoing,
-                origin: TripDestination(address: "origin", point: TripPoint.mock),
+                origin: TripDestination(address: "origin",
+                                        point: TripPoint.mock),
                 stops: [TripStop.mock, TripStop.mock],
-                destination: TripDestination(address: "destination", point: TripPoint.mock),
+                destination: TripDestination(address: "destination",
+                                             point: TripPoint.mock),
                 startTime: "12:00",
                 endTime: "13:00")
   }
@@ -43,7 +45,7 @@ extension TripStop {
 
 extension RoutePointAnnotation {
   static var mock: RoutePointAnnotation {
-    return RoutePointAnnotation(longitude: 50.2,
-                                latitude: -3.2)
+    return RoutePointAnnotation(latitude: -3.2,
+                                longitude: 50.2)
   }
 }

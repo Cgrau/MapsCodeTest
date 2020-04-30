@@ -35,7 +35,8 @@ extension Assembly: TripListProvider {
   }
   
   private func mainInteractor() -> TripListInteractor {
-    return DefaultTripListInteractor(getTripsUseCase: resolver.getTrips)
+    return DefaultTripListInteractor(getTripsUseCase: resolver.getTrips,
+                                     getStopUseCase: resolver.getStop)
   }
   
   private func tripListContainerView() -> TripListView {

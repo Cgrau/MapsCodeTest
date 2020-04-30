@@ -80,6 +80,7 @@
 		2C74147A2458962B00FB071C /* StopApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7414792458962B00FB071C /* StopApiResponse.swift */; };
 		2C74147C2458966A00FB071C /* GetStopUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74147B2458966A00FB071C /* GetStopUseCase.swift */; };
 		2C74147E2458967C00FB071C /* GetStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74147D2458967C00FB071C /* GetStop.swift */; };
+		2C7414802458ACCC00FB071C /* Stop.ok.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C74147F2458ACCC00FB071C /* Stop.ok.json */; };
 		2C95D24524558AC40043EEDB /* MapKitProvider+Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C95D24424558AC40043EEDB /* MapKitProvider+Overlay.swift */; };
 		2C95D248245591540043EEDB /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C95D247245591540043EEDB /* FontSize.swift */; };
 		2C95D24B2456D97C0043EEDB /* AnnotationDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C95D24A2456D97C0043EEDB /* AnnotationDrawable.swift */; };
@@ -189,6 +190,7 @@
 		2C7414792458962B00FB071C /* StopApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopApiResponse.swift; sourceTree = "<group>"; };
 		2C74147B2458966A00FB071C /* GetStopUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStopUseCase.swift; sourceTree = "<group>"; };
 		2C74147D2458967C00FB071C /* GetStop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStop.swift; sourceTree = "<group>"; };
+		2C74147F2458ACCC00FB071C /* Stop.ok.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Stop.ok.json; sourceTree = "<group>"; };
 		2C95D24424558AC40043EEDB /* MapKitProvider+Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapKitProvider+Overlay.swift"; sourceTree = "<group>"; };
 		2C95D247245591540043EEDB /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
 		2C95D24A2456D97C0043EEDB /* AnnotationDrawable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationDrawable.swift; sourceTree = "<group>"; };
@@ -677,8 +679,8 @@
 		2C2A3AB524544D3300D76132 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				2C2A3ABE24544E8500D76132 /* Fixture */,
 				2C2A3AB624544D4600D76132 /* MapsSpec.swift */,
+				2C2A3ABE24544E8500D76132 /* Fixture */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -704,6 +706,7 @@
 			isa = PBXGroup;
 			children = (
 				2C2A3ABF24544E9600D76132 /* Trips.ok.json */,
+				2C74147F2458ACCC00FB071C /* Stop.ok.json */,
 			);
 			path = Fixture;
 			sourceTree = "<group>";
@@ -835,6 +838,14 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
+		2C7414822459EF6000FB071C /* StopPoint */ = {
+			isa = PBXGroup;
+			children = (
+				2C7414612458391500FB071C /* StopPointAnnotation.swift */,
+			);
+			path = StopPoint;
+			sourceTree = "<group>";
+		};
 		2C95D2492456D96A0043EEDB /* Annotations */ = {
 			isa = PBXGroup;
 			children = (
@@ -848,6 +859,7 @@
 			isa = PBXGroup;
 			children = (
 				2C95D2552456DEC60043EEDB /* MapKitAnnotation.swift */,
+				2C7414822459EF6000FB071C /* StopPoint */,
 				2C95D2592456DF740043EEDB /* RoutePoint */,
 			);
 			path = Annotations;
@@ -857,7 +869,6 @@
 			isa = PBXGroup;
 			children = (
 				2C95D2572456DF0C0043EEDB /* RoutePointAnnotation.swift */,
-				2C7414612458391500FB071C /* StopPointAnnotation.swift */,
 			);
 			path = RoutePoint;
 			sourceTree = "<group>";
@@ -1006,6 +1017,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C7414802458ACCC00FB071C /* Stop.ok.json in Resources */,
 				2C2A3AC024544E9600D76132 /* Trips.ok.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

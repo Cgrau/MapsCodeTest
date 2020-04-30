@@ -56,11 +56,22 @@ extension DefaultTripListPresenter: TripListInteractorDelegate {
   func trip(annotations: [Annotation]) {
     ui?.add(points: annotations)
   }
+  
+  func didLoad(stop: Stop) {
+    ui?.hideLoading()
+    // show Stop Info
+  }
+  
+  func didFailLoadingStop(error: Error) {
+    ui?.hideLoading()
+    ui?.show(error: error.message)
+  }
 }
 
 extension DefaultTripListPresenter: AnnotationDelegate {
   func annotationDidSelect(id: Int, coordinate: CLLocationCoordinate2D) {
-    //Show Stop Info
+    ui?.showLoading()
+    interactor.getStop(stopID: id)
   }
   
   func annotationDidDeselect() {

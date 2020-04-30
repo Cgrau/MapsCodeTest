@@ -1,9 +1,9 @@
 import Foundation
 
 public struct StopRequest {
-  public let id: String
+  public let id: Int
   
-  public init(id: String) {
+  public init(id: Int) {
     self.id = id
   }
 }

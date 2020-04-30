@@ -3,6 +3,8 @@ import RxSwift
 protocol TripListInteractorDelegate: class, AutoMockable {
   func didLoad(trips: [Trip])
   func didFailLoadingTrips(error: Error)
+  func didLoad(stop: Stop)
+  func didFailLoadingStop(error: Error)
   func trip(annotations: [Annotation])
 }
 
@@ -11,10 +13,13 @@ class DefaultTripListInteractor: TripListInteractor {
   weak var delegate: TripListInteractorDelegate?
   
   private let getTripsUseCase: GetTripsUseCase
+  private let getStopUseCase: GetStopUseCase
   private let bag = DisposeBag()
   
-  init(getTripsUseCase: GetTripsUseCase) {
+  init(getTripsUseCase: GetTripsUseCase,
+       getStopUseCase: GetStopUseCase) {
     self.getTripsUseCase = getTripsUseCase
+    self.getStopUseCase = getStopUseCase
   }
   
   func getTrips() {
@@ -22,6 +27,14 @@ class DefaultTripListInteractor: TripListInteractor {
       self?.delegate?.didLoad(trips: trips)
     }) { [weak self] error in
       self?.delegate?.didFailLoadingTrips(error: error)
+    }.disposed(by: bag)
+  }
+  
+  func getStop(stopID: Int) {
+    getStopUseCase.execute(request: StopRequest(id: stopID)).subscribe(onSuccess: { [weak self] stop in
+      self?.delegate?.didLoad(stop: stop)
+    }) { [weak self] error in
+      self?.delegate?.didFailLoadingStop(error: error)
     }.disposed(by: bag)
   }
   

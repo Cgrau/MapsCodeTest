@@ -6,14 +6,17 @@ final class TripListInteractorSpec: XCTestCase {
   
   private var sut: DefaultTripListInteractor!
   private var getTripsUseCase: GetTripsUseCaseMock!
+  private var getStopUseCase: GetStopUseCaseMock!
   private var delegate: TripListInteractorDelegateMock!
   private var annotationDelegate: AnnotationDelegateMock!
   
   override func setUp() {
     getTripsUseCase = GetTripsUseCaseMock()
+    getStopUseCase = GetStopUseCaseMock()
     delegate = TripListInteractorDelegateMock()
     annotationDelegate = AnnotationDelegateMock()
-    sut = DefaultTripListInteractor(getTripsUseCase: getTripsUseCase)
+    sut = DefaultTripListInteractor(getTripsUseCase: getTripsUseCase,
+                                    getStopUseCase: getStopUseCase)
     sut.delegate = delegate
   }
   

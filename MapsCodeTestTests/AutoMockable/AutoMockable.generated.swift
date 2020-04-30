@@ -128,6 +128,27 @@ class AnnotationDrawableMock: NSObject, AnnotationDrawable {
     }
 
 }
+class GetStopUseCaseMock: NSObject, GetStopUseCase {
+
+    //MARK: - execute
+
+    private(set) var executeRequestCallsCount = 0
+    var executeRequestCalled: Bool {
+        return executeRequestCallsCount > 0
+    }
+    private(set) var executeRequestReceivedRequest: StopRequest?
+    private(set) var executeRequestReceivedInvocations: [StopRequest] = []
+    var executeRequestReturnValue: Single<Stop>!
+    var executeRequestClosure: ((StopRequest) -> Single<Stop>)?
+
+    func execute(request: StopRequest) -> Single<Stop> {
+        executeRequestCallsCount += 1
+        executeRequestReceivedRequest = request
+        executeRequestReceivedInvocations.append(request)
+        return executeRequestClosure.map({ $0(request) }) ?? executeRequestReturnValue
+    }
+
+}
 class GetTripsUseCaseMock: NSObject, GetTripsUseCase {
 
     //MARK: - execute
@@ -287,6 +308,23 @@ class TripListInteractorMock: NSObject, TripListInteractor {
         getTripsClosure?()
     }
 
+    //MARK: - getStop
+
+    private(set) var getStopStopIDCallsCount = 0
+    var getStopStopIDCalled: Bool {
+        return getStopStopIDCallsCount > 0
+    }
+    private(set) var getStopStopIDReceivedStopID: Int?
+    private(set) var getStopStopIDReceivedInvocations: [Int] = []
+    var getStopStopIDClosure: ((Int) -> Void)?
+
+    func getStop(stopID: Int) {
+        getStopStopIDCallsCount += 1
+        getStopStopIDReceivedStopID = stopID
+        getStopStopIDReceivedInvocations.append(stopID)
+        getStopStopIDClosure?(stopID)
+    }
+
     //MARK: - map
 
     private(set) var mapTripPointsOriginDestinationAnnotationDelegateCallsCount = 0
@@ -339,6 +377,40 @@ class TripListInteractorDelegateMock: NSObject, TripListInteractorDelegate {
         didFailLoadingTripsErrorReceivedError = error
         didFailLoadingTripsErrorReceivedInvocations.append(error)
         didFailLoadingTripsErrorClosure?(error)
+    }
+
+    //MARK: - didLoad
+
+    private(set) var didLoadStopCallsCount = 0
+    var didLoadStopCalled: Bool {
+        return didLoadStopCallsCount > 0
+    }
+    private(set) var didLoadStopReceivedStop: Stop?
+    private(set) var didLoadStopReceivedInvocations: [Stop] = []
+    var didLoadStopClosure: ((Stop) -> Void)?
+
+    func didLoad(stop: Stop) {
+        didLoadStopCallsCount += 1
+        didLoadStopReceivedStop = stop
+        didLoadStopReceivedInvocations.append(stop)
+        didLoadStopClosure?(stop)
+    }
+
+    //MARK: - didFailLoadingStop
+
+    private(set) var didFailLoadingStopErrorCallsCount = 0
+    var didFailLoadingStopErrorCalled: Bool {
+        return didFailLoadingStopErrorCallsCount > 0
+    }
+    private(set) var didFailLoadingStopErrorReceivedError: Error?
+    private(set) var didFailLoadingStopErrorReceivedInvocations: [Error] = []
+    var didFailLoadingStopErrorClosure: ((Error) -> Void)?
+
+    func didFailLoadingStop(error: Error) {
+        didFailLoadingStopErrorCallsCount += 1
+        didFailLoadingStopErrorReceivedError = error
+        didFailLoadingStopErrorReceivedInvocations.append(error)
+        didFailLoadingStopErrorClosure?(error)
     }
 
     //MARK: - trip

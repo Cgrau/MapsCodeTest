@@ -1,9 +1,9 @@
 import MapKit
 
 final class StopPointAnnotation: NSObject, MapKitAnnotation {
-
-  var coordinate: CLLocationCoordinate2D
+  
   var id: Int
+  var coordinate: CLLocationCoordinate2D
   weak var delegate: AnnotationDelegate?
   
   init(id: Int,
