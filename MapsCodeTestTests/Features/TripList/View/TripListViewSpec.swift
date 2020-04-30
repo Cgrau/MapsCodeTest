@@ -23,6 +23,13 @@ class TripListViewSpec: XCTestCase {
     assertSnapshot(matching: sut, as: .image)
   }
   
+  func test_list_view_info_view() {
+    givenMapSetup()
+    givenTrips()
+    sut.display(driverName: "John Doe", description: ":)")
+    assertSnapshot(matching: sut, as: .image)
+  }
+  
   override func tearDown() {
     sut = nil
     mapProvider = nil
