@@ -1,5 +1,10 @@
 import MapKit
 
+private enum Constants {
+  static let selectedColor = UIColor(hex: 0x00CDFF)
+  static let deselectedColor = UIColor.white
+}
+
 final class StopPointAnnotation: NSObject, MapKitAnnotation {
   
   var id: Int
@@ -25,16 +30,16 @@ final class StopPointAnnotation: NSObject, MapKitAnnotation {
   
   func annotationView() -> UIView? {
     let view = MKMarkerAnnotationView()
-    view.markerTintColor = .white
+    view.markerTintColor = Constants.deselectedColor
     view.displayPriority = .required
     return view
   }
   
   func selectedColor() -> UIColor {
-    return .white
+    return Constants.selectedColor
   }
   
   func deselectedColor() -> UIColor {
-    return .white
+    return Constants.deselectedColor
   }
 }
