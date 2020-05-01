@@ -73,6 +73,10 @@
 		2C58B8B7245C2A8B00961898 /* FormViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C58B8B6245C2A8B00961898 /* FormViewSpec.swift */; };
 		2C58B8BA245C2BF700961898 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C58B8B9245C2BF700961898 /* Images.swift */; };
 		2C58B8BC245C2C6A00961898 /* Bundle+Framework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C58B8BB245C2C6A00961898 /* Bundle+Framework.swift */; };
+		2C58B8BF245C5CB300961898 /* UserDefaultsLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C58B8BE245C5CB300961898 /* UserDefaultsLocalStorage.swift */; };
+		2C58B8C1245C5CD100961898 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C58B8C0245C5CD100961898 /* LocalStorage.swift */; };
+		2C58B8C3245C5D0D00961898 /* LocalStorageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C58B8C2245C5D0D00961898 /* LocalStorageKey.swift */; };
+		2C58B8C6245C5E3400961898 /* FormInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C58B8C5245C5E3400961898 /* FormInfo.swift */; };
 		2C5A1CF72458336B00F597E9 /* TripModelMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5A1CF62458336B00F597E9 /* TripModelMocks.swift */; };
 		2C7414622458391500FB071C /* StopPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7414612458391500FB071C /* StopPointAnnotation.swift */; };
 		2C74146424583F7100FB071C /* MapKitProvider+Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74146324583F7100FB071C /* MapKitProvider+Annotation.swift */; };
@@ -199,6 +203,10 @@
 		2C58B8B6245C2A8B00961898 /* FormViewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewSpec.swift; sourceTree = "<group>"; };
 		2C58B8B9245C2BF700961898 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		2C58B8BB245C2C6A00961898 /* Bundle+Framework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Framework.swift"; sourceTree = "<group>"; };
+		2C58B8BE245C5CB300961898 /* UserDefaultsLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsLocalStorage.swift; sourceTree = "<group>"; };
+		2C58B8C0245C5CD100961898 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
+		2C58B8C2245C5D0D00961898 /* LocalStorageKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageKey.swift; sourceTree = "<group>"; };
+		2C58B8C5245C5E3400961898 /* FormInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInfo.swift; sourceTree = "<group>"; };
 		2C5A1CF62458336B00F597E9 /* TripModelMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModelMocks.swift; sourceTree = "<group>"; };
 		2C7414612458391500FB071C /* StopPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopPointAnnotation.swift; sourceTree = "<group>"; };
 		2C74146324583F7100FB071C /* MapKitProvider+Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapKitProvider+Annotation.swift"; sourceTree = "<group>"; };
@@ -823,6 +831,24 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		2C58B8BD245C5C8B00961898 /* LocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				2C58B8C2245C5D0D00961898 /* LocalStorageKey.swift */,
+				2C58B8C0245C5CD100961898 /* LocalStorage.swift */,
+				2C58B8BE245C5CB300961898 /* UserDefaultsLocalStorage.swift */,
+			);
+			path = LocalStorage;
+			sourceTree = "<group>";
+		};
+		2C58B8C4245C5E2700961898 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2C58B8C5245C5E3400961898 /* FormInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		2C5A1CF52458335D00F597E9 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
@@ -920,6 +946,8 @@
 		2C741490245C232000FB071C /* Form */ = {
 			isa = PBXGroup;
 			children = (
+				2C58B8C4245C5E2700961898 /* Model */,
+				2C58B8BD245C5C8B00961898 /* LocalStorage */,
 				2C7414A9245C236300FB071C /* View */,
 				2C7414A8245C235D00FB071C /* Presenter */,
 				2C7414A7245C235600FB071C /* Interactor */,
@@ -1332,6 +1360,7 @@
 				2C2A3A6C2454375C00D76132 /* TripListViewController.swift in Sources */,
 				2C2A3AD8245580E600D76132 /* UIViewController+ShowErrorMessage.swift in Sources */,
 				2C2A3A5C245434C300D76132 /* Assembly.swift in Sources */,
+				2C58B8C1245C5CD100961898 /* LocalStorage.swift in Sources */,
 				2C2A3A862454408100D76132 /* Mappable.swift in Sources */,
 				2C2A3ABA24544D9200D76132 /* NetworkAssembly+MapServices.swift in Sources */,
 				2C2A3A542454309F00D76132 /* Polyline.swift in Sources */,
@@ -1369,6 +1398,7 @@
 				2C74149B245C233200FB071C /* Assembly+formViewController.swift in Sources */,
 				2C74149C245C233200FB071C /* FormNavigator.swift in Sources */,
 				2C2A3A4A24542FE700D76132 /* MapProvider.swift in Sources */,
+				2C58B8C3245C5D0D00961898 /* LocalStorageKey.swift in Sources */,
 				2C95D24B2456D97C0043EEDB /* AnnotationDrawable.swift in Sources */,
 				2C2A3A6D2454375C00D76132 /* DefaultTripListInteractor.swift in Sources */,
 				2C2A3AD624557D5F00D76132 /* UIViewController+Loading.swift in Sources */,
@@ -1377,10 +1407,12 @@
 				2C2A3A8A245440DE00D76132 /* DefaultErrorAdapter.swift in Sources */,
 				2C2A3A732454375C00D76132 /* TripListProvider.swift in Sources */,
 				2C7414782458961C00FB071C /* StopApiToDomainMapper.swift in Sources */,
+				2C58B8C6245C5E3400961898 /* FormInfo.swift in Sources */,
 				2C2A3AC32454931000D76132 /* TripViewCell.swift in Sources */,
 				2C2A3A7F24543F0A00D76132 /* NetworkAssembly.swift in Sources */,
 				2C2A3A01245429BB00D76132 /* AppDelegate.swift in Sources */,
 				2C7414A4245C233200FB071C /* DefaultFormPresenter.swift in Sources */,
+				2C58B8BF245C5CB300961898 /* UserDefaultsLocalStorage.swift in Sources */,
 				2C74147E2458967C00FB071C /* GetStop.swift in Sources */,
 				2C2A3A7624543E7300D76132 /* String+MapToDateString.swift in Sources */,
 				2C2A3A702454375C00D76132 /* TripListView.swift in Sources */,

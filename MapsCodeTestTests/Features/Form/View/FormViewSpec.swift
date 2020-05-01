@@ -8,7 +8,6 @@ class FormViewSpec: XCTestCase {
   private var sut: FormView!
   
   override func setUp() {
-    record = true
     sut = formView()
   }
   

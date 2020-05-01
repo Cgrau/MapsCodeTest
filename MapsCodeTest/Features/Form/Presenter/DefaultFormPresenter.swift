@@ -20,7 +20,11 @@ class DefaultFormPresenter: FormPresenter {
     navigator.dismiss()
   }
   
-  func sendButtonAction() {
+  func saveButtonAction(fullName: String?,
+                        email: String?,
+                        phoneNumber: String?,
+                        date: String?,
+                        time: String?) {
     
   }
 }

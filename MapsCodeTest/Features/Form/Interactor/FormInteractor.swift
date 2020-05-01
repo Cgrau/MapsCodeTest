@@ -4,5 +4,5 @@ protocol FormInteractor: class{
   var delegate: FormInteractorDelegate? { get set }
   
   func getTimeAndDate()
-  func sendDate()
+  func save(data: FormInfo)
 }

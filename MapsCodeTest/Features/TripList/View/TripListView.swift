@@ -15,6 +15,7 @@ private enum Constants {
   static let cornerRadius: CGFloat = 10
   static let borderWidth: CGFloat = 1
   static let tableDivider = 3
+  static let buttonHeight = 50
 }
 
 class TripListView: View {
@@ -93,6 +94,7 @@ class TripListView: View {
       make.bottom.equalTo(safeAreaLayoutGuide)
       make.leading.equalToSuperview().offset(Constants.Spacing.big)
       make.trailing.equalToSuperview().offset(-Constants.Spacing.big)
+      make.height.equalTo(Constants.buttonHeight)
     }
   }
   

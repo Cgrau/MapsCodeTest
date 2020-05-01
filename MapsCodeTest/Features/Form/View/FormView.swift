@@ -2,7 +2,11 @@ import UIKit
 
 protocol FormViewDelegate: class {
   func didTapCloseButton()
-  func didTapSendButton()
+  func didTapSaveButton(fullName: String?,
+                        email: String?,
+                        phoneNumber: String?,
+                        date: String?,
+                        time: String?)
 }
 
 private enum Constants {
@@ -18,7 +22,10 @@ private enum Constants {
     static let phone = "Phone Number:"
     static let date = "Date:"
     static let time = "Time:"
+    static let save = "Save"
   }
+  static let cornerRadius: CGFloat = 10
+  static let buttonHeight = 50
 }
 
 class FormView: View {
@@ -73,6 +80,7 @@ class FormView: View {
   private var emailTextField: UITextField = {
     let textField = UITextField()
     textField.backgroundColor = .lightGray
+    textField.keyboardType = .emailAddress
     textField.font = UIFont.systemFont(ofSize: FontSize.regular)
     return textField
   }()
@@ -88,6 +96,7 @@ class FormView: View {
   private var phoneNumberTextField: UITextField = {
     let textField = UITextField()
     textField.backgroundColor = .lightGray
+    textField.keyboardType = .phonePad
     textField.font = UIFont.systemFont(ofSize: FontSize.regular)
     return textField
   }()
@@ -124,6 +133,14 @@ class FormView: View {
     return textField
   }()
   
+  private var saveButton: UIButton = {
+    let button = UIButton()
+    button.backgroundColor = .blue
+    button.layer.cornerRadius = Constants.cornerRadius
+    button.setTitle(Constants.Titles.save, for: .normal)
+    return button
+  }()
+  
   override func setupView() {
     addSubview(closeButton)
     addSubview(titleLabel)
@@ -138,12 +155,22 @@ class FormView: View {
     scrollView.addSubview(timeLabel)
     scrollView.addSubview(timeTextField)
     addSubview(scrollView)
+    addSubview(saveButton)
     setupKeyboardBehaviour(to: scrollView)
     closeButton.addTarget(self, action: #selector(closeButtonAction), for: .touchUpInside)
+    saveButton.addTarget(self, action: #selector(saveButtonAction), for: .touchUpInside)
   }
   
   @objc private func closeButtonAction() {
     delegate?.didTapCloseButton()
+  }
+  
+  @objc private func saveButtonAction() {
+    delegate?.didTapSaveButton(fullName: nameTextField.text,
+                               email: emailTextField.text,
+                               phoneNumber: phoneNumberTextField.text,
+                               date: dateTextField.text,
+                               time: timeTextField.text)
   }
   
   override func setupConstraints() {
@@ -166,7 +193,13 @@ class FormView: View {
       make.top.equalTo(titleLabel.snp.bottom).offset(Constants.Spacing.big)
       make.leading.equalToSuperview()
       make.trailing.equalToSuperview()
+    }
+    saveButton.snp.makeConstraints { make in
+      make.top.equalTo(scrollView.snp.bottom).offset(Constants.Spacing.big)
+      make.leading.equalToSuperview().offset(Constants.Spacing.big)
+      make.trailing.equalToSuperview().offset(-Constants.Spacing.big)
       make.bottom.equalTo(safeAreaLayoutGuide)
+      make.height.equalTo(Constants.buttonHeight)
     }
   }
   
@@ -180,13 +213,13 @@ class FormView: View {
       } else {
         make.top.equalToSuperview().offset(Constants.Spacing.big)
       }
-      make.leading.equalToSuperview().offset(Constants.Spacing.big)
-      make.trailing.equalToSuperview().offset(-Constants.Spacing.big)
+      make.leading.equalTo(self).offset(Constants.Spacing.big)
+      make.trailing.equalTo(self).offset(-Constants.Spacing.big)
     }
     textField.snp.makeConstraints { make in
       make.top.equalTo(label.snp.bottom)
-      make.leading.equalToSuperview().offset(Constants.Spacing.big)
-      make.trailing.equalToSuperview().offset(-Constants.Spacing.big)
+      make.leading.equalTo(self).offset(Constants.Spacing.big)
+      make.trailing.equalTo(self).offset(-Constants.Spacing.big)
       if isLastView {
         make.bottom.equalToSuperview()
       }

@@ -5,5 +5,9 @@ protocol FormPresenter: class {
   
   func didLoad()
   func closeButtonAction()
-  func sendButtonAction()
+  func saveButtonAction(fullName: String?,
+                        email: String?,
+                        phoneNumber: String?,
+                        date: String?,
+                        time: String?)
 }

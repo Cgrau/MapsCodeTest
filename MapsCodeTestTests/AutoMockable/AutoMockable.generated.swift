@@ -203,6 +203,39 @@ class GetTripsUseCaseMock: NSObject, GetTripsUseCase {
     }
 
 }
+class LocalStorageMock: NSObject, LocalStorage {
+
+    //MARK: - store
+
+    private(set) var storeStringForKeyCallsCount = 0
+    var storeStringForKeyCalled: Bool {
+        return storeStringForKeyCallsCount > 0
+    }
+    private(set) var storeStringForKeyReceivedArguments: (string: String, key: LocalStorageKey)?
+    private(set) var storeStringForKeyReceivedInvocations: [(string: String, key: LocalStorageKey)] = []
+    var storeStringForKeyClosure: ((String, LocalStorageKey) -> Void)?
+
+    func store(string: String, forKey key: LocalStorageKey) {
+        storeStringForKeyCallsCount += 1
+        storeStringForKeyReceivedArguments = (string: string, key: key)
+        storeStringForKeyReceivedInvocations.append((string: string, key: key))
+        storeStringForKeyClosure?(string, key)
+    }
+
+    //MARK: - clear
+
+    private(set) var clearCallsCount = 0
+    var clearCalled: Bool {
+        return clearCallsCount > 0
+    }
+    var clearClosure: (() -> Void)?
+
+    func clear() {
+        clearCallsCount += 1
+        clearClosure?()
+    }
+
+}
 class MapKitAnnotationMock: NSObject, MapKitAnnotation {
     var coordinate: CLLocationCoordinate2D {
         get { return underlyingCoordinate }

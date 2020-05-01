@@ -37,6 +37,10 @@ extension Assembly: FormProvider {
   }
   
   private func mainInteractor() -> FormInteractor {
-    return DefaultFormInteractor()
+    return DefaultFormInteractor(localStorage: localStorage)
+  }
+  
+  private var localStorage: LocalStorage {
+    return UserDefaultsLocalStorage(userDefaults: UserDefaults.standard)
   }
 }
