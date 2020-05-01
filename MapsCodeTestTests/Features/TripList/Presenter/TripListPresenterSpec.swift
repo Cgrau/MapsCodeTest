@@ -38,6 +38,12 @@ final class TripListPresenterSpec: XCTestCase {
     XCTAssertTrue(ui.showErrorCalled)
   }
   
+  func test_didTapContactButton() {
+    sut.didTapContactButton()
+    XCTAssertTrue(navigator.navigateToContactFormCalled)
+  }
+  
+  // MARK: TripListInteractorDelegate
   func test_did_load_trips() {
     sut.didLoad(trips: [Trip.mock])
     XCTAssertTrue(ui.hideLoadingCalled)

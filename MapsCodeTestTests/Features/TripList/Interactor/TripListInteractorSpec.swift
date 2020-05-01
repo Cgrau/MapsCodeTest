@@ -34,6 +34,20 @@ final class TripListInteractorSpec: XCTestCase {
     XCTAssertTrue(delegate.didFailLoadingTripsErrorCalled)
   }
   
+  func test_get_stop_OK() {
+    givenGetStopReponse_OK()
+    sut.getStop(stopID: 1)
+    XCTAssertTrue(delegate.didLoadStopCalled)
+    XCTAssertFalse(delegate.didFailLoadingStopErrorCalled)
+  }
+  
+  func test_get_stop_KO() {
+    givenGetStopReponse_KO()
+    sut.getStop(stopID: 1)
+    XCTAssertFalse(delegate.didLoadStopCalled)
+    XCTAssertTrue(delegate.didFailLoadingStopErrorCalled)
+  }
+  
   func test_map_points() {
     sut.map(tripPoints: [TripStop.mock],
             origin: TripPoint.mock,
@@ -53,6 +67,20 @@ extension TripListInteractorSpec {
 
   func givenGetTripsResponse_KO() {
     getTripsUseCase.executeReturnValue = Single.create(subscribe: { event in
+      event(.error(PlainError.mock))
+      return Disposables.create()
+    })
+  }
+  
+  func givenGetStopReponse_OK() {
+    getStopUseCase.executeRequestReturnValue = Single.create(subscribe: { event in
+      event(.success(Stop.mock))
+      return Disposables.create()
+    })
+  }
+  
+  func givenGetStopReponse_KO() {
+    getStopUseCase.executeRequestReturnValue = Single.create(subscribe: { event in
       event(.error(PlainError.mock))
       return Disposables.create()
     })

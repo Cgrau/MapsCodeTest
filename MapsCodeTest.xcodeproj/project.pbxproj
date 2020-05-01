@@ -78,6 +78,7 @@
 		2C58B8C3245C5D0D00961898 /* LocalStorageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C58B8C2245C5D0D00961898 /* LocalStorageKey.swift */; };
 		2C58B8C6245C5E3400961898 /* FormInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C58B8C5245C5E3400961898 /* FormInfo.swift */; };
 		2C5A1CF72458336B00F597E9 /* TripModelMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5A1CF62458336B00F597E9 /* TripModelMocks.swift */; };
+		2C7171D8245C69E9005BD939 /* FormPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7171D7245C69E9005BD939 /* FormPresenterSpec.swift */; };
 		2C7414622458391500FB071C /* StopPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7414612458391500FB071C /* StopPointAnnotation.swift */; };
 		2C74146424583F7100FB071C /* MapKitProvider+Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74146324583F7100FB071C /* MapKitProvider+Annotation.swift */; };
 		2C7414722458626C00FB071C /* StopRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7414712458626C00FB071C /* StopRequest.swift */; };
@@ -208,6 +209,7 @@
 		2C58B8C2245C5D0D00961898 /* LocalStorageKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageKey.swift; sourceTree = "<group>"; };
 		2C58B8C5245C5E3400961898 /* FormInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInfo.swift; sourceTree = "<group>"; };
 		2C5A1CF62458336B00F597E9 /* TripModelMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModelMocks.swift; sourceTree = "<group>"; };
+		2C7171D7245C69E9005BD939 /* FormPresenterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormPresenterSpec.swift; sourceTree = "<group>"; };
 		2C7414612458391500FB071C /* StopPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopPointAnnotation.swift; sourceTree = "<group>"; };
 		2C74146324583F7100FB071C /* MapKitProvider+Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapKitProvider+Annotation.swift"; sourceTree = "<group>"; };
 		2C7414712458626C00FB071C /* StopRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopRequest.swift; sourceTree = "<group>"; };
@@ -812,6 +814,8 @@
 			isa = PBXGroup;
 			children = (
 				2C58B8B5245C2A7600961898 /* View */,
+				2C7171D5245C69CE005BD939 /* Presenter */,
+				2C7171D6245C69D8005BD939 /* Interactor */,
 			);
 			path = Form;
 			sourceTree = "<group>";
@@ -864,6 +868,21 @@
 				2C5A1CF62458336B00F597E9 /* TripModelMocks.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		2C7171D5245C69CE005BD939 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2C7171D7245C69E9005BD939 /* FormPresenterSpec.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2C7171D6245C69D8005BD939 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		2C7414682458620100FB071C /* Stop */ = {
@@ -1457,6 +1476,7 @@
 				2C2A3AD224557BB400D76132 /* TripListPresenterSpec.swift in Sources */,
 				2C2A3AD02454A21900D76132 /* XCTestCase+UIViewController.swift in Sources */,
 				2C2A3A3424542D5F00D76132 /* AutoMockable.generated.swift in Sources */,
+				2C7171D8245C69E9005BD939 /* FormPresenterSpec.swift in Sources */,
 				2C5A1CF72458336B00F597E9 /* TripModelMocks.swift in Sources */,
 				2C2A3AB724544D4600D76132 /* MapsSpec.swift in Sources */,
 			);
