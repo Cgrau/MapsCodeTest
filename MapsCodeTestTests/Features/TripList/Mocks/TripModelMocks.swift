@@ -46,7 +46,8 @@ extension TripStop {
 extension RoutePointAnnotation {
   static var mock: RoutePointAnnotation {
     return RoutePointAnnotation(latitude: -3.2,
-                                longitude: 50.2)
+                                longitude: 50.2,
+                                routePointType: .start)
   }
 }
 

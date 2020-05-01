@@ -63,15 +63,17 @@ class DefaultTripListInteractor: TripListInteractor {
   private func map(_ origin: TripPoint,
                    destination: TripPoint) -> [Annotation] {
     var edges = [RoutePointAnnotation?]()
-    edges.append(routePoint(from: origin))
-    edges.append(routePoint(from: destination))
+    edges.append(routePoint(from: origin, routePointType: .start))
+    edges.append(routePoint(from: destination, routePointType: .end))
     return edges.compactMap({ $0 })
   }
   
-  private func routePoint(from point: TripPoint) -> RoutePointAnnotation? {
+  private func routePoint(from point: TripPoint,
+                          routePointType: RoutePointType) -> RoutePointAnnotation? {
     guard let longitude = point.longitude,
       let latitude = point.latitude else { return nil }
     return RoutePointAnnotation(latitude: latitude,
-                                longitude: longitude)
+                                longitude: longitude,
+                                routePointType: routePointType)
   }
 }

@@ -98,6 +98,48 @@ class AnnotationMock: NSObject, Annotation {
         didDeselectClosure?()
     }
 
+    //MARK: - annotationView
+
+    private(set) var annotationViewCallsCount = 0
+    var annotationViewCalled: Bool {
+        return annotationViewCallsCount > 0
+    }
+    var annotationViewReturnValue: UIView?
+    var annotationViewClosure: (() -> UIView?)?
+
+    func annotationView() -> UIView? {
+        annotationViewCallsCount += 1
+        return annotationViewClosure.map({ $0() }) ?? annotationViewReturnValue
+    }
+
+    //MARK: - selectedColor
+
+    private(set) var selectedColorCallsCount = 0
+    var selectedColorCalled: Bool {
+        return selectedColorCallsCount > 0
+    }
+    var selectedColorReturnValue: UIColor!
+    var selectedColorClosure: (() -> UIColor)?
+
+    func selectedColor() -> UIColor {
+        selectedColorCallsCount += 1
+        return selectedColorClosure.map({ $0() }) ?? selectedColorReturnValue
+    }
+
+    //MARK: - deselectedColor
+
+    private(set) var deselectedColorCallsCount = 0
+    var deselectedColorCalled: Bool {
+        return deselectedColorCallsCount > 0
+    }
+    var deselectedColorReturnValue: UIColor!
+    var deselectedColorClosure: (() -> UIColor)?
+
+    func deselectedColor() -> UIColor {
+        deselectedColorCallsCount += 1
+        return deselectedColorClosure.map({ $0() }) ?? deselectedColorReturnValue
+    }
+
 }
 class AnnotationDelegateMock: NSObject, AnnotationDelegate {
 
@@ -621,6 +663,48 @@ class MapKitAnnotationMock: NSObject, MapKitAnnotation {
     func didDeselect() {
         didDeselectCallsCount += 1
         didDeselectClosure?()
+    }
+
+    //MARK: - annotationView
+
+    private(set) var annotationViewCallsCount = 0
+    var annotationViewCalled: Bool {
+        return annotationViewCallsCount > 0
+    }
+    var annotationViewReturnValue: UIView?
+    var annotationViewClosure: (() -> UIView?)?
+
+    func annotationView() -> UIView? {
+        annotationViewCallsCount += 1
+        return annotationViewClosure.map({ $0() }) ?? annotationViewReturnValue
+    }
+
+    //MARK: - selectedColor
+
+    private(set) var selectedColorCallsCount = 0
+    var selectedColorCalled: Bool {
+        return selectedColorCallsCount > 0
+    }
+    var selectedColorReturnValue: UIColor!
+    var selectedColorClosure: (() -> UIColor)?
+
+    func selectedColor() -> UIColor {
+        selectedColorCallsCount += 1
+        return selectedColorClosure.map({ $0() }) ?? selectedColorReturnValue
+    }
+
+    //MARK: - deselectedColor
+
+    private(set) var deselectedColorCallsCount = 0
+    var deselectedColorCalled: Bool {
+        return deselectedColorCallsCount > 0
+    }
+    var deselectedColorReturnValue: UIColor!
+    var deselectedColorClosure: (() -> UIColor)?
+
+    func deselectedColor() -> UIColor {
+        deselectedColorCallsCount += 1
+        return deselectedColorClosure.map({ $0() }) ?? deselectedColorReturnValue
     }
 
 }
