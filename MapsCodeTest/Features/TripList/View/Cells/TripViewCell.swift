@@ -2,7 +2,7 @@ import UIKit
 
 private enum Constants {
   enum Titles {
-    static let name = "Name: "
+    static let name = "Driver Name: "
     static let description = "Description: "
     static let startTime = "Start Time: "
     static let endTime = "End Time: "
@@ -15,16 +15,17 @@ private enum Constants {
 }
 
 final class TripViewCell: TableViewCell {
-  private var driverNameLabel: UILabel = {
-    let label = UILabel()
-    label.font = UIFont.boldSystemFont(ofSize: FontSize.header)
-    label.numberOfLines = 0
-    return label
-  }()
   
   private var descriptionLabel: UILabel = {
     let label = UILabel()
+    label.font = UIFont.boldSystemFont(ofSize: FontSize.header)
+    return label
+  }()
+  
+  private var driverNameLabel: UILabel = {
+    let label = UILabel()
     label.font = label.font.withSize(FontSize.regular)
+    label.numberOfLines = 0
     return label
   }()
   
@@ -66,38 +67,38 @@ final class TripViewCell: TableViewCell {
   }()
   
   override func setupView() {
-    addSubview(driverNameLabel)
     addSubview(descriptionLabel)
+    addSubview(driverNameLabel)
     addSubview(startTimeLabel)
     addSubview(endTimeLabel)
     addSubview(statusLabel)
   }
   
   override func setupConstraints() {
-    driverNameLabel.snp.makeConstraints { make in
+    descriptionLabel.snp.makeConstraints { make in
       make.top.equalToSuperview().offset(Constants.Spacing.big)
       make.leading.equalToSuperview().offset(Constants.Spacing.big)
       make.trailing.equalToSuperview().offset(-Constants.Spacing.big)
     }
-    descriptionLabel.snp.makeConstraints { make in
-      make.top.equalTo(driverNameLabel.snp.bottom).offset(Constants.Spacing.small)
-      make.leading.equalTo(driverNameLabel)
-      make.trailing.equalTo(driverNameLabel)
-    }
-    startTimeLabel.snp.makeConstraints { make in
+    driverNameLabel.snp.makeConstraints { make in
       make.top.equalTo(descriptionLabel.snp.bottom).offset(Constants.Spacing.small)
       make.leading.equalTo(descriptionLabel)
       make.trailing.equalTo(descriptionLabel)
     }
+    startTimeLabel.snp.makeConstraints { make in
+      make.top.equalTo(driverNameLabel.snp.bottom).offset(Constants.Spacing.small)
+      make.leading.equalTo(driverNameLabel)
+      make.trailing.equalTo(driverNameLabel)
+    }
     endTimeLabel.snp.makeConstraints { make in
       make.top.equalTo(startTimeLabel.snp.bottom).offset(Constants.Spacing.small)
-      make.leading.equalTo(descriptionLabel)
-      make.trailing.equalTo(descriptionLabel)
+      make.leading.equalTo(startTimeLabel)
+      make.trailing.equalTo(startTimeLabel)
     }
     statusLabel.snp.makeConstraints { make in
       make.top.equalTo(endTimeLabel.snp.bottom).offset(Constants.Spacing.small)
-      make.leading.equalTo(descriptionLabel)
-      make.trailing.equalTo(descriptionLabel)
+      make.leading.equalTo(endTimeLabel)
+      make.trailing.equalTo(endTimeLabel)
       make.bottom.equalToSuperview().offset(-Constants.Spacing.big)
     }
   }
@@ -110,8 +111,8 @@ extension TripViewCell {
                  endTime: String?,
                  status: TripStatus?) {
     accessoryType = .none
+    descriptionLabel.text = descriptionText ?? ""
     driverNameLabel.text = Constants.Titles.name + (driverName ?? "")
-    descriptionLabel.text = Constants.Titles.description + (descriptionText ?? "")
     startTimeLabel.text = Constants.Titles.startTime + (startTime ?? "")
     endTimeLabel.text = Constants.Titles.endTime + (endTime ?? "")
     self.status = status

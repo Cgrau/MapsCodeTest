@@ -185,6 +185,27 @@ class BadgeNumberUpdaterMock: NSObject, BadgeNumberUpdater {
     }
 
 }
+class FieldValidatorMock: NSObject, FieldValidator {
+
+    //MARK: - validate
+
+    private(set) var validateFieldCallsCount = 0
+    var validateFieldCalled: Bool {
+        return validateFieldCallsCount > 0
+    }
+    private(set) var validateFieldReceivedField: String?
+    private(set) var validateFieldReceivedInvocations: [String?] = []
+    var validateFieldReturnValue: Bool!
+    var validateFieldClosure: ((String?) -> Bool)?
+
+    func validate(field: String?) -> Bool {
+        validateFieldCallsCount += 1
+        validateFieldReceivedField = field
+        validateFieldReceivedInvocations.append(field)
+        return validateFieldClosure.map({ $0(field) }) ?? validateFieldReturnValue
+    }
+
+}
 class FormInteractorMock: NSObject, FormInteractor {
     var delegate: FormInteractorDelegate?
 

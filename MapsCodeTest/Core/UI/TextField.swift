@@ -4,7 +4,7 @@ private enum Constants {
   static let cornerRadius: CGFloat = 10
   static let horizontalPadding: CGFloat = 5
   static let borderWidth: CGFloat = 2
-  static let borderColor: CGColor = UIColor.lightGray.cgColor
+  static let borderColor: CGColor = UIColor.blue.cgColor
 }
 
 class TextField: UITextField {

@@ -40,7 +40,8 @@ extension Assembly: FormProvider {
   
   private func mainInteractor() -> FormInteractor {
     return DefaultFormInteractor(localStorage: localStorage,
-                                 timeAndDateProvider: timeAndDateProvider)
+                                 timeAndDateProvider: timeAndDateProvider,
+                                 emailValidator: emailValidator)
   }
   
   private var localStorage: LocalStorage {
@@ -53,5 +54,9 @@ extension Assembly: FormProvider {
   
   private var badgeNumberUpdater: BadgeNumberUpdater {
     return DefaultBadgeNumberUpdater(app: UIApplication.shared)
+  }
+  
+  private var emailValidator: FieldValidator {
+    return EmailValidator()
   }
 }

@@ -8,13 +8,16 @@ final class FormInteractorSpec: XCTestCase {
   private var delegate: FormInteractorDelegateMock!
   private var localStorage: LocalStorageMock!
   private var timeAndDateProvider: TimeAndDateProviderMock!
+  private var emailValidator: FieldValidatorMock!
   
   override func setUp() {
     localStorage = LocalStorageMock()
     timeAndDateProvider = TimeAndDateProviderMock()
     delegate = FormInteractorDelegateMock()
+    emailValidator = FieldValidatorMock()
     sut = DefaultFormInteractor(localStorage: localStorage,
-                                timeAndDateProvider: timeAndDateProvider)
+                                timeAndDateProvider: timeAndDateProvider,
+                                emailValidator: emailValidator)
     sut.delegate = delegate
   }
   
@@ -39,42 +42,56 @@ final class FormInteractorSpec: XCTestCase {
     XCTAssertFalse(delegate.didLoadTimeDateCalled)
   }
   
-  func test_saveData_OK_1() {
+  func test_saveData_OK() {
     givenSavedItemsCount()
-    sut.save(data: FormInfo.mock_OK_1)
+    givenValidEmail()
+    sut.save(data: FormInfo.mock_OK)
     XCTAssertTrue(localStorage.storeValueCalled)
     XCTAssertTrue(delegate.didSaveDataMessageCalled)
     XCTAssertFalse(delegate.didFailSavingDataErrorCalled)
     XCTAssertTrue(delegate.displayCounterCalled)
   }
   
-  func test_saveData_OK_2() {
+  func test_saveData_OK_phone_not_mandatory() {
     givenSavedItemsCount()
-    sut.save(data: FormInfo.mock_OK_2)
+    givenValidEmail()
+    sut.save(data: FormInfo.mock_OK_phone_nil)
     XCTAssertTrue(localStorage.storeValueCalled)
     XCTAssertTrue(delegate.didSaveDataMessageCalled)
     XCTAssertFalse(delegate.didFailSavingDataErrorCalled)
     XCTAssertTrue(delegate.displayCounterCalled)
   }
   
-  func test_saveData_KO_1() {
-    sut.save(data: FormInfo.mock_KO_1)
+  func test_saveData_KO_all_nil() {
+    givenInvalidEmail()
+    sut.save(data: FormInfo.mock_KO_all_nil)
     XCTAssertFalse(localStorage.storeValueCalled)
     XCTAssertFalse(delegate.didSaveDataMessageCalled)
     XCTAssertTrue(delegate.didFailSavingDataErrorCalled)
     XCTAssertFalse(delegate.displayCounterCalled)
   }
   
-  func test_saveData_KO_2() {
-    sut.save(data: FormInfo.mock_KO_2)
+  func test_saveData_KO_nil_email() {
+    givenInvalidEmail()
+    sut.save(data: FormInfo.mock_KO_nil_email)
     XCTAssertFalse(localStorage.storeValueCalled)
     XCTAssertFalse(delegate.didSaveDataMessageCalled)
     XCTAssertTrue(delegate.didFailSavingDataErrorCalled)
     XCTAssertFalse(delegate.displayCounterCalled)
   }
   
-  func test_saveData_KO_3() {
-    sut.save(data: FormInfo.mock_KO_3)
+  func test_saveData_KO_invalid_email() {
+    givenInvalidEmail()
+    sut.save(data: FormInfo.mock_KO_invalidEmail)
+    XCTAssertFalse(localStorage.storeValueCalled)
+    XCTAssertFalse(delegate.didSaveDataMessageCalled)
+    XCTAssertTrue(delegate.didFailSavingDataErrorCalled)
+    XCTAssertFalse(delegate.displayCounterCalled)
+  }
+  
+  func test_saveData_KO_empty_fields() {
+    givenInvalidEmail()
+    sut.save(data: FormInfo.mock_KO_empty_fields)
     XCTAssertFalse(localStorage.storeValueCalled)
     XCTAssertFalse(delegate.didSaveDataMessageCalled)
     XCTAssertTrue(delegate.didFailSavingDataErrorCalled)
@@ -93,10 +110,18 @@ final class FormInteractorSpec: XCTestCase {
   func givenSavedItemsCount() {
     localStorage.getSavedItemsCountReturnValue = 1
   }
+  
+  func givenValidEmail() {
+    emailValidator.validateFieldReturnValue = true
+  }
+  
+  func givenInvalidEmail() {
+    emailValidator.validateFieldReturnValue = false
+  }
 }
 
 extension FormInfo {
-  static var mock_OK_1: FormInfo {
+  static var mock_OK: FormInfo {
     return FormInfo(fullName: "John Doe",
                     email: "johndoe@hotmail.com",
                     phoneNumber: "555555555",
@@ -104,7 +129,7 @@ extension FormInfo {
                     time: "10:30")
   }
   
-  static var mock_OK_2: FormInfo {
+  static var mock_OK_phone_nil: FormInfo {
     return FormInfo(fullName: "John Doe",
                     email: "johndoe@hotmail.com",
                     phoneNumber: nil,
@@ -112,7 +137,7 @@ extension FormInfo {
                     time: "11:00")
   }
   
-  static var mock_KO_1: FormInfo {
+  static var mock_KO_all_nil: FormInfo {
     return FormInfo(fullName: nil,
                     email: nil,
                     phoneNumber: nil,
@@ -120,7 +145,15 @@ extension FormInfo {
                     time: nil)
   }
   
-  static var mock_KO_2: FormInfo {
+  static var mock_KO_invalidEmail: FormInfo {
+    return FormInfo(fullName: "John Doe",
+                    email: "eqeqwewq@com",
+                    phoneNumber: "3123132132",
+                    date: "1/4/2050",
+                    time: "10:30")
+  }
+  
+  static var mock_KO_nil_email: FormInfo {
     return FormInfo(fullName: "John Doe",
                     email: nil,
                     phoneNumber: "3123132132",
@@ -128,7 +161,7 @@ extension FormInfo {
                     time: "10:30")
   }
   
-  static var mock_KO_3: FormInfo {
+  static var mock_KO_empty_fields: FormInfo {
     return FormInfo(fullName: "",
                     email: "",
                     phoneNumber: "",
