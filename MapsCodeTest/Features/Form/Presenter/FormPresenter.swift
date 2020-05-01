@@ -9,5 +9,6 @@ protocol FormPresenter: class, AutoMockable {
                         email: String?,
                         phoneNumber: String?,
                         date: String?,
-                        time: String?)
+                        time: String?,
+                        comment: String?)
 }

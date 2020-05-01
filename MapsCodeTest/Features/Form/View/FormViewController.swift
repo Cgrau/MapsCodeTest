@@ -47,11 +47,13 @@ extension FormViewController: FormViewDelegate {
                         email: String?,
                         phoneNumber: String?,
                         date: String?,
-                        time: String?) {
+                        time: String?,
+                        comment: String?) {
     presenter?.saveButtonAction(fullName: fullName,
                                 email: email,
                                 phoneNumber: phoneNumber,
                                 date: date,
-                                time: time)
+                                time: time,
+                                comment: comment)
   }
 }

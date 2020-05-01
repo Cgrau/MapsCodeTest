@@ -6,6 +6,7 @@ struct FormInfo: Codable {
   let phoneNumber: String?
   let date: String?
   let time: String?
+  let comment: String?
   
   func toJsonString() -> String? {
     let jsonEncoder = JSONEncoder()

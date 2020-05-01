@@ -45,7 +45,8 @@ final class FormPresenterSpec: XCTestCase {
                          email: "",
                          phoneNumber: "",
                          date: "",
-                         time: "")
+                         time: "",
+                         comment: "")
     XCTAssertTrue(ui.showLoadingCalled)
     XCTAssertTrue(interactor.saveDataCalled)
   }

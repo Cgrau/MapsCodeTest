@@ -28,13 +28,15 @@ class DefaultFormPresenter: FormPresenter {
                         email: String?,
                         phoneNumber: String?,
                         date: String?,
-                        time: String?) {
+                        time: String?,
+                        comment: String?) {
     ui?.showLoading()
     interactor.save(data: FormInfo(fullName: fullName,
                                    email: email,
                                    phoneNumber: phoneNumber,
                                    date: date,
-                                   time: time))
+                                   time: time,
+                                   comment: comment))
   }
 }
 

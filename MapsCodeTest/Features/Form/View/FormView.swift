@@ -6,7 +6,8 @@ protocol FormViewDelegate: class, AutoMockable {
                         email: String?,
                         phoneNumber: String?,
                         date: String?,
-                        time: String?)
+                        time: String?,
+                        comment: String?)
 }
 
 private enum Constants {
@@ -16,17 +17,20 @@ private enum Constants {
     static let small = 4
   }
   enum Titles {
-    static let title = "Contact Form"
+    static let title = "Contact Form - Report Issue"
     static let name = "Name and Surname:"
     static let email = "Email:"
     static let phone = "Phone Number:"
     static let date = "Date:"
     static let time = "Time:"
+    static let comment = "Report Description:"
     static let save = "Save"
   }
   static let cornerRadius: CGFloat = 10
   static let buttonHeight = 50
   static let textFieldHeight = 40
+  static let textViewHeight = 100
+  static let maxTextViewCharacters = 200
 }
 
 class FormView: View {
@@ -131,6 +135,24 @@ class FormView: View {
     return textField
   }()
   
+  // MARK: Comment
+  
+  private var commentLabel: UILabel = {
+    let label = UILabel()
+    label.text = Constants.Titles.comment
+    label.font = UIFont.boldSystemFont(ofSize: FontSize.regular)
+    return label
+  }()
+  
+  private var commentTextView: UITextView = {
+    let textView = UITextView()
+    textView.font = UIFont.systemFont(ofSize: FontSize.regular)
+    textView.layer.borderColor = UIColor.blue.cgColor
+    textView.layer.borderWidth = 2
+    textView.layer.cornerRadius = Constants.cornerRadius
+    return textView
+  }()
+  
   private var saveButton: UIButton = {
     let button = UIButton()
     button.backgroundColor = .blue
@@ -152,6 +174,9 @@ class FormView: View {
     scrollView.addSubview(dateTextField)
     scrollView.addSubview(timeLabel)
     scrollView.addSubview(timeTextField)
+    scrollView.addSubview(commentLabel)
+    scrollView.addSubview(commentTextView)
+    commentTextView.delegate = self
     addSubview(scrollView)
     addSubview(saveButton)
     setupKeyboardBehaviour(to: scrollView)
@@ -168,7 +193,8 @@ class FormView: View {
                                email: emailTextField.text,
                                phoneNumber: phoneNumberTextField.text,
                                date: dateTextField.text,
-                               time: timeTextField.text)
+                               time: timeTextField.text,
+                               comment: commentTextView.text)
   }
   
   override func setupConstraints() {
@@ -176,7 +202,19 @@ class FormView: View {
     addConstraintsTo(label: emailLabel, textField: emailTextField, previousView: nameTextField)
     addConstraintsTo(label: phoneNumberLabel, textField: phoneNumberTextField, previousView: emailTextField)
     addConstraintsTo(label: dateLabel, textField: dateTextField, previousView: phoneNumberTextField)
-    addConstraintsTo(label: timeLabel, textField: timeTextField, previousView: dateTextField, isLastView: true)
+    addConstraintsTo(label: timeLabel, textField: timeTextField, previousView: dateTextField)
+    commentLabel.snp.makeConstraints { make in
+      make.top.equalTo(timeTextField.snp.bottom).offset(Constants.Spacing.big)
+      make.leading.equalTo(self).offset(Constants.Spacing.big)
+      make.trailing.equalTo(self).offset(-Constants.Spacing.big)
+    }
+    commentTextView.snp.makeConstraints { make in
+      make.top.equalTo(commentLabel.snp.bottom).offset(Constants.Spacing.big)
+      make.leading.equalTo(commentLabel)
+      make.trailing.equalTo(commentLabel)
+      make.height.equalTo(Constants.textViewHeight)
+      make.bottom.equalToSuperview()
+    }
     closeButton.snp.makeConstraints { make in
       make.top.equalTo(safeAreaLayoutGuide).offset(Constants.Spacing.big)
       make.trailing.equalToSuperview().offset(-Constants.Spacing.big)
@@ -203,8 +241,7 @@ class FormView: View {
   
   private func addConstraintsTo(label: UILabel,
                                 textField: UITextField,
-                                previousView: UIView? = nil,
-                                isLastView: Bool = false) {
+                                previousView: UIView? = nil) {
     label.snp.makeConstraints { make in
       if let previousView = previousView {
         make.top.equalTo(previousView.snp.bottom).offset(Constants.Spacing.big)
@@ -216,11 +253,8 @@ class FormView: View {
     }
     textField.snp.makeConstraints { make in
       make.top.equalTo(label.snp.bottom)
-      make.leading.equalTo(self).offset(Constants.Spacing.big)
-      make.trailing.equalTo(self).offset(-Constants.Spacing.big)
-      if isLastView {
-        make.bottom.equalToSuperview()
-      }
+      make.leading.equalTo(label)
+      make.trailing.equalTo(label)
       make.height.equalTo(Constants.textFieldHeight)
     }
   }
@@ -228,5 +262,13 @@ class FormView: View {
   func display(time: String, date: String) {
     timeTextField.text = time
     dateTextField.text = date
+  }
+}
+
+extension FormView: UITextViewDelegate {
+  func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
+    let numberOfChars = newText.count
+    return numberOfChars < Constants.maxTextViewCharacters
   }
 }

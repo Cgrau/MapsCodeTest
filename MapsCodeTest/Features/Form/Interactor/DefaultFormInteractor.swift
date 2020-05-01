@@ -17,6 +17,7 @@ private enum Constants {
   enum FieldError {
     static let email = "Email\n"
     static let fullName = "Name and Surname\n"
+    static let comment = "Report Description\n"
   }
 }
 
@@ -47,6 +48,7 @@ class DefaultFormInteractor: FormInteractor {
     var errorMessage = ""
     validate(fullName: data.fullName, errorMessage: &errorMessage)
     validate(email: data.email, errorMessage: &errorMessage)
+    validate(comment: data.comment, errorMessage: &errorMessage)
     guard errorMessage == "" else {
       delegate?.didFailSavingData(error: Constants.invalidFields + errorMessage)
       return
@@ -70,6 +72,13 @@ class DefaultFormInteractor: FormInteractor {
   private func validate(fullName: String?, errorMessage: inout String) {
     guard let fullName = fullName, fullName != "" else {
       errorMessage += Constants.FieldError.fullName
+      return
+    }
+  }
+  
+  private func validate(comment: String?, errorMessage: inout String) {
+    guard let comment = comment, comment != "" else {
+      errorMessage += Constants.FieldError.comment
       return
     }
   }

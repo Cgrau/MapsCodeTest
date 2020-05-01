@@ -785,7 +785,7 @@
 		2C2A3AC82454A10600D76132 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				2C7171EB245CA0A3005BD939 /* Utils */,
+				2C7171EB245CA0A3005BD939 /* Validators */,
 				2C2A3AC92454A10D00D76132 /* TripList */,
 				2C58B8B4245C2A6E00961898 /* Form */,
 			);
@@ -929,12 +929,12 @@
 			path = Validators;
 			sourceTree = "<group>";
 		};
-		2C7171EB245CA0A3005BD939 /* Utils */ = {
+		2C7171EB245CA0A3005BD939 /* Validators */ = {
 			isa = PBXGroup;
 			children = (
 				2C7171EC245CA0C3005BD939 /* EmailValidatorTests.swift */,
 			);
-			path = Utils;
+			path = Validators;
 			sourceTree = "<group>";
 		};
 		2C7414682458620100FB071C /* Stop */ = {

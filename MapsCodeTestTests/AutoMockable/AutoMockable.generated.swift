@@ -417,19 +417,19 @@ class FormPresenterMock: NSObject, FormPresenter {
 
     //MARK: - saveButtonAction
 
-    private(set) var saveButtonActionFullNameEmailPhoneNumberDateTimeCallsCount = 0
-    var saveButtonActionFullNameEmailPhoneNumberDateTimeCalled: Bool {
-        return saveButtonActionFullNameEmailPhoneNumberDateTimeCallsCount > 0
+    private(set) var saveButtonActionFullNameEmailPhoneNumberDateTimeCommentCallsCount = 0
+    var saveButtonActionFullNameEmailPhoneNumberDateTimeCommentCalled: Bool {
+        return saveButtonActionFullNameEmailPhoneNumberDateTimeCommentCallsCount > 0
     }
-    private(set) var saveButtonActionFullNameEmailPhoneNumberDateTimeReceivedArguments: (fullName: String?, email: String?, phoneNumber: String?, date: String?, time: String?)?
-    private(set) var saveButtonActionFullNameEmailPhoneNumberDateTimeReceivedInvocations: [(fullName: String?, email: String?, phoneNumber: String?, date: String?, time: String?)] = []
-    var saveButtonActionFullNameEmailPhoneNumberDateTimeClosure: ((String?, String?, String?, String?, String?) -> Void)?
+    private(set) var saveButtonActionFullNameEmailPhoneNumberDateTimeCommentReceivedArguments: (fullName: String?, email: String?, phoneNumber: String?, date: String?, time: String?, comment: String?)?
+    private(set) var saveButtonActionFullNameEmailPhoneNumberDateTimeCommentReceivedInvocations: [(fullName: String?, email: String?, phoneNumber: String?, date: String?, time: String?, comment: String?)] = []
+    var saveButtonActionFullNameEmailPhoneNumberDateTimeCommentClosure: ((String?, String?, String?, String?, String?, String?) -> Void)?
 
-    func saveButtonAction(fullName: String?,                        email: String?,                        phoneNumber: String?,                        date: String?,                        time: String?) {
-        saveButtonActionFullNameEmailPhoneNumberDateTimeCallsCount += 1
-        saveButtonActionFullNameEmailPhoneNumberDateTimeReceivedArguments = (fullName: fullName, email: email, phoneNumber: phoneNumber, date: date, time: time)
-        saveButtonActionFullNameEmailPhoneNumberDateTimeReceivedInvocations.append((fullName: fullName, email: email, phoneNumber: phoneNumber, date: date, time: time))
-        saveButtonActionFullNameEmailPhoneNumberDateTimeClosure?(fullName, email, phoneNumber, date, time)
+    func saveButtonAction(fullName: String?,                        email: String?,                        phoneNumber: String?,                        date: String?,                        time: String?,                        comment: String?) {
+        saveButtonActionFullNameEmailPhoneNumberDateTimeCommentCallsCount += 1
+        saveButtonActionFullNameEmailPhoneNumberDateTimeCommentReceivedArguments = (fullName: fullName, email: email, phoneNumber: phoneNumber, date: date, time: time, comment: comment)
+        saveButtonActionFullNameEmailPhoneNumberDateTimeCommentReceivedInvocations.append((fullName: fullName, email: email, phoneNumber: phoneNumber, date: date, time: time, comment: comment))
+        saveButtonActionFullNameEmailPhoneNumberDateTimeCommentClosure?(fullName, email, phoneNumber, date, time, comment)
     }
 
 }
@@ -530,19 +530,19 @@ class FormViewDelegateMock: NSObject, FormViewDelegate {
 
     //MARK: - didTapSaveButton
 
-    private(set) var didTapSaveButtonFullNameEmailPhoneNumberDateTimeCallsCount = 0
-    var didTapSaveButtonFullNameEmailPhoneNumberDateTimeCalled: Bool {
-        return didTapSaveButtonFullNameEmailPhoneNumberDateTimeCallsCount > 0
+    private(set) var didTapSaveButtonFullNameEmailPhoneNumberDateTimeCommentCallsCount = 0
+    var didTapSaveButtonFullNameEmailPhoneNumberDateTimeCommentCalled: Bool {
+        return didTapSaveButtonFullNameEmailPhoneNumberDateTimeCommentCallsCount > 0
     }
-    private(set) var didTapSaveButtonFullNameEmailPhoneNumberDateTimeReceivedArguments: (fullName: String?, email: String?, phoneNumber: String?, date: String?, time: String?)?
-    private(set) var didTapSaveButtonFullNameEmailPhoneNumberDateTimeReceivedInvocations: [(fullName: String?, email: String?, phoneNumber: String?, date: String?, time: String?)] = []
-    var didTapSaveButtonFullNameEmailPhoneNumberDateTimeClosure: ((String?, String?, String?, String?, String?) -> Void)?
+    private(set) var didTapSaveButtonFullNameEmailPhoneNumberDateTimeCommentReceivedArguments: (fullName: String?, email: String?, phoneNumber: String?, date: String?, time: String?, comment: String?)?
+    private(set) var didTapSaveButtonFullNameEmailPhoneNumberDateTimeCommentReceivedInvocations: [(fullName: String?, email: String?, phoneNumber: String?, date: String?, time: String?, comment: String?)] = []
+    var didTapSaveButtonFullNameEmailPhoneNumberDateTimeCommentClosure: ((String?, String?, String?, String?, String?, String?) -> Void)?
 
-    func didTapSaveButton(fullName: String?,                        email: String?,                        phoneNumber: String?,                        date: String?,                        time: String?) {
-        didTapSaveButtonFullNameEmailPhoneNumberDateTimeCallsCount += 1
-        didTapSaveButtonFullNameEmailPhoneNumberDateTimeReceivedArguments = (fullName: fullName, email: email, phoneNumber: phoneNumber, date: date, time: time)
-        didTapSaveButtonFullNameEmailPhoneNumberDateTimeReceivedInvocations.append((fullName: fullName, email: email, phoneNumber: phoneNumber, date: date, time: time))
-        didTapSaveButtonFullNameEmailPhoneNumberDateTimeClosure?(fullName, email, phoneNumber, date, time)
+    func didTapSaveButton(fullName: String?,                        email: String?,                        phoneNumber: String?,                        date: String?,                        time: String?,                        comment: String?) {
+        didTapSaveButtonFullNameEmailPhoneNumberDateTimeCommentCallsCount += 1
+        didTapSaveButtonFullNameEmailPhoneNumberDateTimeCommentReceivedArguments = (fullName: fullName, email: email, phoneNumber: phoneNumber, date: date, time: time, comment: comment)
+        didTapSaveButtonFullNameEmailPhoneNumberDateTimeCommentReceivedInvocations.append((fullName: fullName, email: email, phoneNumber: phoneNumber, date: date, time: time, comment: comment))
+        didTapSaveButtonFullNameEmailPhoneNumberDateTimeCommentClosure?(fullName, email, phoneNumber, date, time, comment)
     }
 
 }
