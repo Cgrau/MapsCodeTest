@@ -165,6 +165,287 @@ class AnnotationDrawableMock: NSObject, AnnotationDrawable {
     }
 
 }
+class FormInteractorMock: NSObject, FormInteractor {
+    var delegate: FormInteractorDelegate?
+
+    //MARK: - getTimeAndDate
+
+    private(set) var getTimeAndDateCallsCount = 0
+    var getTimeAndDateCalled: Bool {
+        return getTimeAndDateCallsCount > 0
+    }
+    var getTimeAndDateClosure: (() -> Void)?
+
+    func getTimeAndDate() {
+        getTimeAndDateCallsCount += 1
+        getTimeAndDateClosure?()
+    }
+
+    //MARK: - save
+
+    private(set) var saveDataCallsCount = 0
+    var saveDataCalled: Bool {
+        return saveDataCallsCount > 0
+    }
+    private(set) var saveDataReceivedData: FormInfo?
+    private(set) var saveDataReceivedInvocations: [FormInfo] = []
+    var saveDataClosure: ((FormInfo) -> Void)?
+
+    func save(data: FormInfo) {
+        saveDataCallsCount += 1
+        saveDataReceivedData = data
+        saveDataReceivedInvocations.append(data)
+        saveDataClosure?(data)
+    }
+
+}
+class FormInteractorDelegateMock: NSObject, FormInteractorDelegate {
+
+    //MARK: - didLoad
+
+    private(set) var didLoadTimeDateCallsCount = 0
+    var didLoadTimeDateCalled: Bool {
+        return didLoadTimeDateCallsCount > 0
+    }
+    private(set) var didLoadTimeDateReceivedArguments: (time: String, date: String)?
+    private(set) var didLoadTimeDateReceivedInvocations: [(time: String, date: String)] = []
+    var didLoadTimeDateClosure: ((String, String) -> Void)?
+
+    func didLoad(time: String, date: String) {
+        didLoadTimeDateCallsCount += 1
+        didLoadTimeDateReceivedArguments = (time: time, date: date)
+        didLoadTimeDateReceivedInvocations.append((time: time, date: date))
+        didLoadTimeDateClosure?(time, date)
+    }
+
+    //MARK: - didFailLoadingDateAndTime
+
+    private(set) var didFailLoadingDateAndTimeMessageCallsCount = 0
+    var didFailLoadingDateAndTimeMessageCalled: Bool {
+        return didFailLoadingDateAndTimeMessageCallsCount > 0
+    }
+    private(set) var didFailLoadingDateAndTimeMessageReceivedMessage: String?
+    private(set) var didFailLoadingDateAndTimeMessageReceivedInvocations: [String] = []
+    var didFailLoadingDateAndTimeMessageClosure: ((String) -> Void)?
+
+    func didFailLoadingDateAndTime(message: String) {
+        didFailLoadingDateAndTimeMessageCallsCount += 1
+        didFailLoadingDateAndTimeMessageReceivedMessage = message
+        didFailLoadingDateAndTimeMessageReceivedInvocations.append(message)
+        didFailLoadingDateAndTimeMessageClosure?(message)
+    }
+
+    //MARK: - didSaveData
+
+    private(set) var didSaveDataMessageCallsCount = 0
+    var didSaveDataMessageCalled: Bool {
+        return didSaveDataMessageCallsCount > 0
+    }
+    private(set) var didSaveDataMessageReceivedMessage: String?
+    private(set) var didSaveDataMessageReceivedInvocations: [String] = []
+    var didSaveDataMessageClosure: ((String) -> Void)?
+
+    func didSaveData(message: String) {
+        didSaveDataMessageCallsCount += 1
+        didSaveDataMessageReceivedMessage = message
+        didSaveDataMessageReceivedInvocations.append(message)
+        didSaveDataMessageClosure?(message)
+    }
+
+    //MARK: - didFailSavingData
+
+    private(set) var didFailSavingDataErrorCallsCount = 0
+    var didFailSavingDataErrorCalled: Bool {
+        return didFailSavingDataErrorCallsCount > 0
+    }
+    private(set) var didFailSavingDataErrorReceivedError: String?
+    private(set) var didFailSavingDataErrorReceivedInvocations: [String] = []
+    var didFailSavingDataErrorClosure: ((String) -> Void)?
+
+    func didFailSavingData(error: String) {
+        didFailSavingDataErrorCallsCount += 1
+        didFailSavingDataErrorReceivedError = error
+        didFailSavingDataErrorReceivedInvocations.append(error)
+        didFailSavingDataErrorClosure?(error)
+    }
+
+}
+class FormNavigatorMock: NSObject, FormNavigator {
+
+    //MARK: - dismiss
+
+    private(set) var dismissCallsCount = 0
+    var dismissCalled: Bool {
+        return dismissCallsCount > 0
+    }
+    var dismissClosure: (() -> Void)?
+
+    func dismiss() {
+        dismissCallsCount += 1
+        dismissClosure?()
+    }
+
+}
+class FormPresenterMock: NSObject, FormPresenter {
+    var ui: FormUI?
+
+    //MARK: - didLoad
+
+    private(set) var didLoadCallsCount = 0
+    var didLoadCalled: Bool {
+        return didLoadCallsCount > 0
+    }
+    var didLoadClosure: (() -> Void)?
+
+    func didLoad() {
+        didLoadCallsCount += 1
+        didLoadClosure?()
+    }
+
+    //MARK: - closeButtonAction
+
+    private(set) var closeButtonActionCallsCount = 0
+    var closeButtonActionCalled: Bool {
+        return closeButtonActionCallsCount > 0
+    }
+    var closeButtonActionClosure: (() -> Void)?
+
+    func closeButtonAction() {
+        closeButtonActionCallsCount += 1
+        closeButtonActionClosure?()
+    }
+
+    //MARK: - saveButtonAction
+
+    private(set) var saveButtonActionFullNameEmailPhoneNumberDateTimeCallsCount = 0
+    var saveButtonActionFullNameEmailPhoneNumberDateTimeCalled: Bool {
+        return saveButtonActionFullNameEmailPhoneNumberDateTimeCallsCount > 0
+    }
+    private(set) var saveButtonActionFullNameEmailPhoneNumberDateTimeReceivedArguments: (fullName: String?, email: String?, phoneNumber: String?, date: String?, time: String?)?
+    private(set) var saveButtonActionFullNameEmailPhoneNumberDateTimeReceivedInvocations: [(fullName: String?, email: String?, phoneNumber: String?, date: String?, time: String?)] = []
+    var saveButtonActionFullNameEmailPhoneNumberDateTimeClosure: ((String?, String?, String?, String?, String?) -> Void)?
+
+    func saveButtonAction(fullName: String?,                        email: String?,                        phoneNumber: String?,                        date: String?,                        time: String?) {
+        saveButtonActionFullNameEmailPhoneNumberDateTimeCallsCount += 1
+        saveButtonActionFullNameEmailPhoneNumberDateTimeReceivedArguments = (fullName: fullName, email: email, phoneNumber: phoneNumber, date: date, time: time)
+        saveButtonActionFullNameEmailPhoneNumberDateTimeReceivedInvocations.append((fullName: fullName, email: email, phoneNumber: phoneNumber, date: date, time: time))
+        saveButtonActionFullNameEmailPhoneNumberDateTimeClosure?(fullName, email, phoneNumber, date, time)
+    }
+
+}
+class FormUIMock: NSObject, FormUI {
+
+    //MARK: - showLoading
+
+    private(set) var showLoadingCallsCount = 0
+    var showLoadingCalled: Bool {
+        return showLoadingCallsCount > 0
+    }
+    var showLoadingClosure: (() -> Void)?
+
+    func showLoading() {
+        showLoadingCallsCount += 1
+        showLoadingClosure?()
+    }
+
+    //MARK: - hideLoading
+
+    private(set) var hideLoadingCallsCount = 0
+    var hideLoadingCalled: Bool {
+        return hideLoadingCallsCount > 0
+    }
+    var hideLoadingClosure: (() -> Void)?
+
+    func hideLoading() {
+        hideLoadingCallsCount += 1
+        hideLoadingClosure?()
+    }
+
+    //MARK: - display
+
+    private(set) var displayTimeDateCallsCount = 0
+    var displayTimeDateCalled: Bool {
+        return displayTimeDateCallsCount > 0
+    }
+    private(set) var displayTimeDateReceivedArguments: (time: String, date: String)?
+    private(set) var displayTimeDateReceivedInvocations: [(time: String, date: String)] = []
+    var displayTimeDateClosure: ((String, String) -> Void)?
+
+    func display(time: String, date: String) {
+        displayTimeDateCallsCount += 1
+        displayTimeDateReceivedArguments = (time: time, date: date)
+        displayTimeDateReceivedInvocations.append((time: time, date: date))
+        displayTimeDateClosure?(time, date)
+    }
+
+    //MARK: - showSuccess
+
+    private(set) var showSuccessMessageCallsCount = 0
+    var showSuccessMessageCalled: Bool {
+        return showSuccessMessageCallsCount > 0
+    }
+    private(set) var showSuccessMessageReceivedMessage: String?
+    private(set) var showSuccessMessageReceivedInvocations: [String] = []
+    var showSuccessMessageClosure: ((String) -> Void)?
+
+    func showSuccess(message: String) {
+        showSuccessMessageCallsCount += 1
+        showSuccessMessageReceivedMessage = message
+        showSuccessMessageReceivedInvocations.append(message)
+        showSuccessMessageClosure?(message)
+    }
+
+    //MARK: - showError
+
+    private(set) var showErrorMessageCallsCount = 0
+    var showErrorMessageCalled: Bool {
+        return showErrorMessageCallsCount > 0
+    }
+    private(set) var showErrorMessageReceivedMessage: String?
+    private(set) var showErrorMessageReceivedInvocations: [String] = []
+    var showErrorMessageClosure: ((String) -> Void)?
+
+    func showError(message: String) {
+        showErrorMessageCallsCount += 1
+        showErrorMessageReceivedMessage = message
+        showErrorMessageReceivedInvocations.append(message)
+        showErrorMessageClosure?(message)
+    }
+
+}
+class FormViewDelegateMock: NSObject, FormViewDelegate {
+
+    //MARK: - didTapCloseButton
+
+    private(set) var didTapCloseButtonCallsCount = 0
+    var didTapCloseButtonCalled: Bool {
+        return didTapCloseButtonCallsCount > 0
+    }
+    var didTapCloseButtonClosure: (() -> Void)?
+
+    func didTapCloseButton() {
+        didTapCloseButtonCallsCount += 1
+        didTapCloseButtonClosure?()
+    }
+
+    //MARK: - didTapSaveButton
+
+    private(set) var didTapSaveButtonFullNameEmailPhoneNumberDateTimeCallsCount = 0
+    var didTapSaveButtonFullNameEmailPhoneNumberDateTimeCalled: Bool {
+        return didTapSaveButtonFullNameEmailPhoneNumberDateTimeCallsCount > 0
+    }
+    private(set) var didTapSaveButtonFullNameEmailPhoneNumberDateTimeReceivedArguments: (fullName: String?, email: String?, phoneNumber: String?, date: String?, time: String?)?
+    private(set) var didTapSaveButtonFullNameEmailPhoneNumberDateTimeReceivedInvocations: [(fullName: String?, email: String?, phoneNumber: String?, date: String?, time: String?)] = []
+    var didTapSaveButtonFullNameEmailPhoneNumberDateTimeClosure: ((String?, String?, String?, String?, String?) -> Void)?
+
+    func didTapSaveButton(fullName: String?,                        email: String?,                        phoneNumber: String?,                        date: String?,                        time: String?) {
+        didTapSaveButtonFullNameEmailPhoneNumberDateTimeCallsCount += 1
+        didTapSaveButtonFullNameEmailPhoneNumberDateTimeReceivedArguments = (fullName: fullName, email: email, phoneNumber: phoneNumber, date: date, time: time)
+        didTapSaveButtonFullNameEmailPhoneNumberDateTimeReceivedInvocations.append((fullName: fullName, email: email, phoneNumber: phoneNumber, date: date, time: time))
+        didTapSaveButtonFullNameEmailPhoneNumberDateTimeClosure?(fullName, email, phoneNumber, date, time)
+    }
+
+}
 class GetStopUseCaseMock: NSObject, GetStopUseCase {
 
     //MARK: - execute
@@ -393,6 +674,23 @@ class StopInfoAlertProviderMock: NSObject, StopInfoAlertProvider {
     func removeStopInfo() {
         removeStopInfoCallsCount += 1
         removeStopInfoClosure?()
+    }
+
+}
+class TimeAndDateProviderMock: NSObject, TimeAndDateProvider {
+
+    //MARK: - currentTimeAndDate
+
+    private(set) var currentTimeAndDateCallsCount = 0
+    var currentTimeAndDateCalled: Bool {
+        return currentTimeAndDateCallsCount > 0
+    }
+    var currentTimeAndDateReturnValue: (time: String, date: String)?
+    var currentTimeAndDateClosure: (() -> (time: String, date: String)?)?
+
+    func currentTimeAndDate() -> (time: String, date: String)? {
+        currentTimeAndDateCallsCount += 1
+        return currentTimeAndDateClosure.map({ $0() }) ?? currentTimeAndDateReturnValue
     }
 
 }

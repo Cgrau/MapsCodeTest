@@ -1,6 +1,6 @@
 import UIKit
 
-protocol FormViewDelegate: class {
+protocol FormViewDelegate: class, AutoMockable {
   func didTapCloseButton()
   func didTapSaveButton(fullName: String?,
                         email: String?,

@@ -79,6 +79,8 @@
 		2C58B8C6245C5E3400961898 /* FormInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C58B8C5245C5E3400961898 /* FormInfo.swift */; };
 		2C5A1CF72458336B00F597E9 /* TripModelMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5A1CF62458336B00F597E9 /* TripModelMocks.swift */; };
 		2C7171D8245C69E9005BD939 /* FormPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7171D7245C69E9005BD939 /* FormPresenterSpec.swift */; };
+		2C7171DA245C6D3B005BD939 /* FormInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7171D9245C6D3B005BD939 /* FormInteractorSpec.swift */; };
+		2C7171DD245C6F26005BD939 /* CurrentTimeAndDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7171DC245C6F26005BD939 /* CurrentTimeAndDate.swift */; };
 		2C7414622458391500FB071C /* StopPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7414612458391500FB071C /* StopPointAnnotation.swift */; };
 		2C74146424583F7100FB071C /* MapKitProvider+Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74146324583F7100FB071C /* MapKitProvider+Annotation.swift */; };
 		2C7414722458626C00FB071C /* StopRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7414712458626C00FB071C /* StopRequest.swift */; };
@@ -210,6 +212,8 @@
 		2C58B8C5245C5E3400961898 /* FormInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInfo.swift; sourceTree = "<group>"; };
 		2C5A1CF62458336B00F597E9 /* TripModelMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModelMocks.swift; sourceTree = "<group>"; };
 		2C7171D7245C69E9005BD939 /* FormPresenterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormPresenterSpec.swift; sourceTree = "<group>"; };
+		2C7171D9245C6D3B005BD939 /* FormInteractorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInteractorSpec.swift; sourceTree = "<group>"; };
+		2C7171DC245C6F26005BD939 /* CurrentTimeAndDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTimeAndDate.swift; sourceTree = "<group>"; };
 		2C7414612458391500FB071C /* StopPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopPointAnnotation.swift; sourceTree = "<group>"; };
 		2C74146324583F7100FB071C /* MapKitProvider+Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapKitProvider+Annotation.swift"; sourceTree = "<group>"; };
 		2C7414712458626C00FB071C /* StopRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopRequest.swift; sourceTree = "<group>"; };
@@ -857,6 +861,7 @@
 		2C58B8C7245C62E000961898 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2C7171DE245C701E005BD939 /* TimeAndDate */,
 				2C58B8BD245C5C8B00961898 /* LocalStorage */,
 			);
 			path = Utils;
@@ -881,8 +886,17 @@
 		2C7171D6245C69D8005BD939 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				2C7171D9245C6D3B005BD939 /* FormInteractorSpec.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		2C7171DE245C701E005BD939 /* TimeAndDate */ = {
+			isa = PBXGroup;
+			children = (
+				2C7171DC245C6F26005BD939 /* CurrentTimeAndDate.swift */,
+			);
+			path = TimeAndDate;
 			sourceTree = "<group>";
 		};
 		2C7414682458620100FB071C /* Stop */ = {
@@ -1384,6 +1398,7 @@
 				2C95D2582456DF0C0043EEDB /* RoutePointAnnotation.swift in Sources */,
 				2C2A3A7D24543EE500D76132 /* Service.swift in Sources */,
 				2C7414622458391500FB071C /* StopPointAnnotation.swift in Sources */,
+				2C7171DD245C6F26005BD939 /* CurrentTimeAndDate.swift in Sources */,
 				2C2A3A6C2454375C00D76132 /* TripListViewController.swift in Sources */,
 				2C2A3AD8245580E600D76132 /* UIViewController+ShowErrorMessage.swift in Sources */,
 				2C2A3A5C245434C300D76132 /* Assembly.swift in Sources */,
@@ -1469,6 +1484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C2A3ADA2455828D00D76132 /* TripListInteractorSpec.swift in Sources */,
+				2C7171DA245C6D3B005BD939 /* FormInteractorSpec.swift in Sources */,
 				2C2A3A18245429BE00D76132 /* MapsCodeTestTests.swift in Sources */,
 				2C2A3ABD24544E4100D76132 /* Fixture.swift in Sources */,
 				2C58B8B7245C2A8B00961898 /* FormViewSpec.swift in Sources */,

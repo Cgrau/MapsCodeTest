@@ -1,5 +1,5 @@
 import UIKit
 
-protocol FormNavigator: class {
+protocol FormNavigator: class, AutoMockable {
   func dismiss()
 }

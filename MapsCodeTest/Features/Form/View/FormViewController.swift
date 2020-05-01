@@ -15,6 +15,14 @@ class FormViewController: UIViewController, FormUI {
     presenter?.didLoad()
   }
   
+  func showLoading() {
+    showLoadingView()
+  }
+  
+  func hideLoading() {
+    hideLoadingView()
+  }
+  
   func display(time: String, date: String) {
     mainView?.display(time: time, date: date)
   }

@@ -13,6 +13,7 @@ class DefaultFormPresenter: FormPresenter {
   }
   
   func didLoad() {
+    ui?.showLoading()
     interactor.getTimeAndDate()
   }
   
@@ -25,6 +26,7 @@ class DefaultFormPresenter: FormPresenter {
                         phoneNumber: String?,
                         date: String?,
                         time: String?) {
+    ui?.showLoading()
     interactor.save(data: FormInfo(fullName: fullName,
                                    email: email,
                                    phoneNumber: phoneNumber,
@@ -35,18 +37,22 @@ class DefaultFormPresenter: FormPresenter {
 
 extension DefaultFormPresenter: FormInteractorDelegate {
   func didLoad(time: String, date: String) {
+    ui?.hideLoading()
     ui?.display(time: time, date: date)
   }
   
   func didFailLoadingDateAndTime(message: String) {
+    ui?.hideLoading()
     ui?.showError(message: message)
   }
   
   func didSaveData(message: String) {
+    ui?.hideLoading()
     ui?.showSuccess(message: message)
   }
   
   func didFailSavingData(error: String) {
+    ui?.hideLoading()
     ui?.showError(message: error)
   }
 }

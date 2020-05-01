@@ -1,6 +1,6 @@
 import UIKit
 
-protocol FormInteractor: class{
+protocol FormInteractor: class, AutoMockable {
   var delegate: FormInteractorDelegate? { get set }
   
   func getTimeAndDate()

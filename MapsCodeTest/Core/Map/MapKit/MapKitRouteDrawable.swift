@@ -23,7 +23,8 @@ final class MapKitRouteDrawable: RouteDrawable {
     guard let polyLineString = polyLineString else { return }
     let polyline = Polyline(encodedPolyline: polyLineString)
     guard let route = polyline.mkPolyline else { return }
-    let mkPolyline = MKPolyline(coordinates: route.coordinates, count: route.pointCount)
+    let mkPolyline = MKPolyline(coordinates: route.coordinates,
+                                count: route.pointCount)
     self.currentRoute = mkPolyline
     self.mapView?.addOverlay(mkPolyline, level: .aboveLabels)
     self.center(routePolyline: mkPolyline)

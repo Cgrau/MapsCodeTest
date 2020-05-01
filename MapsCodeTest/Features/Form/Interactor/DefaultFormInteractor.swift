@@ -1,6 +1,6 @@
 import UIKit
 
-protocol FormInteractorDelegate: class {
+protocol FormInteractorDelegate: class, AutoMockable {
   func didLoad(time: String, date: String)
   func didFailLoadingDateAndTime(message: String)
   func didSaveData(message: String)
@@ -17,13 +17,16 @@ class DefaultFormInteractor: FormInteractor {
   
   weak var delegate: FormInteractorDelegate?
   private let localStorage: LocalStorage
+  private let timeAndDateProvider: TimeAndDateProvider
   
-  init(localStorage: LocalStorage) {
+  init(localStorage: LocalStorage,
+       timeAndDateProvider: TimeAndDateProvider) {
     self.localStorage = localStorage
+    self.timeAndDateProvider = timeAndDateProvider
   }
   
   func getTimeAndDate() {
-    guard let dateTime = getTimeAndDate() else {
+    guard let dateTime = timeAndDateProvider.currentTimeAndDate() else {
       delegate?.didFailLoadingDateAndTime(message: Constants.dateTimeError)
       return
     }
@@ -41,17 +44,5 @@ class DefaultFormInteractor: FormInteractor {
     localStorage.store(string: data.date ?? "-", forKey: .date)
     localStorage.store(string: data.time ?? "-", forKey: .time)
     delegate?.didSaveData(message: Constants.saveSuccess)
-  }
-  
-  private func getTimeAndDate() -> (time: String, date: String)? {
-    let date = Date()
-    let calender = Calendar.current
-    let components = calender.dateComponents([.year, .month, .day, .hour, .minute], from: date)
-    guard let day = components.day, let month = components.month, let year = components.year, let hour = components.hour, let minute = components.minute else {
-      return nil
-    }
-    let dateString = "\(day)/\(month)/\(year)"
-    let timeString = "\(hour):\(minute)"
-    return (timeString, dateString)
   }
 }
