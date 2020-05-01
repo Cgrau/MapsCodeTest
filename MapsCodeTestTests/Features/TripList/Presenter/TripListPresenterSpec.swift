@@ -18,6 +18,13 @@ final class TripListPresenterSpec: XCTestCase {
     sut.ui = ui
   }
   
+  override func tearDown() {
+    interactor = nil
+    navigator = nil
+    ui = nil
+    sut = nil
+  }
+  
   func test_did_load() {
     sut.didLoad()
     XCTAssertTrue(ui.showLoadingCalled)

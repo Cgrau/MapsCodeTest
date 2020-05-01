@@ -63,9 +63,8 @@ class FormView: View {
     return label
   }()
   
-  private var nameTextField: UITextField = {
-    let textField = UITextField()
-    textField.backgroundColor = .lightGray
+  private var nameTextField: TextField = {
+    let textField = TextField()
     textField.autocorrectionType = .no
     textField.font = UIFont.systemFont(ofSize: FontSize.regular)
     return textField
@@ -79,9 +78,8 @@ class FormView: View {
     return label
   }()
   
-  private var emailTextField: UITextField = {
-    let textField = UITextField()
-    textField.backgroundColor = .lightGray
+  private var emailTextField: TextField = {
+    let textField = TextField()
     textField.keyboardType = .emailAddress
     textField.autocorrectionType = .no
     textField.font = UIFont.systemFont(ofSize: FontSize.regular)
@@ -96,9 +94,8 @@ class FormView: View {
     return label
   }()
   
-  private var phoneNumberTextField: UITextField = {
-    let textField = UITextField()
-    textField.backgroundColor = .lightGray
+  private var phoneNumberTextField: TextField = {
+    let textField = TextField()
     textField.keyboardType = .phonePad
     textField.font = UIFont.systemFont(ofSize: FontSize.regular)
     return textField
@@ -112,10 +109,9 @@ class FormView: View {
     return label
   }()
   
-  private var dateTextField: UITextField = {
-    let textField = UITextField()
+  private var dateTextField: TextField = {
+    let textField = TextField()
     textField.isEnabled = false
-    textField.backgroundColor = .lightGray
     textField.font = UIFont.systemFont(ofSize: FontSize.regular)
     return textField
   }()
@@ -128,10 +124,9 @@ class FormView: View {
     return label
   }()
   
-  private var timeTextField: UITextField = {
-    let textField = UITextField()
+  private var timeTextField: TextField = {
+    let textField = TextField()
     textField.isEnabled = false
-    textField.backgroundColor = .lightGray
     textField.font = UIFont.systemFont(ofSize: FontSize.regular)
     return textField
   }()

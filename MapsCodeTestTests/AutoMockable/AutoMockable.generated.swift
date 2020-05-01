@@ -165,6 +165,26 @@ class AnnotationDrawableMock: NSObject, AnnotationDrawable {
     }
 
 }
+class BadgeNumberUpdaterMock: NSObject, BadgeNumberUpdater {
+
+    //MARK: - updateBadge
+
+    private(set) var updateBadgeAtCallsCount = 0
+    var updateBadgeAtCalled: Bool {
+        return updateBadgeAtCallsCount > 0
+    }
+    private(set) var updateBadgeAtReceivedValue: Int?
+    private(set) var updateBadgeAtReceivedInvocations: [Int] = []
+    var updateBadgeAtClosure: ((Int) -> Void)?
+
+    func updateBadge(at value: Int) {
+        updateBadgeAtCallsCount += 1
+        updateBadgeAtReceivedValue = value
+        updateBadgeAtReceivedInvocations.append(value)
+        updateBadgeAtClosure?(value)
+    }
+
+}
 class FormInteractorMock: NSObject, FormInteractor {
     var delegate: FormInteractorDelegate?
 
@@ -267,6 +287,23 @@ class FormInteractorDelegateMock: NSObject, FormInteractorDelegate {
         didFailSavingDataErrorReceivedError = error
         didFailSavingDataErrorReceivedInvocations.append(error)
         didFailSavingDataErrorClosure?(error)
+    }
+
+    //MARK: - display
+
+    private(set) var displayCounterCallsCount = 0
+    var displayCounterCalled: Bool {
+        return displayCounterCallsCount > 0
+    }
+    private(set) var displayCounterReceivedCounter: Int?
+    private(set) var displayCounterReceivedInvocations: [Int] = []
+    var displayCounterClosure: ((Int) -> Void)?
+
+    func display(counter: Int) {
+        displayCounterCallsCount += 1
+        displayCounterReceivedCounter = counter
+        displayCounterReceivedInvocations.append(counter)
+        displayCounterClosure?(counter)
     }
 
 }
@@ -380,19 +417,19 @@ class FormUIMock: NSObject, FormUI {
 
     //MARK: - showSuccess
 
-    private(set) var showSuccessMessageCallsCount = 0
-    var showSuccessMessageCalled: Bool {
-        return showSuccessMessageCallsCount > 0
+    private(set) var showSuccessMessageCompletionCallsCount = 0
+    var showSuccessMessageCompletionCalled: Bool {
+        return showSuccessMessageCompletionCallsCount > 0
     }
-    private(set) var showSuccessMessageReceivedMessage: String?
-    private(set) var showSuccessMessageReceivedInvocations: [String] = []
-    var showSuccessMessageClosure: ((String) -> Void)?
+    private(set) var showSuccessMessageCompletionReceivedArguments: (message: String, completion: (() -> Void)?)?
+    private(set) var showSuccessMessageCompletionReceivedInvocations: [(message: String, completion: (() -> Void)?)] = []
+    var showSuccessMessageCompletionClosure: ((String, (() -> Void)?) -> Void)?
 
-    func showSuccess(message: String) {
-        showSuccessMessageCallsCount += 1
-        showSuccessMessageReceivedMessage = message
-        showSuccessMessageReceivedInvocations.append(message)
-        showSuccessMessageClosure?(message)
+    func showSuccess(message: String, completion: (() -> Void)?) {
+        showSuccessMessageCompletionCallsCount += 1
+        showSuccessMessageCompletionReceivedArguments = (message: message, completion: completion)
+        showSuccessMessageCompletionReceivedInvocations.append((message: message, completion: completion))
+        showSuccessMessageCompletionClosure?(message, completion)
     }
 
     //MARK: - showError
@@ -488,19 +525,33 @@ class LocalStorageMock: NSObject, LocalStorage {
 
     //MARK: - store
 
-    private(set) var storeStringForKeyCallsCount = 0
-    var storeStringForKeyCalled: Bool {
-        return storeStringForKeyCallsCount > 0
+    private(set) var storeValueCallsCount = 0
+    var storeValueCalled: Bool {
+        return storeValueCallsCount > 0
     }
-    private(set) var storeStringForKeyReceivedArguments: (string: String, key: LocalStorageKey)?
-    private(set) var storeStringForKeyReceivedInvocations: [(string: String, key: LocalStorageKey)] = []
-    var storeStringForKeyClosure: ((String, LocalStorageKey) -> Void)?
+    private(set) var storeValueReceivedValue: String?
+    private(set) var storeValueReceivedInvocations: [String] = []
+    var storeValueClosure: ((String) -> Void)?
 
-    func store(string: String, forKey key: LocalStorageKey) {
-        storeStringForKeyCallsCount += 1
-        storeStringForKeyReceivedArguments = (string: string, key: key)
-        storeStringForKeyReceivedInvocations.append((string: string, key: key))
-        storeStringForKeyClosure?(string, key)
+    func store(value: String) {
+        storeValueCallsCount += 1
+        storeValueReceivedValue = value
+        storeValueReceivedInvocations.append(value)
+        storeValueClosure?(value)
+    }
+
+    //MARK: - getSavedItemsCount
+
+    private(set) var getSavedItemsCountCallsCount = 0
+    var getSavedItemsCountCalled: Bool {
+        return getSavedItemsCountCallsCount > 0
+    }
+    var getSavedItemsCountReturnValue: Int!
+    var getSavedItemsCountClosure: (() -> Int)?
+
+    func getSavedItemsCount() -> Int {
+        getSavedItemsCountCallsCount += 1
+        return getSavedItemsCountClosure.map({ $0() }) ?? getSavedItemsCountReturnValue
     }
 
     //MARK: - clear

@@ -25,7 +25,9 @@ extension Assembly: FormProvider {
   private func mainPresenter(from: UIViewController,
                              navigator: FormNavigator,
                              interactor: FormInteractor) -> FormPresenter {
-    let presenter = DefaultFormPresenter(interactor: interactor, navigator: navigator)
+    let presenter = DefaultFormPresenter(interactor: interactor,
+                                         navigator: navigator,
+                                         badgeNumberUpdater: badgeNumberUpdater)
     interactor.delegate = presenter
     presenter.ui = from as? FormViewController
     
@@ -47,5 +49,9 @@ extension Assembly: FormProvider {
   
   private var timeAndDateProvider: TimeAndDateProvider {
     return DefaultTimeAndDateProvider()
+  }
+  
+  private var badgeNumberUpdater: BadgeNumberUpdater {
+    return DefaultBadgeNumberUpdater(app: UIApplication.shared)
   }
 }

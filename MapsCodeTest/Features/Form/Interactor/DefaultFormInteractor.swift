@@ -5,11 +5,12 @@ protocol FormInteractorDelegate: class, AutoMockable {
   func didFailLoadingDateAndTime(message: String)
   func didSaveData(message: String)
   func didFailSavingData(error: String)
+  func display(counter: Int)
 }
 
 private enum Constants {
   static let saveSuccess = "Data saved successfully"
-  static let phoneError = "Phone Number in mandatory"
+  static let mandatoryError = "All Fields are mandatory but phone number"
   static let dateTimeError = "Unable to retrieve date and time"
 }
 
@@ -34,15 +35,14 @@ class DefaultFormInteractor: FormInteractor {
   }
   
   func save(data: FormInfo) {
-    guard let phoneNumber = data.phoneNumber, phoneNumber != "" else {
-      delegate?.didFailSavingData(error: Constants.phoneError)
-      return
+    guard let fullName = data.fullName, fullName != "",
+      let email = data.email, email != "",
+      let jsonString = data.toJsonString()  else {
+        delegate?.didFailSavingData(error: Constants.mandatoryError)
+        return
     }
-    localStorage.store(string: data.fullName ?? "-", forKey: .fullName)
-    localStorage.store(string: data.email ?? "-", forKey: .email)
-    localStorage.store(string: phoneNumber, forKey: .phone)
-    localStorage.store(string: data.date ?? "-", forKey: .date)
-    localStorage.store(string: data.time ?? "-", forKey: .time)
+    localStorage.store(value: jsonString)
     delegate?.didSaveData(message: Constants.saveSuccess)
+    delegate?.display(counter: localStorage.getSavedItemsCount())
   }
 }

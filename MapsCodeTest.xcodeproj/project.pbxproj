@@ -81,6 +81,8 @@
 		2C7171D8245C69E9005BD939 /* FormPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7171D7245C69E9005BD939 /* FormPresenterSpec.swift */; };
 		2C7171DA245C6D3B005BD939 /* FormInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7171D9245C6D3B005BD939 /* FormInteractorSpec.swift */; };
 		2C7171DD245C6F26005BD939 /* CurrentTimeAndDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7171DC245C6F26005BD939 /* CurrentTimeAndDate.swift */; };
+		2C7171E2245C7C2E005BD939 /* BadgeNumberUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7171E1245C7C2E005BD939 /* BadgeNumberUpdater.swift */; };
+		2C7171E4245C85FF005BD939 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7171E3245C85FF005BD939 /* TextField.swift */; };
 		2C7414622458391500FB071C /* StopPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7414612458391500FB071C /* StopPointAnnotation.swift */; };
 		2C74146424583F7100FB071C /* MapKitProvider+Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74146324583F7100FB071C /* MapKitProvider+Annotation.swift */; };
 		2C7414722458626C00FB071C /* StopRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7414712458626C00FB071C /* StopRequest.swift */; };
@@ -214,6 +216,8 @@
 		2C7171D7245C69E9005BD939 /* FormPresenterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormPresenterSpec.swift; sourceTree = "<group>"; };
 		2C7171D9245C6D3B005BD939 /* FormInteractorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInteractorSpec.swift; sourceTree = "<group>"; };
 		2C7171DC245C6F26005BD939 /* CurrentTimeAndDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTimeAndDate.swift; sourceTree = "<group>"; };
+		2C7171E1245C7C2E005BD939 /* BadgeNumberUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeNumberUpdater.swift; sourceTree = "<group>"; };
+		2C7171E3245C85FF005BD939 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		2C7414612458391500FB071C /* StopPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopPointAnnotation.swift; sourceTree = "<group>"; };
 		2C74146324583F7100FB071C /* MapKitProvider+Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapKitProvider+Annotation.swift"; sourceTree = "<group>"; };
 		2C7414712458626C00FB071C /* StopRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopRequest.swift; sourceTree = "<group>"; };
@@ -376,6 +380,7 @@
 				2C2A3AC42454934D00D76132 /* TableViewCell.swift */,
 				2C2A3AC6245493CE00D76132 /* TableViewCell+ReuseIdentifier.swift */,
 				2C95D247245591540043EEDB /* FontSize.swift */,
+				2C7171E3245C85FF005BD939 /* TextField.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -899,6 +904,14 @@
 			path = TimeAndDate;
 			sourceTree = "<group>";
 		};
+		2C7171E0245C7C07005BD939 /* BadgeNumber */ = {
+			isa = PBXGroup;
+			children = (
+				2C7171E1245C7C2E005BD939 /* BadgeNumberUpdater.swift */,
+			);
+			path = BadgeNumber;
+			sourceTree = "<group>";
+		};
 		2C7414682458620100FB071C /* Stop */ = {
 			isa = PBXGroup;
 			children = (
@@ -1027,6 +1040,7 @@
 		2C7414A8245C235D00FB071C /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				2C7171E0245C7C07005BD939 /* BadgeNumber */,
 				2C741493245C233200FB071C /* FormPresenter.swift */,
 				2C74149A245C233200FB071C /* DefaultFormPresenter.swift */,
 			);
@@ -1408,6 +1422,7 @@
 				2C2A3A542454309F00D76132 /* Polyline.swift in Sources */,
 				2C95D248245591540043EEDB /* FontSize.swift in Sources */,
 				2C2A3A6B2454375C00D76132 /* TripListPresenter.swift in Sources */,
+				2C7171E2245C7C2E005BD939 /* BadgeNumberUpdater.swift in Sources */,
 				2C74147C2458966A00FB071C /* GetStopUseCase.swift in Sources */,
 				2C2A3A3B24542E1400D76132 /* View.swift in Sources */,
 				2C7414742458627A00FB071C /* Stop.swift in Sources */,
@@ -1456,6 +1471,7 @@
 				2C7414A4245C233200FB071C /* DefaultFormPresenter.swift in Sources */,
 				2C58B8BF245C5CB300961898 /* UserDefaultsLocalStorage.swift in Sources */,
 				2C74147E2458967C00FB071C /* GetStop.swift in Sources */,
+				2C7171E4245C85FF005BD939 /* TextField.swift in Sources */,
 				2C2A3A7624543E7300D76132 /* String+MapToDateString.swift in Sources */,
 				2C2A3A702454375C00D76132 /* TripListView.swift in Sources */,
 				2C2A3A4824542FCE00D76132 /* MapKitProvider.swift in Sources */,

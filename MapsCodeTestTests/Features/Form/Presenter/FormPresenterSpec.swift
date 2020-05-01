@@ -8,14 +8,25 @@ final class FormPresenterSpec: XCTestCase {
   private var ui: FormUIMock!
   private var interactor: FormInteractorMock!
   private var navigator: FormNavigatorMock!
+  private var badgeNumberUpdater: BadgeNumberUpdaterMock!
   
   override func setUp() {
     interactor = FormInteractorMock()
     navigator = FormNavigatorMock()
+    badgeNumberUpdater = BadgeNumberUpdaterMock()
     ui = FormUIMock()
     sut = DefaultFormPresenter(interactor: interactor,
-                               navigator: navigator)
+                               navigator: navigator,
+                               badgeNumberUpdater: badgeNumberUpdater)
     sut.ui = ui
+  }
+  
+  override func tearDown() {
+    interactor = nil
+    navigator = nil
+    badgeNumberUpdater = nil
+    ui = nil
+    sut = nil
   }
   
   func test_did_load() {
@@ -55,12 +66,17 @@ final class FormPresenterSpec: XCTestCase {
   func test_didSaveDataMessage() {
     sut.didSaveData(message: "")
     XCTAssertTrue(ui.hideLoadingCalled)
-    XCTAssertTrue(ui.showSuccessMessageCalled)
+    XCTAssertTrue(ui.showSuccessMessageCompletionCalled)
   }
   
   func test_didFailSavingDataError() {
     sut.didFailSavingData(error: "")
     XCTAssertTrue(ui.hideLoadingCalled)
     XCTAssertTrue(ui.showErrorMessageCalled)
+  }
+  
+  func test_displayCounter() {
+    sut.display(counter: 1)
+    XCTAssertTrue(badgeNumberUpdater.updateBadgeAtCalled)
   }
 }

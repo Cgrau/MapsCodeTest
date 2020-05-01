@@ -10,17 +10,17 @@ extension UIViewController {
     showAlert(with: errorMessage, type: .error)
   }
   
-  func show(message: String) {
-    showAlert(with: message, type: .message)
+  func show(message: String, completion: (() -> Void)? = nil) {
+    showAlert(with: message, type: .message, completion: completion)
   }
   
-  private func showAlert(with message: String, type: MessageType) {
+  private func showAlert(with message: String, type: MessageType, completion: (() -> Void)? = nil) {
     let alert = UIAlertController(title: type.rawValue,
                                   message: message,
                                   preferredStyle: UIAlertController.Style.alert)
-    alert.addAction(UIAlertAction(title: "👍🏼",
-                                  style: UIAlertAction.Style.default,
-                                  handler: nil))
-    self.present(alert, animated: true, completion: nil)
+    alert.addAction(UIAlertAction(title: "👍🏼", style: .default, handler: { _ in
+      completion?()
+    }))
+    self.present(alert, animated: true)
   }
 }

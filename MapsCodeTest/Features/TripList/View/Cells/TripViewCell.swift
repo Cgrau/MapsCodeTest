@@ -48,9 +48,9 @@ final class TripViewCell: TableViewCell {
       case .ongoing:
         statusLabel.backgroundColor = .green
       case .scheduled:
-        statusLabel.backgroundColor = .purple
+        statusLabel.backgroundColor = .orange
       case .finalized:
-        statusLabel.backgroundColor = .gray
+        statusLabel.backgroundColor = .lightGray
       case .cancelled:
         statusLabel.backgroundColor = .red
       case .none:

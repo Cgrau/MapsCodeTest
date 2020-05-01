@@ -15,6 +15,11 @@ class FormViewSpec: XCTestCase {
     assertSnapshot(matching: sut, as: .image)
   }
   
+  func test_form_displayTimeDate() {
+    sut.display(time: "10:30", date: "1/12/2020")
+    assertSnapshot(matching: sut, as: .image)
+  }
+  
   override func tearDown() {
     sut = nil
   }

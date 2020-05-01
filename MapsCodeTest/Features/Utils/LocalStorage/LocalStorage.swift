@@ -1,4 +1,5 @@
 protocol LocalStorage: AutoMockable {
-  func store(string: String, forKey key: LocalStorageKey)
+  func store(value: String)
+  func getSavedItemsCount() -> Int
   func clear()
 }

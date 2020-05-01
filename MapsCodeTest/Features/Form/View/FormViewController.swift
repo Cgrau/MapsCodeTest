@@ -27,8 +27,9 @@ class FormViewController: UIViewController, FormUI {
     mainView?.display(time: time, date: date)
   }
   
-  func showSuccess(message: String) {
-    show(message: message)
+  func showSuccess(message: String, completion: (() -> Void)?) {
+    show(message: message,
+         completion: completion)
   }
   
   func showError(message: String) {

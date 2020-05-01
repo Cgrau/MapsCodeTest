@@ -5,11 +5,14 @@ class DefaultFormPresenter: FormPresenter {
   weak var ui: FormUI?
   private let interactor: FormInteractor
   private let navigator: FormNavigator
+  private let badgeNumberUpdater: BadgeNumberUpdater
   
   init(interactor: FormInteractor,
-       navigator: FormNavigator) {
+       navigator: FormNavigator,
+       badgeNumberUpdater: BadgeNumberUpdater) {
     self.interactor = interactor
     self.navigator = navigator
+    self.badgeNumberUpdater = badgeNumberUpdater
   }
   
   func didLoad() {
@@ -48,11 +51,17 @@ extension DefaultFormPresenter: FormInteractorDelegate {
   
   func didSaveData(message: String) {
     ui?.hideLoading()
-    ui?.showSuccess(message: message)
+    ui?.showSuccess(message: message, completion: {
+      self.navigator.dismiss()
+    })
   }
   
   func didFailSavingData(error: String) {
     ui?.hideLoading()
     ui?.showError(message: error)
+  }
+  
+  func display(counter: Int) {
+    badgeNumberUpdater.updateBadge(at: counter)
   }
 }

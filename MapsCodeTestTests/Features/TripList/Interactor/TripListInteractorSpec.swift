@@ -20,6 +20,14 @@ final class TripListInteractorSpec: XCTestCase {
     sut.delegate = delegate
   }
   
+  override func tearDown() {
+    getTripsUseCase = nil
+    getStopUseCase = nil
+    delegate = nil
+    annotationDelegate = nil
+    sut = nil
+  }
+  
   func test_get_trips_OK() {
     givenGetTripsResponse_OK()
     sut.getTrips()
