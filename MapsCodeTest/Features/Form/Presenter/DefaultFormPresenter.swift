@@ -25,20 +25,28 @@ class DefaultFormPresenter: FormPresenter {
                         phoneNumber: String?,
                         date: String?,
                         time: String?) {
-    
+    interactor.save(data: FormInfo(fullName: fullName,
+                                   email: email,
+                                   phoneNumber: phoneNumber,
+                                   date: date,
+                                   time: time))
   }
 }
 
 extension DefaultFormPresenter: FormInteractorDelegate {
   func didLoad(time: String, date: String) {
-    
+    ui?.display(time: time, date: date)
   }
   
-  func didSendData() {
-    
+  func didFailLoadingDateAndTime(message: String) {
+    ui?.showError(message: message)
   }
   
-  func didFailSendingData() {
-    
+  func didSaveData(message: String) {
+    ui?.showSuccess(message: message)
+  }
+  
+  func didFailSavingData(error: String) {
+    ui?.showError(message: error)
   }
 }

@@ -26,6 +26,7 @@ private enum Constants {
   }
   static let cornerRadius: CGFloat = 10
   static let buttonHeight = 50
+  static let textFieldHeight = 40
 }
 
 class FormView: View {
@@ -65,6 +66,7 @@ class FormView: View {
   private var nameTextField: UITextField = {
     let textField = UITextField()
     textField.backgroundColor = .lightGray
+    textField.autocorrectionType = .no
     textField.font = UIFont.systemFont(ofSize: FontSize.regular)
     return textField
   }()
@@ -81,6 +83,7 @@ class FormView: View {
     let textField = UITextField()
     textField.backgroundColor = .lightGray
     textField.keyboardType = .emailAddress
+    textField.autocorrectionType = .no
     textField.font = UIFont.systemFont(ofSize: FontSize.regular)
     return textField
   }()
@@ -223,7 +226,12 @@ class FormView: View {
       if isLastView {
         make.bottom.equalToSuperview()
       }
-      make.height.equalTo(40)
+      make.height.equalTo(Constants.textFieldHeight)
     }
+  }
+  
+  func display(time: String, date: String) {
+    timeTextField.text = time
+    dateTextField.text = date
   }
 }

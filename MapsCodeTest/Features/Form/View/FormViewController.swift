@@ -11,8 +11,20 @@ class FormViewController: UIViewController, FormUI {
     view = mainView
   }
   
-  func showSomething() {
-    
+  override func viewDidLoad() {
+    presenter?.didLoad()
+  }
+  
+  func display(time: String, date: String) {
+    mainView?.display(time: time, date: date)
+  }
+  
+  func showSuccess(message: String) {
+    show(message: message)
+  }
+  
+  func showError(message: String) {
+    show(errorMessage: message)
   }
 }
 

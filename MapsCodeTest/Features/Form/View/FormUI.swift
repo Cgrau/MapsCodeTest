@@ -1,5 +1,7 @@
 import UIKit
 
 protocol FormUI: class {
-  func showSomething()
+  func display(time: String, date: String)
+  func showSuccess(message: String)
+  func showError(message: String)
 }
