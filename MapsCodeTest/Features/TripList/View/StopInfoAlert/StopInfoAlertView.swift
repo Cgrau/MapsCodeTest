@@ -1,6 +1,18 @@
 import UIKit
 
 private enum Constants {
+  enum Titles {
+    static let name = "Name: "
+    static let address = "Address: "
+    static let price = "Price: "
+    static let stopTime = "Stop Time: "
+    static let status = "Status: "
+    static let currency = "€"
+    enum PaymentStatus {
+      static let unpaid = "Paid"
+      static let paid = "Paid"
+    }
+  }
   enum Spacing {
     static let big: CGFloat = 8
     static let small: CGFloat = 4
@@ -100,10 +112,20 @@ public final class StopInfoAlertView: View {
                     price: Double,
                     stopTime: String,
                     paid: Bool) {
-    userNameLabel.text = userName
-    addressLabel.text = address
-    priceLabel.text = String(price)
-    stopTimeLabel.text = stopTime
-    paidLabel.text = paid == true ? "Paid" : "Unpaid"
+    userNameLabel.text = Constants.Titles.name + userName
+    addressLabel.text = Constants.Titles.address + address
+    priceLabel.text = Constants.Titles.price + String(price) + Constants.Titles.currency
+    stopTimeLabel.text = Constants.Titles.stopTime + stopTime
+    paidLabel.text = paymentString(paid: paid)
+  }
+  
+  private func paymentString(paid: Bool) -> String {
+    var returnString = Constants.Titles.status
+    if paid {
+      returnString += Constants.Titles.PaymentStatus.paid
+    } else {
+      returnString += Constants.Titles.PaymentStatus.unpaid
+    }
+    return returnString
   }
 }

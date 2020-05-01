@@ -17,7 +17,7 @@ struct StopApiToDomainMapper: Mappable {
     return Stop(point: TripPoint(longitude: from.point.longitude,
                                  latitude: from.point.latitude),
                 price: from.price,
-                stopTime: from.stopTime,
+                stopTime: from.stopTime.formatDateString() ?? from.stopTime,
                 paid: from.paid,
                 address: from.address,
                 tripID: from.tripID,

@@ -1,23 +1,19 @@
 import Foundation
 
+private enum Constants {
+  static let inFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+  static let outFormat = "HH:mm - dd-MM-yyyy"
+}
+
 extension String {
-  func mapToDateString() -> String? {
-    let time = parseDuration(self)
-    let date = Date(timeIntervalSince1970: time)
-    let dateFormatter = DateFormatter()
-    dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
-    dateFormatter.locale = NSLocale.current
-    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-    return dateFormatter.string(from: date)
-  }
-  
-  private func parseDuration(_ timeString: String) -> TimeInterval {
-    guard !timeString.isEmpty else { return 0 }
-    var interval: Double = 0
-    let parts = timeString.components(separatedBy: ":")
-    for (index, part) in parts.reversed().enumerated() {
-      interval += (Double(part) ?? 0) * pow(Double(60), Double(index))
-    }
-    return interval
+  func formatDateString() -> String? {
+    let dateFormatterInput = DateFormatter()
+    dateFormatterInput.dateFormat = Constants.inFormat
+
+    let dateFormatterOutput = DateFormatter()
+    dateFormatterOutput.dateFormat = Constants.outFormat
+
+    guard let date = dateFormatterInput.date(from: self) else { return nil }
+    return dateFormatterOutput.string(from: date)
   }
 }

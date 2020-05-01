@@ -9,13 +9,10 @@ private enum ViewLayout {
 extension MapKitProvider {
   
   func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-    if let polyline = overlay as? MKPolyline {
-      return renderer(for: polyline)
-    } else if let polygon = overlay as? MKPolygon {
-      return renderer(for: polygon)
-    } else {
+    guard let polyline = overlay as? MKPolyline else {
       return MKOverlayRenderer(overlay: overlay)
     }
+    return renderer(for: polyline)
   }
   
   private func renderer(for tileOverlay: MKTileOverlay) -> MKTileOverlayRenderer {
@@ -26,14 +23,6 @@ extension MapKitProvider {
     let renderer = MKPolylineRenderer(overlay: polyline)
     renderer.strokeColor = .blue
     renderer.lineWidth = ViewLayout.polylineWidth
-    return renderer
-  }
-  
-  private func renderer(for polygon: MKPolygon) -> MKPolygonRenderer {
-    let renderer = MKPolygonRenderer(overlay: polygon)
-    renderer.strokeColor = .blue
-    renderer.fillColor = UIColor.blue.withAlphaComponent(ViewLayout.fillAlpha)
-    renderer.lineWidth = ViewLayout.polygonLineWidth
     return renderer
   }
 }

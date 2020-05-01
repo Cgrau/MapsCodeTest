@@ -457,9 +457,9 @@
 			isa = PBXGroup;
 			children = (
 				2C95D2542456DEB10043EEDB /* Annotations */,
+				2C2A3A4724542FCE00D76132 /* MapKitProvider.swift */,
 				2C2A3A512454306E00D76132 /* MapKitRouteDrawable.swift */,
 				2C95D24C2456DA7A0043EEDB /* MapKitAnnotationDrawable.swift */,
-				2C2A3A4724542FCE00D76132 /* MapKitProvider.swift */,
 				2C95D24424558AC40043EEDB /* MapKitProvider+Overlay.swift */,
 				2C74146324583F7100FB071C /* MapKitProvider+Annotation.swift */,
 			);
