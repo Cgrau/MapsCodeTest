@@ -504,17 +504,17 @@ class TripListInteractorDelegateMock: NSObject, TripListInteractorDelegate {
 }
 class TripListNavigatorMock: NSObject, TripListNavigator {
 
-    //MARK: - navigate
+    //MARK: - navigateToContactForm
 
-    private(set) var navigateCallsCount = 0
-    var navigateCalled: Bool {
-        return navigateCallsCount > 0
+    private(set) var navigateToContactFormCallsCount = 0
+    var navigateToContactFormCalled: Bool {
+        return navigateToContactFormCallsCount > 0
     }
-    var navigateClosure: (() -> Void)?
+    var navigateToContactFormClosure: (() -> Void)?
 
-    func navigate() {
-        navigateCallsCount += 1
-        navigateClosure?()
+    func navigateToContactForm() {
+        navigateToContactFormCallsCount += 1
+        navigateToContactFormClosure?()
     }
 
 }
@@ -549,6 +549,19 @@ class TripListPresenterMock: NSObject, TripListPresenter {
         selectTripReceivedTrip = trip
         selectTripReceivedInvocations.append(trip)
         selectTripClosure?(trip)
+    }
+
+    //MARK: - didTapContactButton
+
+    private(set) var didTapContactButtonCallsCount = 0
+    var didTapContactButtonCalled: Bool {
+        return didTapContactButtonCallsCount > 0
+    }
+    var didTapContactButtonClosure: (() -> Void)?
+
+    func didTapContactButton() {
+        didTapContactButtonCallsCount += 1
+        didTapContactButtonClosure?()
     }
 
 }

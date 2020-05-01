@@ -70,6 +70,9 @@
 		2C2A3AD624557D5F00D76132 /* UIViewController+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3AD524557D5F00D76132 /* UIViewController+Loading.swift */; };
 		2C2A3AD8245580E600D76132 /* UIViewController+ShowErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3AD7245580E600D76132 /* UIViewController+ShowErrorMessage.swift */; };
 		2C2A3ADA2455828D00D76132 /* TripListInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A3AD92455828D00D76132 /* TripListInteractorSpec.swift */; };
+		2C58B8B7245C2A8B00961898 /* FormViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C58B8B6245C2A8B00961898 /* FormViewSpec.swift */; };
+		2C58B8BA245C2BF700961898 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C58B8B9245C2BF700961898 /* Images.swift */; };
+		2C58B8BC245C2C6A00961898 /* Bundle+Framework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C58B8BB245C2C6A00961898 /* Bundle+Framework.swift */; };
 		2C5A1CF72458336B00F597E9 /* TripModelMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5A1CF62458336B00F597E9 /* TripModelMocks.swift */; };
 		2C7414622458391500FB071C /* StopPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7414612458391500FB071C /* StopPointAnnotation.swift */; };
 		2C74146424583F7100FB071C /* MapKitProvider+Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74146324583F7100FB071C /* MapKitProvider+Annotation.swift */; };
@@ -84,6 +87,16 @@
 		2C741487245ACD6D00FB071C /* StopInfoAlertProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C741486245ACD6D00FB071C /* StopInfoAlertProvider.swift */; };
 		2C741489245ACDD900FB071C /* DefaultStopInfoAlertProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C741488245ACDD900FB071C /* DefaultStopInfoAlertProvider.swift */; };
 		2C74148B245ACEC500FB071C /* StopInfoAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74148A245ACEC500FB071C /* StopInfoAlertView.swift */; };
+		2C74149B245C233200FB071C /* Assembly+formViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C741491245C233200FB071C /* Assembly+formViewController.swift */; };
+		2C74149C245C233200FB071C /* FormNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C741492245C233200FB071C /* FormNavigator.swift */; };
+		2C74149D245C233200FB071C /* FormPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C741493245C233200FB071C /* FormPresenter.swift */; };
+		2C74149E245C233200FB071C /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C741494245C233200FB071C /* FormViewController.swift */; };
+		2C74149F245C233200FB071C /* DefaultFormInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C741495245C233200FB071C /* DefaultFormInteractor.swift */; };
+		2C7414A0245C233200FB071C /* FormInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C741496245C233200FB071C /* FormInteractor.swift */; };
+		2C7414A1245C233200FB071C /* DefaultFormNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C741497245C233200FB071C /* DefaultFormNavigator.swift */; };
+		2C7414A2245C233200FB071C /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C741498245C233200FB071C /* FormView.swift */; };
+		2C7414A3245C233200FB071C /* FormUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C741499245C233200FB071C /* FormUI.swift */; };
+		2C7414A4245C233200FB071C /* DefaultFormPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74149A245C233200FB071C /* DefaultFormPresenter.swift */; };
 		2C95D24524558AC40043EEDB /* MapKitProvider+Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C95D24424558AC40043EEDB /* MapKitProvider+Overlay.swift */; };
 		2C95D248245591540043EEDB /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C95D247245591540043EEDB /* FontSize.swift */; };
 		2C95D24B2456D97C0043EEDB /* AnnotationDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C95D24A2456D97C0043EEDB /* AnnotationDrawable.swift */; };
@@ -183,6 +196,9 @@
 		2C2A3AD524557D5F00D76132 /* UIViewController+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Loading.swift"; sourceTree = "<group>"; };
 		2C2A3AD7245580E600D76132 /* UIViewController+ShowErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ShowErrorMessage.swift"; sourceTree = "<group>"; };
 		2C2A3AD92455828D00D76132 /* TripListInteractorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListInteractorSpec.swift; sourceTree = "<group>"; };
+		2C58B8B6245C2A8B00961898 /* FormViewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewSpec.swift; sourceTree = "<group>"; };
+		2C58B8B9245C2BF700961898 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		2C58B8BB245C2C6A00961898 /* Bundle+Framework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Framework.swift"; sourceTree = "<group>"; };
 		2C5A1CF62458336B00F597E9 /* TripModelMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModelMocks.swift; sourceTree = "<group>"; };
 		2C7414612458391500FB071C /* StopPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopPointAnnotation.swift; sourceTree = "<group>"; };
 		2C74146324583F7100FB071C /* MapKitProvider+Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapKitProvider+Annotation.swift"; sourceTree = "<group>"; };
@@ -197,6 +213,16 @@
 		2C741486245ACD6D00FB071C /* StopInfoAlertProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopInfoAlertProvider.swift; sourceTree = "<group>"; };
 		2C741488245ACDD900FB071C /* DefaultStopInfoAlertProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStopInfoAlertProvider.swift; sourceTree = "<group>"; };
 		2C74148A245ACEC500FB071C /* StopInfoAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopInfoAlertView.swift; sourceTree = "<group>"; };
+		2C741491245C233200FB071C /* Assembly+formViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assembly+formViewController.swift"; sourceTree = "<group>"; };
+		2C741492245C233200FB071C /* FormNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormNavigator.swift; sourceTree = "<group>"; };
+		2C741493245C233200FB071C /* FormPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormPresenter.swift; sourceTree = "<group>"; };
+		2C741494245C233200FB071C /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		2C741495245C233200FB071C /* DefaultFormInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFormInteractor.swift; sourceTree = "<group>"; };
+		2C741496245C233200FB071C /* FormInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInteractor.swift; sourceTree = "<group>"; };
+		2C741497245C233200FB071C /* DefaultFormNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFormNavigator.swift; sourceTree = "<group>"; };
+		2C741498245C233200FB071C /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
+		2C741499245C233200FB071C /* FormUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormUI.swift; sourceTree = "<group>"; };
+		2C74149A245C233200FB071C /* DefaultFormPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFormPresenter.swift; sourceTree = "<group>"; };
 		2C95D24424558AC40043EEDB /* MapKitProvider+Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapKitProvider+Overlay.swift"; sourceTree = "<group>"; };
 		2C95D247245591540043EEDB /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
 		2C95D24A2456D97C0043EEDB /* AnnotationDrawable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationDrawable.swift; sourceTree = "<group>"; };
@@ -343,7 +369,9 @@
 		2C2A3A3C24542E7900D76132 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				2C58B8B8245C2BEC00961898 /* UI */,
 				2C2A3A3D24542E8600D76132 /* TripList */,
+				2C741490245C232000FB071C /* Form */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -488,6 +516,7 @@
 				2C2A3A7524543E7300D76132 /* String+MapToDateString.swift */,
 				2C2A3AD524557D5F00D76132 /* UIViewController+Loading.swift */,
 				2C2A3AD7245580E600D76132 /* UIViewController+ShowErrorMessage.swift */,
+				2C58B8BB245C2C6A00961898 /* Bundle+Framework.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -730,6 +759,7 @@
 			isa = PBXGroup;
 			children = (
 				2C2A3AC92454A10D00D76132 /* TripList */,
+				2C58B8B4245C2A6E00961898 /* Form */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -767,6 +797,30 @@
 				2C2A3AD92455828D00D76132 /* TripListInteractorSpec.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		2C58B8B4245C2A6E00961898 /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				2C58B8B5245C2A7600961898 /* View */,
+			);
+			path = Form;
+			sourceTree = "<group>";
+		};
+		2C58B8B5245C2A7600961898 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C58B8B6245C2A8B00961898 /* FormViewSpec.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2C58B8B8245C2BEC00961898 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2C58B8B9245C2BF700961898 /* Images.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		2C5A1CF52458335D00F597E9 /* Mocks */ = {
@@ -861,6 +915,63 @@
 				2C74148A245ACEC500FB071C /* StopInfoAlertView.swift */,
 			);
 			path = StopInfoAlert;
+			sourceTree = "<group>";
+		};
+		2C741490245C232000FB071C /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				2C7414A9245C236300FB071C /* View */,
+				2C7414A8245C235D00FB071C /* Presenter */,
+				2C7414A7245C235600FB071C /* Interactor */,
+				2C7414A6245C235100FB071C /* Navigator */,
+				2C7414A5245C234A00FB071C /* Infraestructure */,
+			);
+			path = Form;
+			sourceTree = "<group>";
+		};
+		2C7414A5245C234A00FB071C /* Infraestructure */ = {
+			isa = PBXGroup;
+			children = (
+				2C741491245C233200FB071C /* Assembly+formViewController.swift */,
+			);
+			path = Infraestructure;
+			sourceTree = "<group>";
+		};
+		2C7414A6245C235100FB071C /* Navigator */ = {
+			isa = PBXGroup;
+			children = (
+				2C741492245C233200FB071C /* FormNavigator.swift */,
+				2C741497245C233200FB071C /* DefaultFormNavigator.swift */,
+			);
+			path = Navigator;
+			sourceTree = "<group>";
+		};
+		2C7414A7245C235600FB071C /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				2C741496245C233200FB071C /* FormInteractor.swift */,
+				2C741495245C233200FB071C /* DefaultFormInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		2C7414A8245C235D00FB071C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2C741493245C233200FB071C /* FormPresenter.swift */,
+				2C74149A245C233200FB071C /* DefaultFormPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2C7414A9245C236300FB071C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C741498245C233200FB071C /* FormView.swift */,
+				2C741494245C233200FB071C /* FormViewController.swift */,
+				2C741499245C233200FB071C /* FormUI.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		2C95D2492456D96A0043EEDB /* Annotations */ = {
@@ -1230,12 +1341,15 @@
 				2C2A3A3B24542E1400D76132 /* View.swift in Sources */,
 				2C7414742458627A00FB071C /* Stop.swift in Sources */,
 				2C2A3A712454375C00D76132 /* TripListUI.swift in Sources */,
+				2C58B8BC245C2C6A00961898 /* Bundle+Framework.swift in Sources */,
 				2C2A3A6A2454375C00D76132 /* TripListNavigator.swift in Sources */,
 				2C2A3AB224544C2400D76132 /* TripsEndpoint.swift in Sources */,
 				2C2A3AB024544C1100D76132 /* Trip.swift in Sources */,
 				2C2A3A8124543F3900D76132 /* NetworkAssembly+Moya.swift in Sources */,
 				2C2A3A56245430B300D76132 /* MKMultiPoint+Extensions.swift in Sources */,
+				2C74149E245C233200FB071C /* FormViewController.swift in Sources */,
 				2C2A3A9824544ACA00D76132 /* MapRepository.swift in Sources */,
+				2C74149D245C233200FB071C /* FormPresenter.swift in Sources */,
 				2C2A3AAB24544BD600D76132 /* MapService.swift in Sources */,
 				2C2A3A522454306E00D76132 /* MapKitRouteDrawable.swift in Sources */,
 				2C2A3A6E2454375C00D76132 /* TripListInteractor.swift in Sources */,
@@ -1249,19 +1363,24 @@
 				2C2A3AA724544B9A00D76132 /* GetTripsUseCase.swift in Sources */,
 				2C2A3A4624542F9900D76132 /* MapView.swift in Sources */,
 				2C2A3AC7245493CE00D76132 /* TableViewCell+ReuseIdentifier.swift in Sources */,
+				2C7414A1245C233200FB071C /* DefaultFormNavigator.swift in Sources */,
 				2C74146424583F7100FB071C /* MapKitProvider+Annotation.swift in Sources */,
 				2C2A3A912454499300D76132 /* NetworkAssembly+ErrorAdapter.swift in Sources */,
+				2C74149B245C233200FB071C /* Assembly+formViewController.swift in Sources */,
+				2C74149C245C233200FB071C /* FormNavigator.swift in Sources */,
 				2C2A3A4A24542FE700D76132 /* MapProvider.swift in Sources */,
 				2C95D24B2456D97C0043EEDB /* AnnotationDrawable.swift in Sources */,
 				2C2A3A6D2454375C00D76132 /* DefaultTripListInteractor.swift in Sources */,
 				2C2A3AD624557D5F00D76132 /* UIViewController+Loading.swift in Sources */,
 				2C2A3A9D24544B1300D76132 /* MapApiDataSource.swift in Sources */,
+				2C74149F245C233200FB071C /* DefaultFormInteractor.swift in Sources */,
 				2C2A3A8A245440DE00D76132 /* DefaultErrorAdapter.swift in Sources */,
 				2C2A3A732454375C00D76132 /* TripListProvider.swift in Sources */,
 				2C7414782458961C00FB071C /* StopApiToDomainMapper.swift in Sources */,
 				2C2A3AC32454931000D76132 /* TripViewCell.swift in Sources */,
 				2C2A3A7F24543F0A00D76132 /* NetworkAssembly.swift in Sources */,
 				2C2A3A01245429BB00D76132 /* AppDelegate.swift in Sources */,
+				2C7414A4245C233200FB071C /* DefaultFormPresenter.swift in Sources */,
 				2C74147E2458967C00FB071C /* GetStop.swift in Sources */,
 				2C2A3A7624543E7300D76132 /* String+MapToDateString.swift in Sources */,
 				2C2A3A702454375C00D76132 /* TripListView.swift in Sources */,
@@ -1269,6 +1388,8 @@
 				2C2A3A88245440C000D76132 /* ErrorAdapter.swift in Sources */,
 				2C2A3A03245429BB00D76132 /* SceneDelegate.swift in Sources */,
 				2C2A3A6F2454375C00D76132 /* DefaultTripListNavigator.swift in Sources */,
+				2C7414A3245C233200FB071C /* FormUI.swift in Sources */,
+				2C7414A2245C233200FB071C /* FormView.swift in Sources */,
 				2C74148B245ACEC500FB071C /* StopInfoAlertView.swift in Sources */,
 				2C741476245895A500FB071C /* StopEndpoint.swift in Sources */,
 				2C741487245ACD6D00FB071C /* StopInfoAlertProvider.swift in Sources */,
@@ -1278,6 +1399,8 @@
 				2C95D2532456DE5B0043EEDB /* Annotation.swift in Sources */,
 				2C2A3AC52454934D00D76132 /* TableViewCell.swift in Sources */,
 				2C7414722458626C00FB071C /* StopRequest.swift in Sources */,
+				2C58B8BA245C2BF700961898 /* Images.swift in Sources */,
+				2C7414A0245C233200FB071C /* FormInteractor.swift in Sources */,
 				2C74147A2458962B00FB071C /* StopApiResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1289,6 +1412,7 @@
 				2C2A3ADA2455828D00D76132 /* TripListInteractorSpec.swift in Sources */,
 				2C2A3A18245429BE00D76132 /* MapsCodeTestTests.swift in Sources */,
 				2C2A3ABD24544E4100D76132 /* Fixture.swift in Sources */,
+				2C58B8B7245C2A8B00961898 /* FormViewSpec.swift in Sources */,
 				2C2A3ACE2454A14E00D76132 /* TripListViewSpec.swift in Sources */,
 				2C2A3AD224557BB400D76132 /* TripListPresenterSpec.swift in Sources */,
 				2C2A3AD02454A21900D76132 /* XCTestCase+UIViewController.swift in Sources */,

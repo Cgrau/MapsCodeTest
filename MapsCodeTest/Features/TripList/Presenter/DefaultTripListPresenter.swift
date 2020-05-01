@@ -40,6 +40,10 @@ class DefaultTripListPresenter: TripListPresenter {
                    destination: destinationPoint,
                    annotationDelegate: self)
   }
+  
+  func didTapContactButton() {
+    navigator.navigateToContactForm()
+  }
 }
 
 extension DefaultTripListPresenter: TripListInteractorDelegate {

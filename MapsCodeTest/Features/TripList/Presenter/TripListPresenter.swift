@@ -5,4 +5,5 @@ protocol TripListPresenter: class, AutoMockable {
   
   func didLoad()
   func select(trip: Trip)
+  func didTapContactButton()
 }

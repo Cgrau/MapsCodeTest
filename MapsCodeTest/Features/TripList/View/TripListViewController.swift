@@ -66,4 +66,8 @@ extension TripListViewController: TripListViewDelegate {
   func didTapOn(trip: Trip) {
     presenter?.select(trip: trip)
   }
+  
+  func didTapOnContactButton() {
+    presenter?.didTapContactButton()
+  }
 }

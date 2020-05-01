@@ -33,7 +33,8 @@ extension Assembly: TripListProvider {
   }
   
   private func mainNavigator(from: UIViewController) -> TripListNavigator {
-    return DefaultTripListNavigator(from: from)
+    return DefaultTripListNavigator(from: from,
+                                    formProvider: self)
   }
   
   private func mainInteractor() -> TripListInteractor {

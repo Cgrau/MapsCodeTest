@@ -2,13 +2,14 @@ import SnapKit
 
 protocol TripListViewDelegate: class {
   func didTapOn(trip: Trip)
+  func didTapOnContactButton()
 }
 
 private enum Constants {
   static let mapBottomInset = CGFloat(6.0)
   enum Spacing {
-    static let vertical: CGFloat = 32
-    static let horizontal: CGFloat = 8
+    static let huge: CGFloat = 32
+    static let big: CGFloat = 8
     static let small: CGFloat = 4
   }
   static let cornerRadius: CGFloat = 10
@@ -63,21 +64,40 @@ class TripListView: View {
     return label
   }()
   
+  private var contactButton: UIButton = {
+    let button = UIButton()
+    button.backgroundColor = .blue
+    button.layer.cornerRadius = Constants.cornerRadius
+    button.setTitle("Contact", for: .normal)
+    return button
+  }()
+  
   // MARK: View Functions
   override func setupView() {
+    addSubview(contactButton)
     addSubview(tableView)
     tableView.register(TripViewCell.self)
     tableView.dataSource = self
     tableView.delegate = self
+    contactButton.addTarget(self, action: #selector(contactButtonAction), for: .touchUpInside)
   }
   
   override func setupConstraints() {
     tableView.snp.makeConstraints { make in
-      make.bottom.equalTo(safeAreaLayoutGuide)
       make.leading.equalToSuperview()
       make.trailing.equalToSuperview()
       make.height.equalToSuperview().dividedBy(Constants.tableDivider)
+      make.bottom.equalTo(contactButton.snp.top).offset(-Constants.Spacing.big)
     }
+    contactButton.snp.makeConstraints { make in
+      make.bottom.equalTo(safeAreaLayoutGuide)
+      make.leading.equalToSuperview().offset(Constants.Spacing.big)
+      make.trailing.equalToSuperview().offset(-Constants.Spacing.big)
+    }
+  }
+  
+  @objc private func contactButtonAction() {
+    delegate?.didTapOnContactButton()
   }
   
   // MARK: MapSetup
@@ -128,9 +148,9 @@ class TripListView: View {
     addInfoView(into: mapView)
     sendSubviewToBack(mapView)
     mapView.layoutMargins = UIEdgeInsets(top: .zero,
-                                         left: Constants.Spacing.horizontal,
+                                         left: Constants.Spacing.big,
                                          bottom: -Constants.mapBottomInset,
-                                         right: Constants.Spacing.horizontal)
+                                         right: Constants.Spacing.big)
     mapView.snp.makeConstraints { make in
       make.top.equalToSuperview()
       make.leading.equalToSuperview()
@@ -157,8 +177,8 @@ class TripListView: View {
       make.bottom.equalToSuperview().offset(-Constants.Spacing.small)
     }
     infoView.snp.makeConstraints { make in
-      make.top.equalTo(view).offset(Constants.Spacing.vertical)
-      make.leading.equalTo(view).offset(Constants.Spacing.horizontal)
+      make.top.equalTo(view).offset(Constants.Spacing.huge)
+      make.leading.equalTo(view).offset(Constants.Spacing.big)
     }
   }
 }
