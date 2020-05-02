@@ -392,7 +392,6 @@
 				2C95D247245591540043EEDB /* FontSize.swift */,
 				2C7171E3245C85FF005BD939 /* TextField.swift */,
 				2C7171EE245D66C6005BD939 /* TextView.swift */,
-				2C7171E9245C9E0B005BD939 /* UIColor+HexColor.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -545,6 +544,7 @@
 		2C2A3A5D2454350F00D76132 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2C7171E9245C9E0B005BD939 /* UIColor+HexColor.swift */,
 				2C2A3A7524543E7300D76132 /* String+MapToDateString.swift */,
 				2C2A3AD524557D5F00D76132 /* UIViewController+Loading.swift */,
 				2C2A3AD7245580E600D76132 /* UIViewController+ShowErrorMessage.swift */,
