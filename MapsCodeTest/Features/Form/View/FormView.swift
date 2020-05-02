@@ -2,12 +2,7 @@ import UIKit
 
 protocol FormViewDelegate: class, AutoMockable {
   func didTapCloseButton()
-  func didTapSaveButton(fullName: String?,
-                        email: String?,
-                        phoneNumber: String?,
-                        date: String?,
-                        time: String?,
-                        comment: String?)
+  func didTapSaveButton(data: FormInfo)
 }
 
 private enum Constants {
@@ -144,12 +139,9 @@ class FormView: View {
     return label
   }()
   
-  private var commentTextView: UITextView = {
-    let textView = UITextView()
+  private var commentTextView: TextView = {
+    let textView = TextView()
     textView.font = UIFont.systemFont(ofSize: FontSize.regular)
-    textView.layer.borderColor = UIColor.blue.cgColor
-    textView.layer.borderWidth = 2
-    textView.layer.cornerRadius = Constants.cornerRadius
     return textView
   }()
   
@@ -189,12 +181,13 @@ class FormView: View {
   }
   
   @objc private func saveButtonAction() {
-    delegate?.didTapSaveButton(fullName: nameTextField.text,
-                               email: emailTextField.text,
-                               phoneNumber: phoneNumberTextField.text,
-                               date: dateTextField.text,
-                               time: timeTextField.text,
-                               comment: commentTextView.text)
+    let data = FormInfo(fullName: nameTextField.text,
+                        email: emailTextField.text,
+                        phoneNumber: phoneNumberTextField.text,
+                        date: dateTextField.text,
+                        time: timeTextField.text,
+                        comment: commentTextView.text)
+    delegate?.didTapSaveButton(data: data)
   }
   
   override func setupConstraints() {

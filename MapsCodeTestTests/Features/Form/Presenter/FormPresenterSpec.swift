@@ -41,12 +41,7 @@ final class FormPresenterSpec: XCTestCase {
   }
   
   func test_saveButtonAction() {
-    sut.saveButtonAction(fullName: "",
-                         email: "",
-                         phoneNumber: "",
-                         date: "",
-                         time: "",
-                         comment: "")
+    sut.saveButtonAction(data: FormInfo.mock_OK)
     XCTAssertTrue(ui.showLoadingCalled)
     XCTAssertTrue(interactor.saveDataCalled)
   }

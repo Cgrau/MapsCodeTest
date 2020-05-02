@@ -5,10 +5,5 @@ protocol FormPresenter: class, AutoMockable {
   
   func didLoad()
   func closeButtonAction()
-  func saveButtonAction(fullName: String?,
-                        email: String?,
-                        phoneNumber: String?,
-                        date: String?,
-                        time: String?,
-                        comment: String?)
+  func saveButtonAction(data: FormInfo)
 }

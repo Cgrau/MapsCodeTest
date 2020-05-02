@@ -43,17 +43,7 @@ extension FormViewController: FormViewDelegate {
     presenter?.closeButtonAction()
   }
   
-  func didTapSaveButton(fullName: String?,
-                        email: String?,
-                        phoneNumber: String?,
-                        date: String?,
-                        time: String?,
-                        comment: String?) {
-    presenter?.saveButtonAction(fullName: fullName,
-                                email: email,
-                                phoneNumber: phoneNumber,
-                                date: date,
-                                time: time,
-                                comment: comment)
+  func didTapSaveButton(data: FormInfo) {
+    presenter?.saveButtonAction(data: data)
   }
 }

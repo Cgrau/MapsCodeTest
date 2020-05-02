@@ -24,19 +24,9 @@ class DefaultFormPresenter: FormPresenter {
     navigator.dismiss()
   }
   
-  func saveButtonAction(fullName: String?,
-                        email: String?,
-                        phoneNumber: String?,
-                        date: String?,
-                        time: String?,
-                        comment: String?) {
+  func saveButtonAction(data: FormInfo) {
     ui?.showLoading()
-    interactor.save(data: FormInfo(fullName: fullName,
-                                   email: email,
-                                   phoneNumber: phoneNumber,
-                                   date: date,
-                                   time: time,
-                                   comment: comment))
+    interactor.save(data: data)
   }
 }
 

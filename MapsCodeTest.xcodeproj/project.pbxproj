@@ -86,6 +86,8 @@
 		2C7171E8245C890B005BD939 /* FieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7171E7245C890B005BD939 /* FieldValidator.swift */; };
 		2C7171EA245C9E0B005BD939 /* UIColor+HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7171E9245C9E0B005BD939 /* UIColor+HexColor.swift */; };
 		2C7171ED245CA0C3005BD939 /* EmailValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7171EC245CA0C3005BD939 /* EmailValidatorTests.swift */; };
+		2C7171EF245D66C6005BD939 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7171EE245D66C6005BD939 /* TextView.swift */; };
+		2C7171F2245D68D6005BD939 /* FormMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7171F1245D68D6005BD939 /* FormMocks.swift */; };
 		2C7414622458391500FB071C /* StopPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7414612458391500FB071C /* StopPointAnnotation.swift */; };
 		2C74146424583F7100FB071C /* MapKitProvider+Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C74146324583F7100FB071C /* MapKitProvider+Annotation.swift */; };
 		2C7414722458626C00FB071C /* StopRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7414712458626C00FB071C /* StopRequest.swift */; };
@@ -224,6 +226,8 @@
 		2C7171E7245C890B005BD939 /* FieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldValidator.swift; sourceTree = "<group>"; };
 		2C7171E9245C9E0B005BD939 /* UIColor+HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HexColor.swift"; sourceTree = "<group>"; };
 		2C7171EC245CA0C3005BD939 /* EmailValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidatorTests.swift; sourceTree = "<group>"; };
+		2C7171EE245D66C6005BD939 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		2C7171F1245D68D6005BD939 /* FormMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormMocks.swift; sourceTree = "<group>"; };
 		2C7414612458391500FB071C /* StopPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopPointAnnotation.swift; sourceTree = "<group>"; };
 		2C74146324583F7100FB071C /* MapKitProvider+Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapKitProvider+Annotation.swift"; sourceTree = "<group>"; };
 		2C7414712458626C00FB071C /* StopRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopRequest.swift; sourceTree = "<group>"; };
@@ -387,6 +391,7 @@
 				2C2A3AC6245493CE00D76132 /* TableViewCell+ReuseIdentifier.swift */,
 				2C95D247245591540043EEDB /* FontSize.swift */,
 				2C7171E3245C85FF005BD939 /* TextField.swift */,
+				2C7171EE245D66C6005BD939 /* TextView.swift */,
 				2C7171E9245C9E0B005BD939 /* UIColor+HexColor.swift */,
 			);
 			path = UI;
@@ -830,6 +835,7 @@
 		2C58B8B4245C2A6E00961898 /* Form */ = {
 			isa = PBXGroup;
 			children = (
+				2C7171F0245D68C8005BD939 /* Mocks */,
 				2C58B8B5245C2A7600961898 /* View */,
 				2C7171D5245C69CE005BD939 /* Presenter */,
 				2C7171D6245C69D8005BD939 /* Interactor */,
@@ -935,6 +941,14 @@
 				2C7171EC245CA0C3005BD939 /* EmailValidatorTests.swift */,
 			);
 			path = Validators;
+			sourceTree = "<group>";
+		};
+		2C7171F0245D68C8005BD939 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				2C7171F1245D68D6005BD939 /* FormMocks.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		2C7414682458620100FB071C /* Stop */ = {
@@ -1432,6 +1446,7 @@
 				2C95D24D2456DA7A0043EEDB /* MapKitAnnotationDrawable.swift in Sources */,
 				2C2A3A8C245441D500D76132 /* PrimitiveSequence+CustomError.swift in Sources */,
 				2C2A3A3824542D8B00D76132 /* AutoMockable.swift in Sources */,
+				2C7171EF245D66C6005BD939 /* TextView.swift in Sources */,
 				2C2A3A722454375C00D76132 /* DefaultTripListPresenter.swift in Sources */,
 				2C7171E8245C890B005BD939 /* FieldValidator.swift in Sources */,
 				2C95D24524558AC40043EEDB /* MapKitProvider+Overlay.swift in Sources */,
@@ -1529,6 +1544,7 @@
 				2C2A3ADA2455828D00D76132 /* TripListInteractorSpec.swift in Sources */,
 				2C7171DA245C6D3B005BD939 /* FormInteractorSpec.swift in Sources */,
 				2C2A3A18245429BE00D76132 /* MapsCodeTestTests.swift in Sources */,
+				2C7171F2245D68D6005BD939 /* FormMocks.swift in Sources */,
 				2C2A3ABD24544E4100D76132 /* Fixture.swift in Sources */,
 				2C7171ED245CA0C3005BD939 /* EmailValidatorTests.swift in Sources */,
 				2C58B8B7245C2A8B00961898 /* FormViewSpec.swift in Sources */,
