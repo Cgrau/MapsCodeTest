@@ -13,12 +13,12 @@ private enum Constants {
   }
   enum Titles {
     static let title = "Contact Form - Report Issue"
-    static let name = "Name and Surname:"
-    static let email = "Email:"
+    static let name = "Name and Surname: *"
+    static let email = "Email: *"
     static let phone = "Phone Number:"
-    static let date = "Date:"
-    static let time = "Time:"
-    static let comment = "Report Description:"
+    static let date = "Date: *"
+    static let time = "Time: *"
+    static let comment = "Report Description: *"
     static let save = "Save"
   }
   static let cornerRadius: CGFloat = 10
