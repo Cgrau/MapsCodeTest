@@ -2,8 +2,6 @@ import MapKit
 
 private enum ViewLayout {
   static let polylineWidth: CGFloat = 5.0
-  static let polygonLineWidth: CGFloat = 2.0
-  static let fillAlpha: CGFloat = 0.3
 }
 
 extension MapKitProvider {
