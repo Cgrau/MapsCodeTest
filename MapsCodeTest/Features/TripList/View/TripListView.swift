@@ -91,7 +91,7 @@ class TripListView: View {
       make.bottom.equalTo(contactButton.snp.top).offset(-Constants.Spacing.big)
     }
     contactButton.snp.makeConstraints { make in
-      make.bottom.equalTo(safeAreaLayoutGuide)
+      make.bottom.equalTo(safeAreaLayoutGuide).offset(-Constants.Spacing.small)
       make.leading.equalToSuperview().offset(Constants.Spacing.big)
       make.trailing.equalToSuperview().offset(-Constants.Spacing.big)
       make.height.equalTo(Constants.buttonHeight)
