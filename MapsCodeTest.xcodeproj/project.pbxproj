@@ -479,7 +479,6 @@
 			isa = PBXGroup;
 			children = (
 				2C2A3A4F2454305700D76132 /* RouteDrawable.swift */,
-				2C2A3A4E2454304300D76132 /* Extensions */,
 				2C2A3A4D2454303000D76132 /* Libraries */,
 			);
 			path = Route;
@@ -515,6 +514,7 @@
 		2C2A3A582454317600D76132 /* MapKit */ = {
 			isa = PBXGroup;
 			children = (
+				2C2A3A4E2454304300D76132 /* Extensions */,
 				2C95D2542456DEB10043EEDB /* Annotations */,
 				2C2A3A4724542FCE00D76132 /* MapKitProvider.swift */,
 				2C2A3A512454306E00D76132 /* MapKitRouteDrawable.swift */,

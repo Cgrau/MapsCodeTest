@@ -29,18 +29,18 @@ final class RoutePointAnnotation: NSObject, MapKitAnnotation {
     super.init()
   }
   
-  func annotationView() -> UIView? {
+  lazy var annotationView: UIView? = {
     let view = MKMarkerAnnotationView()
     view.markerTintColor = routePointType.pinColor()
     view.displayPriority = .required
     return view
-  }
+  }()
   
-  func selectedColor() -> UIColor {
+  var selectedColor: UIColor {
     return routePointType.pinColor()
   }
   
-  func deselectedColor() -> UIColor {
+  var deselectedColor: UIColor {
     return routePointType.pinColor()
   }
 }

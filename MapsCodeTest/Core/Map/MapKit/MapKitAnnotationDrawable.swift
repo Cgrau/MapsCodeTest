@@ -18,7 +18,7 @@ final class MapKitAnnotationDrawable: AnnotationDrawable {
     self.mapView?.addAnnotations(mapKitAnnotations)
   }
   
-  func removeAnnotations() {
+  private func removeAnnotations() {
     guard let mapView = self.mapView else { return }
     mapView.removeAnnotations(mapView.annotations)
   }

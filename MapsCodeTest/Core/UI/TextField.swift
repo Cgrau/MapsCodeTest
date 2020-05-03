@@ -7,6 +7,8 @@ private enum Constants {
   static let borderColor: CGColor = UIColor.blue.cgColor
 }
 
+
+/// UITextField subclass with padding on text
 class TextField: UITextField {
   
   private let padding = UIEdgeInsets(top: 0,

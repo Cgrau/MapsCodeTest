@@ -28,18 +28,18 @@ final class StopPointAnnotation: NSObject, MapKitAnnotation {
     delegate?.annotationDidDeselect()
   }
   
-  func annotationView() -> UIView? {
+  lazy var annotationView: UIView? = {
     let view = MKMarkerAnnotationView()
     view.markerTintColor = Constants.deselectedColor
     view.displayPriority = .required
     return view
-  }
+  }()
   
-  func selectedColor() -> UIColor {
+  var selectedColor: UIColor {
     return Constants.selectedColor
   }
   
-  func deselectedColor() -> UIColor {
+  var deselectedColor: UIColor {
     return Constants.deselectedColor
   }
 }

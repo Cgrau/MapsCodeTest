@@ -6,9 +6,9 @@ protocol Annotation: class, AutoMockable {
   var delegate: AnnotationDelegate? { get set }
   func didSelect()
   func didDeselect()
-  func annotationView() -> UIView?
-  func selectedColor() -> UIColor
-  func deselectedColor() -> UIColor
+  var annotationView: UIView? { get }
+  var selectedColor: UIColor { get }
+  var deselectedColor: UIColor { get }
 }
 
 protocol AnnotationDelegate: class, AutoMockable {

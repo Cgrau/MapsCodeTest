@@ -11,20 +11,14 @@ final class MapKitProvider: NSObject, MapProvider, MKMapViewDelegate {
   
   override init() {
     super.init()
-    guard let mapView = mapView as? MKMapView else { fatalError() }
+    guard let mapView = mapView as? MKMapView else { fatalError("MapKitProvider - init") }
     mapView.delegate = self
     showUserLocation()
   }
 
   private func showUserLocation() {
-    guard let mapView = mapView as? MKMapView else { fatalError() }
+    guard let mapView = mapView as? MKMapView else { fatalError("MapKitProvider - showUserLocation") }
     mapView.userLocation.title = ""
     mapView.showsUserLocation = true
-  }
-}
-
-extension MapKitProvider {
-  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-    return touch.view is MKAnnotationView == false
   }
 }
