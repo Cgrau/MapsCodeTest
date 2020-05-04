@@ -3,6 +3,7 @@
 Application written in Swift and designed using clean architecture. Map based app showing routes from an endpoint and display them on demand.
 
 :warning: Please run "pod install" in order to get all the dependencies.
+:warning: This app iOS Deployment target is 13.0, so use Xcode 11+.
 
 ## Application overview :rocket:
 
