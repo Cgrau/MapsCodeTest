@@ -14,12 +14,12 @@ Once the application loads, you get all trips. In this scene you can select any 
 When you select one of them you will see which one is selected in the top-left corner.
 
 ### Stop selection
-![Stop Selection](https://github.com/Cgrau/assets/blob/master/MapsCodeTest/SelectStop.png)
+<img src="https://github.com/Cgrau/assets/blob/master/MapsCodeTest/SelectStop.png" width="400" height="700">
 
 When one Stop Point is select an it will display information regarding it in the top-right corner.
 
 ### Contact Form
-![Contact Form](https://github.com/Cgrau/assets/blob/master/MapsCodeTest/ContactForm.png)
+<img src="https://github.com/Cgrau/assets/blob/master/MapsCodeTest/ContactForm.png" width="400" height="700">
 
 In case of finding any issue, there's a contact form to let us know what happens :smiley:
 
@@ -38,16 +38,16 @@ Show the contact form to report any issue.
 ## Third party libraries
 
 Main:
-- [Sourcery](https://github.com/krzysztofzablocki/Sourcery)
-- [SnapKit](https://github.com/SnapKit/SnapKit)
-- [RxSwift & RxCocoa](https://github.com/ReactiveX/RxSwift)
-- [Moya & Moya/RxSwift](https://github.com/Moya/Moya)
-- [SwiftLint](https://github.com/realm/SwiftLint)
+- Sourcery - https://github.com/krzysztofzablocki/Sourcery
+- SnapKit - https://github.com/SnapKit/SnapKit
+- RxSwift & RxCocoa - https://github.com/ReactiveX/RxSwift
+- Moya & Moya/RxSwift https://github.com/Moya/Moya
+- SwiftLint https://github.com/realm/SwiftLint
 
 Test:
-- [RxBlocking](https://github.com/ReactiveX/RxSwift/tree/master/RxBlocking)
-- [OHHTTPStubs](https://github.com/AliSoftware/OHHTTPStubs)
-- [Swift Snapshot Testing](https://github.com/pointfreeco/swift-snapshot-testing)
+- RxBlocking - https://github.com/ReactiveX/RxSwift/tree/master/RxBlocking
+- OHHTTPStubs - https://github.com/AliSoftware/OHHTTPStubs
+- Swift Snapshot Testing - https://github.com/pointfreeco/swift-snapshot-testing
 
 ## Support & contact
 
