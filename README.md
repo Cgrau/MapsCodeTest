@@ -7,19 +7,19 @@ Application written in Swift and designed using clean architecture. Map based ap
 ## Application overview :rocket:
 
 ### Map TripList & Selecting Route 
-<img src="https://github.com/Cgrau/assets/blob/master/MapsCodeTest/TripList.png" width="400" height="700"><img src="https://github.com/Cgrau/assets/blob/master/MapsCodeTest/SelectTrip.png" width="400" height="700">
+<img src="https://github.com/Cgrau/assets/blob/master/MapsCodeTest/TripList.png" width="225" height="487"><img src="https://github.com/Cgrau/assets/blob/master/MapsCodeTest/SelectTrip.png" width="225" height="487">
 
 Once the application loads, you get all trips. In this scene you can select any of them to see the route in the map and all the stops. Also the map will be centered on the selected route
 
 When you select one of them you will see which one is selected in the top-left corner.
 
 ### Stop selection
-<img src="https://github.com/Cgrau/assets/blob/master/MapsCodeTest/SelectStop.png" width="400" height="700">
+<img src="https://github.com/Cgrau/assets/blob/master/MapsCodeTest/SelectStop.png" width="225" height="487">
 
 When one Stop Point is select an it will display information regarding it in the top-right corner.
 
 ### Contact Form
-<img src="https://github.com/Cgrau/assets/blob/master/MapsCodeTest/ContactForm.png" width="400" height="700">
+<img src="https://github.com/Cgrau/assets/blob/master/MapsCodeTest/ContactForm.png" width="225" height="487">
 
 In case of finding any issue, there's a contact form to let us know what happens :smiley:
 
